@@ -24,3 +24,36 @@ body {
   color: var(--foreground);
   font-family: var(--font-yekan-bakh), Arial, Helvetica, sans-serif;
 }
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply w-full px-4 md:px-0 max-w-7xl mx-auto;
+  }
+  .text-primary {
+    @apply text-[#21468B];
+  }
+  .text-secondary {
+    @apply text-[#2B2B2B];
+  }
+  .effect {
+    @apply transition-all ease-in-out duration-300;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#21468B] hover:bg-[#092468] disabled:bg-[#F7F7F7] text-white disabled:text-[#2B2B2B]/44 p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;
+  }
+  .btn-secondary {
+    @apply bg-background text-[#21468B] hover:text-[#092468] border border-[#21468B] hover:border-[#092468] p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;
+  }
+  .input {
+    @apply bg-[#F7F7F7] text-[#21468B] placeholder:text-[#2B2B2B]/40 rounded-3xl p-4 outline-none border border-transparent focus:border-[#21468B] transition-all ease-in-out duration-300;
+  }
+}

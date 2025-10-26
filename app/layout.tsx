@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../styles/globals.css";
+import "../styles/custom.css";
 
 const yekanBakh = localFont({
   src: [
