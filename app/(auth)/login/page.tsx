@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import LoginForm from "./login-form";
 import OtpForm from "./otp-form";
 import { useState } from "react";
@@ -14,7 +15,9 @@ export default function LoginPage() {
       {/* Header */}
       <div className="flex flex-col gap-1 items-center justify-center">
         <div className="text-xl text-[#000000]/44 pl-16">خوش آمدید به</div>
-        <h1 className="text-5xl font-bold text-primary">هلندکالا</h1>
+        <Link href="/" className="text-5xl font-bold text-primary">
+          هلندکالا
+        </Link>
       </div>
 
       {/* Form */}

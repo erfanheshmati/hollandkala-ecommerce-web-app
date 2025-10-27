@@ -3,11 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #21468b;
+  --secondary: #2b2b2b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
   --font-sans: var(--font-yekan-bakh);
   --font-mono: var(--font-yekan-bakh);
 }
@@ -16,6 +20,8 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --primary: #21468b;
+    --secondary: #2b2b2b;
   }
 }
 
@@ -33,13 +39,13 @@ body {
 
 @layer utilities {
   .container {
-    @apply w-full px-4 md:px-0 max-w-7xl mx-auto;
+    @apply w-full max-w-7xl mx-auto px-4;
   }
   .text-primary {
-    @apply text-[#21468B];
+    @apply text-primary;
   }
   .text-secondary {
-    @apply text-[#2B2B2B];
+    @apply text-secondary;
   }
   .effect {
     @apply transition-all ease-in-out duration-300;
@@ -48,12 +54,12 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply bg-[#21468B] hover:bg-[#092468] disabled:bg-[#F7F7F7] text-white disabled:text-[#2B2B2B]/44 p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;
+    @apply bg-primary hover:bg-[#092468] disabled:bg-[#F7F7F7] text-white disabled:text-secondary/44 p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;
   }
   .btn-secondary {
-    @apply bg-background text-[#21468B] hover:text-[#092468] border border-[#21468B] hover:border-[#092468] p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;
+    @apply bg-background text-primary hover:text-[#092468] border border-primary hover:border-[#092468] p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;
   }
   .input {
-    @apply bg-[#F7F7F7] text-[#21468B] placeholder:text-[#2B2B2B]/40 rounded-3xl p-4 outline-none border border-transparent focus:border-[#21468B] transition-all ease-in-out duration-300;
+    @apply bg-[#F7F7F7] text-primary placeholder:text-secondary/40 rounded-3xl p-4 outline-none border border-transparent focus:border-primary transition-all ease-in-out duration-300;
   }
 }

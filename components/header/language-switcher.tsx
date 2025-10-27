@@ -1,0 +1,111 @@
+"use client";
+
+import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import flagFaIcon from "../../public/icons/flag-fa.svg";
+import flagEnIcon from "../../public/icons/flag-en.svg";
+import { ChevronDown } from "lucide-react";
+
+interface Language {
+  code: string;
+  name: string;
+  flag: string;
+}
+
+const languages: Language[] = [
+  { code: "fa", name: "فا", flag: flagFaIcon },
+  { code: "en", name: "En", flag: flagEnIcon },
+];
+
+export default function LanguageSwitcher() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleLanguageSelect = (language: Language) => {
+    setSelectedLanguage(language);
+    setIsOpen(false);
+    // Add your language switching logic here
+  };
+
+  return (
+    <div className="relative" ref={dropdownRef}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-6 h-12 bg-[#F7F7F7] px-3 py-4 rounded-2xl cursor-pointer effect hover:bg-[#e8e8e8]"
+      >
+        {/* Language display */}
+        <div className="flex items-center gap-2">
+          <Image
+            src={selectedLanguage.flag}
+            alt={selectedLanguage.name}
+            width={24}
+            height={24}
+            className="rounded-full object-cover"
+          />
+          <span
+            className="text-base text-[#2B2B2B]"
+            style={{ fontFamily: "Shabnam, sans-serif" }}
+          >
+            {selectedLanguage.name}
+          </span>
+        </div>
+
+        {/* Down arrow */}
+        <ChevronDown
+          size={20}
+          className={`text-secondary/70 transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      {/* Dropdown menu */}
+      {isOpen && (
+        <div className="absolute top-full left-0 mt-2 w-24 md:w-28 bg-white rounded-2xl shadow-lg border border-[#F7F7F7] overflow-hidden z-50">
+          {languages.map((language) => (
+            <button
+              key={language.code}
+              onClick={() => handleLanguageSelect(language)}
+              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[#F7F7F7] transition-colors duration-200 cursor-pointer"
+            >
+              <Image
+                src={language.flag}
+                alt={language.name}
+                width={24}
+                height={24}
+                className="rounded-full object-cover"
+                onError={(e) => {
+                  // Fallback if flag icon is not available
+                  e.currentTarget.style.display = "none";
+                }}
+              />
+              <span
+                className="text-base text-[#2B2B2B]"
+                style={{ fontFamily: "Shabnam, sans-serif" }}
+              >
+                {language.name}
+              </span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
