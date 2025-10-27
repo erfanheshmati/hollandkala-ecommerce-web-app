@@ -29,3 +29,8 @@ export interface MobileNavItem {
   label: string;
   icon: IconType;
 }
+
+export interface SlideImage {
+  title: string;
+  src: string;
+}

@@ -4,6 +4,7 @@ import ProductSection from "@/components/ProductSection";
 import FeatureCard from "@/components/FeatureCard";
 import CustomerReview from "@/components/CustomerReview";
 import Footer from "@/components/Footer";
+import SlideShow from "@/components/home/slideshow";
 
 export default function HomePage() {
   // Category data
@@ -126,8 +127,11 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white pt-[128px]">
+    <div className="bg-background min-h-screen py-20 md:py-32">
       <Header />
+
+      {/* Slider */}
+      <SlideShow />
 
       {/* Hero Banner */}
       <section className="container mx-auto px-4 py-8">
@@ -150,15 +154,6 @@ export default function HomePage() {
               strokeLinejoin="round"
             />
           </svg>
-        </div>
-      </section>
-
-      {/* Hero Carousel Placeholder */}
-      <section className="container mx-auto px-4 py-8">
-        <div className="relative h-64 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <h2 className="text-white text-4xl font-bold">هلندکالا</h2>
-          </div>
         </div>
       </section>
 

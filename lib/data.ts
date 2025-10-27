@@ -1,4 +1,10 @@
-import { FooterLink, MenuItem, MobileNavItem, SocialMedia } from "@/types";
+import {
+  FooterLink,
+  MenuItem,
+  MobileNavItem,
+  SlideImage,
+  SocialMedia,
+} from "@/types";
 import { AiFillInstagram } from "react-icons/ai";
 import { BsTwitter } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa";
@@ -120,5 +126,20 @@ export const mobileNavItems: MobileNavItem[] = [
     href: "/profile",
     label: "پروفایل",
     icon: HiOutlineUserCircle,
+  },
+];
+
+export const slideImages: SlideImage[] = [
+  {
+    title: "slide-1",
+    src: "/images/slide-1.jpg",
+  },
+  {
+    title: "slide-2",
+    src: "/images/slide-2.jpg",
+  },
+  {
+    title: "slide-3",
+    src: "/images/slide-3.jpg",
   },
 ];

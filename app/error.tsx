@@ -7,8 +7,8 @@ export default function ErrorPage({ reset }: { reset: () => void }) {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <div className="flex flex-col gap-8 items-center justify-center flex-1 px-4 pt-48 pb-16">
-        <h1 className="text-xl font-bold text-primary">خطایی رخ داده است</h1>
+      <div className="flex flex-col gap-2 items-center justify-center flex-1 px-4 min-h-[calc(100vh-8rem)] md:min-h-[calc(100vh-4rem)]">
+        <h1 className="text-xl font-bold text-primary">خطایی رخ داده است!</h1>
         <button className="mt-4 btn-primary" onClick={() => reset()}>
           تلاش مجدد
         </button>
