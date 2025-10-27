@@ -5,6 +5,7 @@ import FeatureCard from "@/components/FeatureCard";
 import CustomerReview from "@/components/CustomerReview";
 import Footer from "@/components/Footer";
 import Slider from "@/components/home/slider";
+import Banner from "@/components/home/banner";
 
 export default function HomePage() {
   // Category data
@@ -133,29 +134,8 @@ export default function HomePage() {
       {/* Slider */}
       <Slider />
 
-      {/* Hero Banner */}
-      <section className="container mx-auto px-4 py-8">
-        <div className="bg-gray-50 rounded-2xl p-4 flex items-center gap-3 cursor-pointer hover:bg-gray-100 transition-colors">
-          <span className="text-gray-600">
-            متن تستی برای کاربر تیبلیغات یا....
-          </span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path
-              d="M7.5 18.75L3.75 15M3.75 15L7.5 11.25M3.75 15H20.25"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </div>
-      </section>
+      {/* Banner */}
+      <Banner />
 
       {/* Categories Section */}
       <section className="container mx-auto px-4 py-8">
