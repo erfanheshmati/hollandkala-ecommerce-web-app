@@ -1,33 +1,13 @@
 import Header from "@/components/header/index";
-import CategoryCard from "@/components/CategoryCard";
 import ProductSection from "@/components/ProductSection";
 import FeatureCard from "@/components/FeatureCard";
 import CustomerReview from "@/components/CustomerReview";
 import Footer from "@/components/Footer";
 import Slider from "@/components/home/slider";
 import Banner from "@/components/home/banner";
+import ProductsCategory from "@/components/home/products-category";
 
 export default function HomePage() {
-  // Category data
-  const categories = [
-    {
-      title: "محصولات عمده ی نو",
-      backgroundColor: "#4A90E2",
-    },
-    {
-      title: "محصولات عمده ی دست دوم",
-      backgroundColor: "#E94B3C",
-    },
-    {
-      title: "محصولات عمده ی نو",
-      backgroundColor: "#27AE60",
-    },
-    {
-      title: "محصولات عمده ی نو",
-      backgroundColor: "#F39C12",
-    },
-  ];
-
   // Product data
   const sportsProducts = [
     {
@@ -130,29 +110,9 @@ export default function HomePage() {
   return (
     <div className="bg-background min-h-screen py-20 md:py-32">
       <Header />
-
-      {/* Slider */}
       <Slider />
-
-      {/* Banner */}
       <Banner />
-
-      {/* Categories Section */}
-      <section className="container mx-auto px-4 py-8">
-        <div className="flex flex-col items-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-2">
-            دسته بندی محصولات ما
-          </h2>
-          <p className="text-gray-600">
-            شما میتوانید مابقی دسته بندی را از منو مشاهده کنید
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories.map((category, index) => (
-            <CategoryCard key={index} {...category} />
-          ))}
-        </div>
-      </section>
+      <ProductsCategory />
 
       {/* Product Sections */}
       <section className="container mx-auto px-4 py-8">

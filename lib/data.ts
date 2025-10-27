@@ -2,6 +2,7 @@ import {
   FooterLink,
   MenuItem,
   MobileNavItem,
+  ProductCategory,
   SlideImage,
   SocialMedia,
 } from "@/types";
@@ -141,5 +142,48 @@ export const slideImages: SlideImage[] = [
   {
     title: "slide-3",
     src: "/images/slide-3.jpg",
+  },
+];
+
+export const productsCategory: ProductCategory[] = [
+  {
+    title: "محصولات عمده ی نو",
+    imageUrl: "/images/category-1.png",
+    href:"#"
+  },
+  {
+    title: "محصولات عمده ی دست دوم",
+    imageUrl: "/images/category-2.png",
+    href:"#"
+  },
+  {
+    title: "محصولات عمده ی نو",
+    imageUrl: "/images/category-3.png",
+    href:"#"
+  },
+  {
+    title: "محصولات عمده ی نو",
+    imageUrl: "/images/category-4.png",
+    href:"#"
+  },
+  {
+    title: "محصولات عمده ی نو",
+    imageUrl: "/images/category-4.png",
+    href:"#"
+  },
+  {
+    title: "محصولات عمده ی نو",
+    imageUrl: "/images/category-3.png",
+    href:"#"
+  },
+  {
+    title: "محصولات عمده ی دست دوم",
+    imageUrl: "/images/category-2.png",
+    href:"#"
+  },
+  {
+    title: "محصولات عمده ی نو",
+    imageUrl: "/images/category-1.png",
+    href:"#"
   },
 ];

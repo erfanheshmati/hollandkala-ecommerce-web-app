@@ -34,3 +34,9 @@ export interface SlideImage {
   title: string;
   src: string;
 }
+
+export interface ProductCategory {
+  title: string;
+  imageUrl: string;
+  href: string;
+}
