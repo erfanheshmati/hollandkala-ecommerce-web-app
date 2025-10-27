@@ -1,4 +1,8 @@
-import { MenuItem } from "@/types";
+import { FooterLink, MenuItem, SocialMedia } from "@/types";
+import { AiFillInstagram } from "react-icons/ai";
+import { BsTwitter } from "react-icons/bs";
+import { FaLinkedin } from "react-icons/fa";
+import { IoLogoWhatsapp } from "react-icons/io";
 
 export const menuData: MenuItem[] = [
   {
@@ -48,5 +52,47 @@ export const menuData: MenuItem[] = [
   {
     title: "هدایا و نظرات کاربران",
     href: "/gift",
+  },
+];
+
+export const footerLinks: FooterLink[] = [
+  {
+    title: " عمده فروشی",
+    href: "/wholesale",
+  },
+  {
+    title: "خرده فروشی",
+    href: "/retail",
+  },
+  {
+    title: "بلاگ",
+    href: "/blog",
+  },
+  {
+    title: "درباره ی ما",
+    href: "/about",
+  },
+  {
+    title: "تماس با ما",
+    href: "/contact",
+  },
+];
+
+export const socialNetworks: SocialMedia[] = [
+  {
+    href: "#",
+    icon: FaLinkedin,
+  },
+  {
+    href: "#",
+    icon: BsTwitter,
+  },
+  {
+    href: "#",
+    icon: AiFillInstagram,
+  },
+  {
+    href: "#",
+    icon: IoLogoWhatsapp,
   },
 ];

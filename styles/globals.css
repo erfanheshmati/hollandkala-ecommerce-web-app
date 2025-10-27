@@ -54,7 +54,7 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply bg-primary hover:bg-[#092468] disabled:bg-[#F7F7F7] text-white disabled:text-secondary/44 p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;
+    @apply bg-primary hover:bg-[#092468] disabled:bg-[#F7F7F7] text-background disabled:text-secondary/44 p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;
   }
   .btn-secondary {
     @apply bg-background text-primary hover:text-[#092468] border border-primary hover:border-[#092468] p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;
