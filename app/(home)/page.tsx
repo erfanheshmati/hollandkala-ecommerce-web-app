@@ -4,7 +4,7 @@ import ProductSection from "@/components/ProductSection";
 import FeatureCard from "@/components/FeatureCard";
 import CustomerReview from "@/components/CustomerReview";
 import Footer from "@/components/Footer";
-import SlideShow from "@/components/home/slideshow";
+import Slider from "@/components/home/slider";
 
 export default function HomePage() {
   // Category data
@@ -131,7 +131,7 @@ export default function HomePage() {
       <Header />
 
       {/* Slider */}
-      <SlideShow />
+      <Slider />
 
       {/* Hero Banner */}
       <section className="container mx-auto px-4 py-8">

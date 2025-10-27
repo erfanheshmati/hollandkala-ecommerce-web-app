@@ -6,7 +6,7 @@ import { slideImages } from "@/lib/data";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
-export default function SlideShow() {
+export default function Slider() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const sliderRef = useRef<{

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "../styles/globals.css";
 import "../styles/custom.css";
 import MobileBottomNav from "@/components/MobileBottomNav";
+import PromotionalPopup from "@/components/PromotionalPopup";
 
 const yekanBakh = localFont({
   src: [
@@ -65,6 +66,7 @@ export default function RootLayout({
       <body className={`${yekanBakh.variable} antialiased`}>
         <div className="pb-20 md:pb-0">{children}</div>
         <MobileBottomNav />
+        <PromotionalPopup />
       </body>
     </html>
   );
