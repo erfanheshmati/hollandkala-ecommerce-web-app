@@ -23,3 +23,9 @@ export interface SocialMedia {
   href: string;
   icon: IconType;
 }
+
+export interface MobileNavItem {
+  href: string;
+  label: string;
+  icon: IconType;
+}

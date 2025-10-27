@@ -180,7 +180,7 @@ export default function MobileMenu() {
       {/* Mobile Menu */}
       <div
         ref={mobileMenuRef}
-        className={`md:hidden fixed top-0 right-0 h-screen w-80 max-w-[70vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed top-0 right-0 h-screen w-80 max-w-[70vw] bg-white z-50 transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

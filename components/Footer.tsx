@@ -137,7 +137,7 @@ export default function Footer() {
               <div className="flex items-center justify-between">
                 {socialNetworks.map((social, idx) => (
                   <Link
-                    key={social.href || idx}
+                    key={idx}
                     href={social.href}
                     className="flex items-center justify-center w-12 h-12 rounded-full bg-white border border-primary hover:bg-primary effect group"
                   >

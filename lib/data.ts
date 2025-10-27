@@ -1,8 +1,11 @@
-import { FooterLink, MenuItem, SocialMedia } from "@/types";
+import { FooterLink, MenuItem, MobileNavItem, SocialMedia } from "@/types";
 import { AiFillInstagram } from "react-icons/ai";
 import { BsTwitter } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa";
+import { HiOutlineUserCircle } from "react-icons/hi";
 import { IoLogoWhatsapp } from "react-icons/io";
+import { PiHeart, PiShoppingCartSimple } from "react-icons/pi";
+import { TbSmartHome } from "react-icons/tb";
 
 export const menuData: MenuItem[] = [
   {
@@ -94,5 +97,28 @@ export const socialNetworks: SocialMedia[] = [
   {
     href: "#",
     icon: IoLogoWhatsapp,
+  },
+];
+
+export const mobileNavItems: MobileNavItem[] = [
+  {
+    href: "/",
+    label: "صفحه اصلی",
+    icon: TbSmartHome,
+  },
+  {
+    href: "/favorite",
+    label: "علاقه مندی",
+    icon: PiHeart,
+  },
+  {
+    href: "/cart",
+    label: "سبد خرید",
+    icon: PiShoppingCartSimple,
+  },
+  {
+    href: "/profile",
+    label: "پروفایل",
+    icon: HiOutlineUserCircle,
   },
 ];

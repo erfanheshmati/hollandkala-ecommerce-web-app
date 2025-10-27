@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <div className="flex flex-col gap-8 items-center justify-center flex-1 px-4 pt-48 pb-16">
+      <div className="flex flex-col gap-8 items-center justify-center flex-1 px-4 pt-60 md:pt-48 2xl:pt-60 pb-32 md:pb-16 2xl:pb-48">
         <Image
           src={NotFoundImage}
           alt="Not Found"
