@@ -3,6 +3,7 @@
 import { ProductCardProps } from "@/types";
 import { Heart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { BsCart2 } from "react-icons/bs";
 
@@ -33,12 +34,14 @@ export default function ProductCard({
         style={{ backgroundColor }}
       >
         {imageUrl && (
-          <Image
-            src={imageUrl}
-            alt={title}
-            fill
-            className="object-cover rounded-xl"
-          />
+          <Link href="#">
+            <Image
+              src={imageUrl}
+              alt={title}
+              fill
+              className="object-cover rounded-xl"
+            />
+          </Link>
         )}
         {/* Discount Percentage */}
         {discount && (
@@ -61,9 +64,12 @@ export default function ProductCard({
 
       {/* Product Info */}
       <div className="p-4">
-        <h3 className="text-base md:text-xl font-medium text-foreground line-clamp-1">
+        <Link
+          href="#"
+          className="text-base md:text-xl font-medium text-foreground line-clamp-1"
+        >
           {title}
-        </h3>
+        </Link>
 
         {/* Badges */}
         <div className="flex gap-2 mt-1">

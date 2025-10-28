@@ -49,7 +49,7 @@ export default function Slider() {
   }, []);
 
   return (
-    <section className="container my-6 md:my-10">
+    <section className="my-6 md:my-10">
       <div ref={ref} className="keen-slider">
         {slideImages.map((img) => (
           <div

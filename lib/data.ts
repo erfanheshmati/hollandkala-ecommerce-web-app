@@ -1,4 +1,5 @@
 import {
+  BannerImageProps,
   FooterLink,
   MenuItem,
   MobileNavItem,
@@ -306,5 +307,18 @@ export const sportsProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#D64327",
+  },
+];
+
+export const bannerImages: BannerImageProps[] = [
+  {
+    title: "banner-1",
+    imageUrl: "/images/banner-1.svg",
+    href: "#",
+  },
+  {
+    title: "banner-2",
+    imageUrl: "/images/banner-2.svg",
+    href: "#",
   },
 ];

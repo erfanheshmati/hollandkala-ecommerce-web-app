@@ -3,7 +3,7 @@ import CategoryCard from "./category-card";
 
 export default function ProductsCategory() {
   return (
-    <section className="container my-12 md:my-16">
+    <section className="my-12 md:my-16">
       <div className="flex flex-col gap-6">
         <div className="flex flex-col items-center gap-1">
           <h2 className="text-2xl font-bold text-foreground">

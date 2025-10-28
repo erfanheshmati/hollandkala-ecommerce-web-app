@@ -56,3 +56,9 @@ export interface ProductSliderProps {
   products: ProductCardProps[];
   backgroundColor?: string;
 }
+
+export interface BannerImageProps {
+  title: string;
+  imageUrl: string;
+  href: string;
+}
