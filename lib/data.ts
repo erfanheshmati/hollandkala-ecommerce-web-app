@@ -5,6 +5,7 @@ import {
   MobileNavItem,
   ProductCardProps,
   ProductCategory,
+  PromotionalTextProps,
   SlideImage,
   SocialMedia,
 } from "@/types";
@@ -319,6 +320,17 @@ export const bannerImages: BannerImageProps[] = [
   {
     title: "banner-2",
     imageUrl: "/images/banner-2.svg",
+    href: "#",
+  },
+];
+
+export const promotionalText: PromotionalTextProps[] = [
+  {
+    title: "ارسال رایگان برای سفارش‌های بالای ۱ میلیون تومان",
+    href: "#",
+  },
+  {
+    title: "تا ۳۰٪ تخفیف ویژه آخر هفته",
     href: "#",
   },
 ];

@@ -52,8 +52,8 @@ const yekanBakh = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Holland Kala",
-  description: "Welcome to Holland Kala",
+  title: "هلندکالا - فروشگاه آنلاین",
+  description: "به فروشگاه هلندکالا خوش آمدید",
 };
 
 export default function RootLayout({

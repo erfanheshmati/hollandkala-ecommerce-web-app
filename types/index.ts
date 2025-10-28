@@ -62,3 +62,8 @@ export interface BannerImageProps {
   imageUrl: string;
   href: string;
 }
+
+export interface PromotionalTextProps {
+  title: string;
+  href: string;
+}
