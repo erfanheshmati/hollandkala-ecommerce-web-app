@@ -13,6 +13,7 @@ import {
 } from "@/lib/data";
 import PromotionalText from "@/components/home/promotional-text";
 import BannerImage from "@/components/home/banner-image";
+import StoreSetupBanner from "@/components/home/store-setup-banner";
 
 export default function HomePage() {
   const reviews = [
@@ -67,9 +68,16 @@ export default function HomePage() {
 
   return (
     <div className="container bg-background min-h-screen py-20 md:py-32">
+      {/* Header */}
       <Header />
+
+      {/* Hero Slider */}
       <Slider />
+
+      {/* Promotional Text */}
       <PromotionalText />
+
+      {/* Products Category */}
       <ProductsCategory />
 
       {/* Mobile Promotional Banner */}
@@ -81,6 +89,7 @@ export default function HomePage() {
         />
       </section>
 
+      {/* Product Slider */}
       <ProductSlider
         title="کفش اسپرت و کتانی"
         products={shoesProducts}
@@ -105,6 +114,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Product Slider */}
       <ProductSlider
         title="پوشاک"
         products={clothingProducts}
@@ -120,6 +130,7 @@ export default function HomePage() {
         />
       </section>
 
+      {/* Product Slider */}
       <ProductSlider
         title="محصولات ورزشی"
         products={sportsProducts}
@@ -127,6 +138,7 @@ export default function HomePage() {
       />
 
       {/* Store Setup Banner */}
+      <StoreSetupBanner />
 
       {/* Reviews Section */}
       <section className="mx-auto px-4 py-8">
