@@ -15,6 +15,7 @@ import PromotionalText from "@/components/home/promotional-text";
 import BannerImage from "@/components/home/banner-image";
 import StoreSetupBanner from "@/components/home/store-setup-banner";
 import ReviewSection from "@/components/review/review-section";
+import StoreLocation from "@/components/home/store-location";
 
 export default function HomePage() {
   const features = [
@@ -121,6 +122,9 @@ export default function HomePage() {
         dataByFilter={reviewsByFilter}
       />
 
+      {/* Store Location */}
+      <StoreLocation />
+
       {/* Features Section */}
       <section className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -130,115 +134,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Store Location Section */}
-      <section className="container mx-auto px-4 py-8">
-        <div className="bg-gray-50 rounded-3xl p-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">
-              از فروشگاه ما دیدن کنید
-            </h3>
-            <div className="flex gap-3 mb-6">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-2xl text-sm font-medium">
-                London
-              </button>
-              <button className="bg-white text-gray-600 px-4 py-2 rounded-2xl text-sm font-medium hover:bg-gray-50">
-                Hong Kong
-              </button>
-              <button className="bg-white text-gray-600 px-4 py-2 rounded-2xl text-sm font-medium hover:bg-gray-50">
-                Paris
-              </button>
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10 10C11.3807 10 12.5 8.88071 12.5 7.5C12.5 6.11929 11.3807 5 10 5C8.61929 5 7.5 6.11929 7.5 7.5C7.5 8.88071 8.61929 10 10 10Z"
-                      stroke="white"
-                      strokeWidth="1.5"
-                    />
-                    <path
-                      d="M2 8.33333C2 12.665 6.665 17.5 10 17.5C13.335 17.5 18 12.665 18 8.33333C18 4.00167 13.335 2.5 10 2.5C6.665 2.5 2 4.00167 2 8.33333Z"
-                      stroke="white"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
-                </div>
-                <span className="text-gray-600">ادرس: هلند، لاله</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M2.5 10C2.5 13.45 5.55 16.5 9 16.5C9.775 16.5 10.525 16.375 11.225 16.15L15.5 16.5L13.775 12.725C14.325 12.175 14.825 11.575 15.25 10.925"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M2.5 9.99996C2.5 6.54996 5.55 3.49996 9 3.49996C12.45 3.49996 15.5 6.54996 15.5 9.99996"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-                <span className="text-gray-600">info@hollandkala.com</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M17.5 14.5833V16.6666C17.5 17.325 16.9917 17.8333 16.3333 17.8333H5.66667C5.00833 17.8333 4.5 17.325 4.5 16.6666V14.5833"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M17.5 5.83331H4.5V14.5833H17.5V5.83331Z"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M8.33333 3.33331H5.66667C5.00833 3.33331 4.5 3.84165 4.5 4.49998V5.83331H17.5V4.49998C17.5 3.84165 16.9917 3.33331 16.3333 3.33331H13.6667"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-                <span className="text-gray-600">+31616009009</span>
-              </div>
-            </div>
-          </div>
-          <div className="bg-gray-200 rounded-2xl h-full min-h-[400px]"></div>
-        </div>
-      </section>
-
+      {/* Footer */}
       <Footer />
     </div>
   );

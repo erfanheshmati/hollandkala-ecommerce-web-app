@@ -57,8 +57,10 @@ export default function ReviewSection({
           <button
             key={f}
             onClick={() => setActiveFilter(f)}
-            className={`px-6 md:px-8 py-2 cursor-pointer effect ${
-              f === activeFilter && "bg-primary text-background rounded-full"
+            className={`px-6 md:px-8 py-2 rounded-full cursor-pointer effect ${
+              f === activeFilter
+                ? "bg-primary text-background"
+                : "hover:bg-foreground/5"
             }`}
           >
             {f}

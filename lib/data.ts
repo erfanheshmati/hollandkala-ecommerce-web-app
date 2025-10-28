@@ -8,6 +8,7 @@ import {
   PromotionalTextProps,
   SlideImage,
   SocialMedia,
+  StoreLocation,
 } from "@/types";
 import type { Review } from "@/types";
 import { AiFillInstagram } from "react-icons/ai";
@@ -507,4 +508,31 @@ export const reviewsByFilter: Record<string, Review[]> = {
   خیریه: charityReviews,
   ورزشکاران: athletesReviews,
   خریداران: buyersReviews,
+};
+
+export const storeLocations: Record<string, StoreLocation> = {
+  London: {
+    name: "London",
+    address: "40 Baker Street, London, W1U 7AJ",
+    email: "london@hollandkala.com",
+    phone: "(08) 8942 1299",
+    workingHours: ["Mon - Fri, 8:30AM - 10:30PM", "Saturday, 8:30Am - 10:30PM"],
+    closedDays: ["Sunday"],
+  },
+  Paris: {
+    name: "Paris",
+    address: "125 Avenue des Champs-Élysées, 75008 Paris",
+    email: "paris@hollandkala.com",
+    phone: "(08) 8942 1299",
+    workingHours: ["Mon - Fri, 8:30AM - 10:30PM", "Saturday, 8:30Am - 10:30PM"],
+    closedDays: ["Sunday", "Saturday"],
+  },
+  HongKong: {
+    name: "HongKong",
+    address: "Shop 234, Festival Walk, Kowloon Tong",
+    email: "hongkong@hollandkala.com",
+    phone: "(08) 8942 1299",
+    workingHours: ["Mon - Fri, 8:30AM - 10:30PM", "Saturday, 8:30Am - 10:30PM"],
+    closedDays: ["Sunday"],
+  },
 };

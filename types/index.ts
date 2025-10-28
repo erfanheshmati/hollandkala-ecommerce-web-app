@@ -83,3 +83,12 @@ export interface ReviewSectionProps {
   filters?: string[];
   dataByFilter?: Record<string, Review[]>;
 }
+
+export interface StoreLocation {
+  name: string;
+  address: string;
+  email: string;
+  phone: string;
+  workingHours: string[];
+  closedDays: string[];
+}
