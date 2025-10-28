@@ -1,7 +1,7 @@
 import Image from "next/image";
 import NotFoundImage from "@/public/images/404.svg";
 import Header from "@/components/header";
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer";
 
 export default function NotFound() {
   return (

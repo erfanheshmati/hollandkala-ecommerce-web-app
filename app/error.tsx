@@ -1,6 +1,6 @@
 "use client";
 
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer";
 import Header from "@/components/header";
 
 export default function ErrorPage({ reset }: { reset: () => void }) {

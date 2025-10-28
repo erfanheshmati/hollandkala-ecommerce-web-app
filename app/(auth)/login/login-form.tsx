@@ -23,7 +23,7 @@ export default function LoginForm({ onFormSubmit }: LoginFormProps) {
       onSubmit={handleSubmit}
       className="flex flex-col items-center justify-center"
     >
-      <p className="text-md md:text-lg text-secondary mb-4">
+      <p className="text-md md:text-lg text-foreground mb-4">
         جهت ورود به ازاد هلندکالا شماره تلفن یا ایمیل خود را وارد کنید
       </p>
 
@@ -62,7 +62,7 @@ export default function LoginForm({ onFormSubmit }: LoginFormProps) {
               setPhoneInput(false);
               setEmailInput(true);
             }}
-            className="btn-secondary text-xl font-medium"
+            className="btn-foreground text-xl font-medium"
           >
             ورود با ایمیل
           </button>
@@ -73,7 +73,7 @@ export default function LoginForm({ onFormSubmit }: LoginFormProps) {
               setPhoneInput(true);
               setEmailInput(false);
             }}
-            className="btn-secondary text-xl font-medium"
+            className="btn-foreground text-xl font-medium"
           >
             ورود با شماره تلفن
           </button>

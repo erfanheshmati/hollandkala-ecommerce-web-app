@@ -92,20 +92,19 @@ export default function PromotionalPopup() {
                 // Optional: Navigate to products page or trigger scroll
                 window.location.href = "#";
               }}
-              className="bg-white text-secondary px-4 py-3 rounded-2xl font-medium text-xl hover:bg-white/70 cursor-pointer effect"
+              className="bg-white text-foreground px-4 py-3 rounded-2xl font-medium text-xl hover:bg-white/70 cursor-pointer effect"
             >
               مشاهده ی همه محصولات
             </button>
           </div>
 
           {/* Product Illustration */}
-          <div className="flex items-center justify-center w-[286px] h-[227px] relative">
+          <div className="flex items-center justify-center w-[200px] h-[160px] relative">
             <Image
               src="/images/product-illustration.svg"
               alt="Product illustration"
-              width={286}
-              height={227}
-              className="w-full h-full"
+              fill
+              className="w-full h-auto object-cover"
             />
           </div>
         </div>

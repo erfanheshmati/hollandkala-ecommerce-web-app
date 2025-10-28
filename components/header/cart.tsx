@@ -7,7 +7,7 @@ export default function Cart() {
       href="/cart"
       className="hidden md:block p-3 rounded-xl bg-[#f7f7f7] hover:bg-[#e8e8e8] effect"
     >
-      <ShoppingCart size={24} className="text-secondary" />
+      <ShoppingCart size={24} className="text-foreground" />
     </Link>
   );
 }

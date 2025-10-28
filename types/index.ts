@@ -40,3 +40,19 @@ export interface ProductCategory {
   imageUrl: string;
   href: string;
 }
+
+export interface ProductCardProps {
+  title: string;
+  discountedPrice?: string;
+  originalPrice?: string;
+  discount?: string;
+  badges?: string[];
+  imageUrl?: string;
+  backgroundColor?: string;
+}
+
+export interface ProductSliderProps {
+  title: string;
+  products: ProductCardProps[];
+  backgroundColor?: string;
+}

@@ -84,7 +84,7 @@ export default function MobileMenu() {
           <div
             className={`${
               isDropdownOpen && level === 0
-                ? "border border-secondary/22 rounded-2xl"
+                ? "border border-foreground/22 rounded-2xl"
                 : ""
             }`}
           >
@@ -96,7 +96,7 @@ export default function MobileMenu() {
                   toggleMobileSubmenu(submenuKey);
                 }
               }}
-              className={`flex items-center justify-between w-full rounded-lg p-4 text-secondary transition-colors cursor-pointer ${
+              className={`flex items-center justify-between w-full rounded-lg p-4 text-foreground transition-colors cursor-pointer ${
                 isDropdownOpen ? "font-bold" : ""
               } `}
             >
@@ -131,7 +131,7 @@ export default function MobileMenu() {
                             setOpenMobileDropdown(null);
                             setOpenMobileSubmenu(null);
                           }}
-                          className="block p-4 mx-2 text-secondary transition-colors rounded-lg"
+                          className="block p-4 mx-2 text-foreground transition-colors rounded-lg"
                         >
                           {child.title}
                         </Link>
@@ -149,7 +149,7 @@ export default function MobileMenu() {
               setOpenMobileDropdown(null);
               setOpenMobileSubmenu(null);
             }}
-            className="block p-4 text-secondary active:text-white active:bg-primary rounded-2xl transition-colors"
+            className="block p-4 text-foreground active:text-white active:bg-primary rounded-2xl transition-colors"
           >
             <span className="text-lg">{item.title}</span>
           </Link>

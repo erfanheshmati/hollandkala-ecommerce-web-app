@@ -29,7 +29,7 @@ export default function CategoryCard({
         </div>
         <Link
           href={href}
-          className="self-start bg-white/20 backdrop-blur-md text-white rounded-2xl px-4 py-2 flex items-center gap-2 hover:bg-white/40 cursor-pointer effect"
+          className="self-start bg-white/20 backdrop-blur-md text-white rounded-2xl px-4 py-2 flex items-center gap-2 hover:bg-white/40 active:bg-white/40 cursor-pointer effect"
         >
           <span className="text-lg font-medium">مشاهده</span>
           <ArrowLeft size={20} />

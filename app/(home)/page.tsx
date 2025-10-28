@@ -1,62 +1,14 @@
 import Header from "@/components/header/index";
-import ProductSection from "@/components/ProductSection";
 import FeatureCard from "@/components/FeatureCard";
 import CustomerReview from "@/components/CustomerReview";
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer";
 import Slider from "@/components/home/slider";
 import Banner from "@/components/home/banner";
 import ProductsCategory from "@/components/home/products-category";
+import ProductSlider from "@/components/product/product-slider";
+import { clothingProducts, shoesProducts, sportsProducts } from "@/lib/data";
 
 export default function HomePage() {
-  // Product data
-  const sportsProducts = [
-    {
-      title: "کفش آدیداس لایت ریسر آداپت",
-      price: "۸۷ یورو",
-      originalPrice: "۹۵ یورو",
-      discount: "9%",
-      badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
-    },
-    {
-      title: "کفش آدیداس لایت ریسر آداپت",
-      price: "۸۷ یورو",
-      badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
-    },
-    {
-      title: "کفش آدیداس لایت ریسر آداپت",
-      price: "۸۷ یورو",
-      badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
-    },
-    {
-      title: "کفش آدیداس لایت ریسر آداپت",
-      price: "۸۷ یورو",
-      badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
-    },
-  ];
-
-  const clothingProducts = [
-    {
-      title: "ست تاپ و شلوارک مردانه",
-      price: "۸۷ یورو",
-      badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
-    },
-    {
-      title: "ست تاپ و شلوارک مردانه",
-      price: "۸۷ یورو",
-      badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
-    },
-    {
-      title: "ست تاپ و شلوارک مردانه",
-      price: "۸۷ یورو",
-      badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
-    },
-    {
-      title: "ست تاپ و شلوارک مردانه",
-      price: "۸۷ یورو",
-      badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
-    },
-  ];
-
   const reviews = [
     {
       name: "لیلا حسینی",
@@ -114,35 +66,43 @@ export default function HomePage() {
       <Banner />
       <ProductsCategory />
 
-      {/* Product Sections */}
-      <section className="container mx-auto px-4 py-8">
-        <ProductSection title="کفش اسپرت و کتانی" products={sportsProducts} />
-        <ProductSection
-          title="پوشاک"
-          products={clothingProducts}
-          backgroundColor="#E2DEDD"
-        />
-        <ProductSection
-          title="محصولات ورزشی"
-          products={sportsProducts}
-          backgroundColor="#D64327"
+      {/* Products Section */}
+      <section className="container my-14 md:my-20">
+        <ProductSlider
+          title="کفش اسپرت و کتانی"
+          products={shoesProducts}
+          backgroundColor="#F0F5F9"
         />
       </section>
 
       {/* Promotional Banners */}
       <section className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="h-56 bg-gradient-to-r from-orange-400 to-pink-500 rounded-2xl flex items-center justify-center">
+          <div className="h-56 bg-linear-to-r from-orange-400 to-pink-500 rounded-2xl flex items-center justify-center">
             <h3 className="text-white text-2xl font-bold">
               بنر های تبلیغات و جوایز
             </h3>
           </div>
-          <div className="h-56 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center">
+          <div className="h-56 bg-linear-to-r from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center">
             <h3 className="text-white text-2xl font-bold">
               بنر های تبلیغات و جوایز
             </h3>
           </div>
         </div>
+      </section>
+
+      {/* Products Section */}
+      <section className="container my-14 md:my-20">
+        <ProductSlider
+          title="پوشاک"
+          products={clothingProducts}
+          backgroundColor="#E2DEDD"
+        />
+        <ProductSlider
+          title="محصولات ورزشی"
+          products={sportsProducts}
+          backgroundColor="#D64327"
+        />
       </section>
 
       {/* Reviews Section */}

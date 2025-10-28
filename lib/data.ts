@@ -2,6 +2,7 @@ import {
   FooterLink,
   MenuItem,
   MobileNavItem,
+  ProductCardProps,
   ProductCategory,
   SlideImage,
   SocialMedia,
@@ -149,41 +150,161 @@ export const productsCategory: ProductCategory[] = [
   {
     title: "محصولات عمده ی نو",
     imageUrl: "/images/category-1.png",
-    href:"#"
+    href: "#",
   },
   {
     title: "محصولات عمده ی دست دوم",
     imageUrl: "/images/category-2.png",
-    href:"#"
+    href: "#",
   },
   {
     title: "محصولات عمده ی نو",
     imageUrl: "/images/category-3.png",
-    href:"#"
+    href: "#",
   },
   {
     title: "محصولات عمده ی نو",
     imageUrl: "/images/category-4.png",
-    href:"#"
+    href: "#",
   },
   {
     title: "محصولات عمده ی نو",
     imageUrl: "/images/category-4.png",
-    href:"#"
+    href: "#",
   },
   {
     title: "محصولات عمده ی نو",
     imageUrl: "/images/category-3.png",
-    href:"#"
+    href: "#",
   },
   {
     title: "محصولات عمده ی دست دوم",
     imageUrl: "/images/category-2.png",
-    href:"#"
+    href: "#",
   },
   {
     title: "محصولات عمده ی نو",
     imageUrl: "/images/category-1.png",
-    href:"#"
+    href: "#",
+  },
+];
+
+export const shoesProducts: ProductCardProps[] = [
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    originalPrice: "۹۵ یورو",
+    discount: "9%",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#F0F5F9",
+  },
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#F0F5F9",
+  },
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#F0F5F9",
+  },
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#F0F5F9",
+  },
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#F0F5F9",
+  },
+];
+
+export const clothingProducts: ProductCardProps[] = [
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    originalPrice: "۹۵ یورو",
+    discount: "9%",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#E2DEDD",
+  },
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#E2DEDD",
+  },
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#E2DEDD",
+  },
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#E2DEDD",
+  },
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#E2DEDD",
+  },
+];
+
+export const sportsProducts: ProductCardProps[] = [
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    originalPrice: "۹۵ یورو",
+    discount: "9%",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#D64327",
+  },
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#D64327",
+  },
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#D64327",
+  },
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#D64327",
+  },
+  {
+    title: "کفش آدیداس لایت ریسر آداپت",
+    discountedPrice: "۸۷ یورو",
+    badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
+    imageUrl: "/images/slide-1.jpg",
+    backgroundColor: "#D64327",
   },
 ];

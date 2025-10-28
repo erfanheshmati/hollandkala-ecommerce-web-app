@@ -111,7 +111,7 @@ export default function Menu() {
               className={`flex items-center gap-1 px-3 pb-3 hover:text-primary hover:font-medium cursor-pointer transition-colors group ${
                 item.hasDropdown && activeDropdown === index.toString()
                   ? "text-primary font-medium"
-                  : "text-secondary"
+                  : "text-foreground"
               }`}
             >
               {item.title}

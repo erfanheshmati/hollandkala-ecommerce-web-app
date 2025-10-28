@@ -12,7 +12,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-background mt-16 border-t border-secondary/20">
+    <footer className="bg-background mt-16 border-t border-foreground/20">
       <div className="container py-8">
         {/* Main Footer Content */}
         <div className="flex flex-col lg:flex-row justify-between gap-6">
@@ -20,7 +20,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4 w-full lg:max-w-sm bg-[#f7f7f7] rounded-xl p-4">
             {/* Address Box */}
             <div className="flex items-center justify-between gap-3 bg-background rounded-2xl p-4">
-              <span className="text-secondary text-base md:text-xl">
+              <span className="text-foreground text-base md:text-xl">
                 ادرس: هلند، لاله
               </span>
               <div className="btn-primary flex items-center gap-2 px-2 py-1">
@@ -32,30 +32,30 @@ export default function Footer() {
             {/* Contact Box */}
             <div className="flex flex-col gap-4 bg-background rounded-2xl p-4">
               {/* Title */}
-              <h4 className="text-secondary text-center">تماس با ما:</h4>
+              <h4 className="text-foreground text-center">تماس با ما:</h4>
 
               {/* Email */}
               <Link
                 href="mailto:info@hollandkala.com"
-                className="flex items-center justify-end gap-3 p-3.5 bg-[#F7F7F7] hover:bg-secondary/10 effect rounded-xl"
+                className="flex items-center justify-end gap-3 p-3.5 bg-[#F7F7F7] hover:bg-foreground/10 effect rounded-xl"
               >
-                <span className="text-secondary text-base font-medium">
+                <span className="text-foreground text-base font-medium">
                   info@hollandkala.com
                 </span>
                 <span className="h-6 w-px bg-gray-400"></span>
-                <Mail className="w-5 h-5 text-secondary" />
+                <Mail className="w-5 h-5 text-foreground" />
               </Link>
 
               {/* Phone */}
               <Link
                 href="tel:31616009009"
-                className="flex items-center justify-end gap-3 p-3.5 bg-[#F7F7F7] hover:bg-secondary/10 effect rounded-xl"
+                className="flex items-center justify-end gap-3 p-3.5 bg-[#F7F7F7] hover:bg-foreground/10 effect rounded-xl"
               >
-                <span className="text-secondary text-lg font-medium" dir="ltr">
+                <span className="text-foreground text-lg font-medium" dir="ltr">
                   +31616009009
                 </span>
                 <span className="h-6 w-px bg-gray-400"></span>
-                <Phone className="w-5 h-5 text-secondary" />
+                <Phone className="w-5 h-5 text-foreground" />
               </Link>
             </div>
           </div>
@@ -68,13 +68,13 @@ export default function Footer() {
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center justify-between w-full md:cursor-default"
               >
-                <h3 className="font-bold text-secondary">صفحات پرکاربرد</h3>
+                <h3 className="font-bold text-foreground">صفحات پرکاربرد</h3>
                 {/* Toggle Icon - Only visible on mobile */}
                 <span className="lg:hidden">
                   {isOpen ? (
-                    <ChevronUp className="w-4 h-4 text-secondary" />
+                    <ChevronUp className="w-4 h-4 text-foreground" />
                   ) : (
-                    <ChevronDown className="w-4 h-4 text-secondary" />
+                    <ChevronDown className="w-4 h-4 text-foreground" />
                   )}
                 </span>
               </button>
@@ -86,12 +86,12 @@ export default function Footer() {
                   <div key={link.href || idx}>
                     <Link
                       href={link.href}
-                      className="block py-1 my-2 text-secondary font-medium hover:text-primary active:text-primary effect"
+                      className="block py-1 my-2 text-foreground font-medium hover:text-primary active:text-primary effect"
                     >
                       {link.title}
                     </Link>
                     {idx !== footerLinks.length - 1 && (
-                      <div className="border-b w-full text-secondary/20"></div>
+                      <div className="border-b w-full text-foreground/20"></div>
                     )}
                   </div>
                 ))}
@@ -100,7 +100,7 @@ export default function Footer() {
           </div>
 
           {/* Separator */}
-          <div className="md:hidden border-b w-full text-secondary/20"></div>
+          <div className="md:hidden border-b w-full text-foreground/20"></div>
 
           {/* Left Column - Logo, Newsletter & Social */}
           <div className="flex flex-col gap-4 w-full lg:max-w-md">
@@ -116,7 +116,7 @@ export default function Footer() {
 
             {/* Email Subscription */}
             <div className="space-y-8">
-              <h3 className="font-medium md:text-xl text-secondary text-right md:text-center">
+              <h3 className="font-medium md:text-xl text-foreground text-right md:text-center">
                 با ثبت ایمیل خود، با ما در ارتباط باشید
               </h3>
               <form className="flex items-center justify-between input py-2">
@@ -157,14 +157,14 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="bg-background border-t border-secondary/20">
+      <div className="bg-background border-t border-foreground/20">
         <div className="container flex flex-col lg:flex-row items-center justify-between gap-2 py-4">
-          <p className="text-secondary/66 text-sm text-center">
+          <p className="text-foreground/66 text-sm text-center">
             استفاده از مطالب فروشگاه اینترنتی هلندکالا فقط برای مقاصد غیرتجاری و
             با ذکر منبع بلامانع است. کلیه حقوق این سایت متعلق به هلندکالا
             می‌باشد.
           </p>
-          <p className="text-secondary/66 text-sm">
+          <p className="text-foreground/66 text-sm">
             Copyright © 2021 - {year} hollandkala.com
           </p>
         </div>

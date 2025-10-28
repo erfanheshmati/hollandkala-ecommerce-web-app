@@ -6,10 +6,10 @@ export default function ProductsCategory() {
     <section className="container my-12 md:my-16">
       <div className="flex flex-col gap-6">
         <div className="flex flex-col items-center gap-1">
-          <h2 className="text-2xl font-bold text-secondary">
+          <h2 className="text-2xl font-bold text-foreground">
             دسته بندی محصولات ما
           </h2>
-          <p className="text-secondary/66">
+          <p className="text-foreground/66">
             شما میتوانید مابقی دسته بندی را از منو مشاهده کنید
           </p>
         </div>

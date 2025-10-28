@@ -42,7 +42,7 @@ export function MobileSearch() {
         className="md:hidden p-3 rounded-xl bg-[#f7f7f7]"
         aria-label="Toggle search"
       >
-        <SearchIcon size={24} className="text-secondary" />
+        <SearchIcon size={24} className="text-foreground" />
       </button>
 
       {/* Mobile Search Input */}

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../styles/globals.css";
 import "../styles/custom.css";
-import MobileBottomNav from "@/components/MobileBottomNav";
-import PromotionalPopup from "@/components/PromotionalPopup";
+import MobileBottomNav from "@/components/mobile-bottom-nav";
+import PromotionalPopup from "@/components/promotional-popup";
 
 const yekanBakh = localFont({
   src: [

@@ -70,7 +70,7 @@ export default function LanguageSwitcher() {
         {/* Down arrow */}
         <ChevronDown
           size={20}
-          className={`text-secondary/70 transition-transform duration-300 ${
+          className={`text-foreground/70 transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""
           }`}
         />

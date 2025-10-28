@@ -27,7 +27,7 @@ export default function MobileBottomNav() {
                   <item.icon
                     size={24}
                     className={`${
-                      isActive ? "text-primary" : "text-secondary"
+                      isActive ? "text-primary" : "text-foreground"
                     }`}
                   />
                 ) : (
@@ -38,7 +38,7 @@ export default function MobileBottomNav() {
                 className={`text-sm whitespace-nowrap text-center ${
                   isActive
                     ? "text-primary font-bold"
-                    : "text-secondary font-medium"
+                    : "text-foreground font-medium"
                 }`}
               >
                 {item.label}

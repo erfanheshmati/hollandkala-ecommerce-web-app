@@ -7,7 +7,7 @@ export default function Favorite() {
       href="/favorite"
       className="hidden md:block p-3 rounded-xl bg-[#f7f7f7] hover:bg-[#e8e8e8] effect"
     >
-      <Heart size={24} className="text-secondary" />
+      <Heart size={24} className="text-foreground" />
     </Link>
   );
 }

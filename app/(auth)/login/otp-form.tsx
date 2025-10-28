@@ -61,7 +61,7 @@ export default function OtpForm({ phoneNumber, emailAddress }: OtpFormProps) {
       className="flex flex-col items-center justify-center"
       onSubmit={handleSubmit}
     >
-      <p className="text-md md:text-lg text-secondary mb-4 text-center">
+      <p className="text-md md:text-lg text-foreground mb-4 text-center">
         کد ارسال شده به{" "}
         {phoneNumber ? (
           <>
