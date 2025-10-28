@@ -60,3 +60,13 @@ input[type="number"] {
   height: 100%;
   object-fit: cover;
 }
+
+/* Promotional text animation */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
