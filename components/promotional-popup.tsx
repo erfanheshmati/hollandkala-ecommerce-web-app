@@ -6,8 +6,11 @@ import Image from "next/image";
 
 export default function PromotionalPopup() {
   const [showPopup, setShowPopup] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
     // Check if user has seen the popup before
     const hasSeenPopup = localStorage.getItem("hasSeenPromotionalPopup");
 
@@ -20,6 +23,9 @@ export default function PromotionalPopup() {
       return () => clearTimeout(timer);
     }
   }, []);
+
+  // Don't render anything until after hydration
+  if (!mounted) return null;
 
   const handleClose = () => {
     setShowPopup(false);

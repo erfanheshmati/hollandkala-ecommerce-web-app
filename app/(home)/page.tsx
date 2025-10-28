@@ -1,6 +1,6 @@
 import Header from "@/components/header/index";
 import FeatureCard from "@/components/FeatureCard";
-import CustomerReview from "@/components/CustomerReview";
+import { reviewsByFilter } from "@/lib/data";
 import Footer from "@/components/footer";
 import Slider from "@/components/home/slider";
 import ProductsCategory from "@/components/home/products-category";
@@ -14,35 +14,9 @@ import {
 import PromotionalText from "@/components/home/promotional-text";
 import BannerImage from "@/components/home/banner-image";
 import StoreSetupBanner from "@/components/home/store-setup-banner";
+import ReviewSection from "@/components/review/review-section";
 
 export default function HomePage() {
-  const reviews = [
-    {
-      name: "لیلا حسینی",
-      comment:
-        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه...",
-      categories: ["دستکش مخصوص ویلچر", "نقض عضو"],
-    },
-    {
-      name: "لیلا حسینی",
-      comment:
-        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه...",
-      categories: ["دستکش مخصوص ویلچر", "نقض عضو"],
-    },
-    {
-      name: "لیلا حسینی",
-      comment:
-        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه...",
-      categories: ["دستکش مخصوص ویلچر", "نقض عضو"],
-    },
-    {
-      name: "لیلا حسینی",
-      comment:
-        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه...",
-      categories: ["دستکش مخصوص ویلچر", "نقض عضو"],
-    },
-  ];
-
   const features = [
     {
       title: "ارسال رایگان",
@@ -140,37 +114,12 @@ export default function HomePage() {
       {/* Store Setup Banner */}
       <StoreSetupBanner />
 
-      {/* Reviews Section */}
-      <section className="mx-auto px-4 py-8">
-        <div className="flex flex-col items-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-2">
-            نظرات کاربران
-          </h2>
-          <p className="text-gray-600">
-            بخشی از درآمد &quot;هلند کالا&quot; صرف امور خیریه می شود
-          </p>
-        </div>
-
-        {/* Filter Buttons */}
-        <div className="flex justify-center gap-4 mb-8">
-          <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-3xl hover:bg-gray-200 transition-colors">
-            خیریه
-          </button>
-          <button className="bg-gray-50 text-gray-600 px-4 py-2 rounded-3xl hover:bg-gray-100 transition-colors">
-            ورزشکاران
-          </button>
-          <button className="bg-gray-50 text-gray-600 px-4 py-2 rounded-3xl hover:bg-gray-100 transition-colors">
-            خریداران
-          </button>
-        </div>
-
-        {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {reviews.map((review, index) => (
-            <CustomerReview key={index} {...review} />
-          ))}
-        </div>
-      </section>
+      {/* Reviews Slider */}
+      <ReviewSection
+        filters={Object.keys(reviewsByFilter)}
+        reviews={[]}
+        dataByFilter={reviewsByFilter}
+      />
 
       {/* Features Section */}
       <section className="container mx-auto px-4 py-8">

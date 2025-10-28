@@ -34,11 +34,12 @@ export default function ProductCard({
         style={{ backgroundColor }}
       >
         {imageUrl && (
-          <Link href="#">
+          <Link href="#" className="relative block w-full h-full">
             <Image
               src={imageUrl}
               alt={title}
               fill
+              sizes="(min-width: 1024px) 100vw, 100vw"
               className="object-cover rounded-xl"
             />
           </Link>

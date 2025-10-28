@@ -11,8 +11,14 @@ export default function CategoryCard({
   return (
     <div className="relative rounded-3xl overflow-hidden group transition-transform hover:scale-105">
       {imageUrl && (
-        <div className="absolute inset-0">
-          <Image src={imageUrl} alt={title} fill className="object-cover" />
+        <div className="absolute inset-0 block w-full h-full">
+          <Image
+            src={imageUrl}
+            alt={title}
+            fill
+            sizes="(min-width: 1024px) 100vw, 100vw"
+            className="object-cover"
+          />
         </div>
       )}
       <div className="flex flex-col justify-between relative p-4 h-full min-h-[160px] md:min-h-[200px]">

@@ -67,3 +67,19 @@ export interface PromotionalTextProps {
   title: string;
   href: string;
 }
+
+export interface Review {
+  name: string;
+  avatarUrl?: string;
+  comment: string;
+  badges: string[];
+  images: string[];
+}
+
+export interface ReviewSectionProps {
+  title?: string;
+  subtitle?: string;
+  reviews: Review[];
+  filters?: string[];
+  dataByFilter?: Record<string, Review[]>;
+}

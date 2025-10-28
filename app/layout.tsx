@@ -63,7 +63,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${yekanBakh.variable} antialiased`}>
+      <body
+        suppressHydrationWarning
+        className={`${yekanBakh.variable} antialiased`}
+      >
         <div className="pb-20 md:pb-0">{children}</div>
         <MobileBottomNav />
         <PromotionalPopup />

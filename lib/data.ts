@@ -9,6 +9,7 @@ import {
   SlideImage,
   SocialMedia,
 } from "@/types";
+import type { Review } from "@/types";
 import { AiFillInstagram } from "react-icons/ai";
 import { BsTwitter } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa";
@@ -333,4 +334,177 @@ export const promotionalText: PromotionalTextProps[] = [
     title: "تا ۳۰٪ تخفیف ویژه آخر هفته",
     href: "#",
   },
+  {
+    title: "ارسال رایگان برای سفارش‌های بالای ۱ میلیون تومان",
+    href: "#",
+  },
+  {
+    title: "تا ۳۰٪ تخفیف ویژه آخر هفته",
+    href: "#",
+  },
+  {
+    title: "ارسال رایگان برای سفارش‌های بالای ۱ میلیون تومان",
+    href: "#",
+  },
+  {
+    title: "تا ۳۰٪ تخفیف ویژه آخر هفته",
+    href: "#",
+  },
+  {
+    title: "ارسال رایگان برای سفارش‌های بالای ۱ میلیون تومان",
+    href: "#",
+  },
+  {
+    title: "تا ۳۰٪ تخفیف ویژه آخر هفته",
+    href: "#",
+  },
 ];
+
+export const charityReviews: Review[] = [
+  {
+    name: "لیلا حسینی",
+    comment:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه...",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "لیلا حسینی",
+    comment:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه...",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-fa.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "لیلا حسینی",
+    comment:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه...",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "لیلا حسینی",
+    comment:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه...",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "لیلا حسینی",
+    comment:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه...",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "لیلا حسینی",
+    comment:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه...",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+];
+
+export const athletesReviews: Review[] = [
+  {
+    name: "آرش کاوه",
+    comment:
+      "به عنوان ورزشکار، کیفیت محصولات خیلی خوب بود و ارسال سریع انجام شد.",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "سارا احمدی",
+    comment: "پشتیبانی حرفه‌ای و قیمت‌ها مناسب. تجربه خرید خوبی داشتم.",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "مانی رستگار",
+    comment: "برای اردو تجهیزات خریدیم، همه چیز عالی بود.",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "آرش کاوه",
+    comment:
+      "به عنوان ورزشکار، کیفیت محصولات خیلی خوب بود و ارسال سریع انجام شد.",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "سارا احمدی",
+    comment: "پشتیبانی حرفه‌ای و قیمت‌ها مناسب. تجربه خرید خوبی داشتم.",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "مانی رستگار",
+    comment: "برای اردو تجهیزات خریدیم، همه چیز عالی بود.",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+];
+
+export const buyersReviews: Review[] = [
+  {
+    name: "زهرا محمدی",
+    comment: "بسته‌بندی مرتب و تحویل به‌موقع بود.",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "حمید رضایی",
+    comment: "کیفیت کالا دقیقا مطابق توضیحات سایت بود.",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "مریم سرمدی",
+    comment: "از تخفیف‌ها و پیشنهادها راضی بودم.",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "زهرا محمدی",
+    comment: "بسته‌بندی مرتب و تحویل به‌موقع بود.",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "حمید رضایی",
+    comment: "کیفیت کالا دقیقا مطابق توضیحات سایت بود.",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+  {
+    name: "مریم سرمدی",
+    comment: "از تخفیف‌ها و پیشنهادها راضی بودم.",
+    badges: ["نقص عضو", "دستکش مخصوص ویلچر"],
+    avatarUrl: "/icons/flag-en.svg",
+    images: ["/images/slide-1.jpg", "/images/slide-2.jpg"],
+  },
+];
+
+export const reviewsByFilter: Record<string, Review[]> = {
+  خیریه: charityReviews,
+  ورزشکاران: athletesReviews,
+  خریداران: buyersReviews,
+};

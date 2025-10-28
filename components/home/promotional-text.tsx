@@ -3,7 +3,7 @@
 import { promotionalText } from "@/lib/data";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function PromotionalText() {
   const [isPaused, setIsPaused] = useState(false);
@@ -21,13 +21,14 @@ export default function PromotionalText() {
               className="flex items-center gap-8 whitespace-nowrap"
               style={{
                 width: "max-content",
-                animation: "marqueeScroll 5s linear infinite",
+                animation: "marqueeScroll 15s linear infinite",
                 animationPlayState: isPaused ? "paused" : "running",
+                willChange: "transform",
               }}
             >
-              {[...promotionalText, ...promotionalText].map((text, idx) => (
-                <>
-                  <div key={idx} className="flex items-center gap-3">
+              {promotionalText.map((text, idx) => (
+                <React.Fragment key={idx}>
+                  <div className="flex items-center gap-3">
                     <Link
                       href={text.href}
                       className="text-foreground/66 hover:text-foreground effect"
@@ -35,8 +36,10 @@ export default function PromotionalText() {
                       {text.title}
                     </Link>
                   </div>
-                  <ChevronLeft size={20} className="text-primary" />
-                </>
+                  {idx !== promotionalText.length - 1 && (
+                    <ChevronLeft size={20} className="text-primary" />
+                  )}
+                </React.Fragment>
               ))}
             </div>
           </div>
@@ -44,7 +47,7 @@ export default function PromotionalText() {
         <style jsx>{`
           @keyframes marqueeScroll {
             0% {
-              transform: translateX(-50%);
+              transform: translateX(100%);
             }
             100% {
               transform: translateX(0);
