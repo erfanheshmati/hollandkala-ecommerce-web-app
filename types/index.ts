@@ -1,41 +1,41 @@
 import { IconType } from "react-icons";
 
-export interface MenuItemChild {
+export interface MenuItemChildProps {
   title: string;
   href: string;
   hasDropdown?: boolean;
-  children?: MenuItemChild[];
+  children?: MenuItemChildProps[];
 }
 
-export interface MenuItem {
+export interface MenuItemProps {
   title: string;
   href: string;
   hasDropdown?: boolean;
-  children?: MenuItemChild[];
+  children?: MenuItemChildProps[];
 }
 
-export interface FooterLink {
+export interface FooterLinkProps {
   title: string;
   href: string;
 }
 
-export interface SocialMedia {
+export interface SocialMediaProps {
   href: string;
   icon: IconType;
 }
 
-export interface MobileNavItem {
+export interface MobileNavItemProps {
   href: string;
   label: string;
   icon: IconType;
 }
 
-export interface SlideImage {
+export interface SlideImageProps {
   title: string;
   src: string;
 }
 
-export interface ProductCategory {
+export interface ProductCategoryProps {
   title: string;
   imageUrl: string;
   href: string;
@@ -49,12 +49,14 @@ export interface ProductCardProps {
   badges?: string[];
   imageUrl?: string;
   backgroundColor?: string;
+  href: string;
 }
 
 export interface ProductSliderProps {
   title: string;
   products: ProductCardProps[];
   backgroundColor?: string;
+  href: string;
 }
 
 export interface BannerImageProps {
@@ -68,7 +70,7 @@ export interface PromotionalTextProps {
   href: string;
 }
 
-export interface Review {
+export interface ReviewProps {
   name: string;
   avatarUrl?: string;
   comment: string;
@@ -79,16 +81,26 @@ export interface Review {
 export interface ReviewSectionProps {
   title?: string;
   subtitle?: string;
-  reviews: Review[];
+  reviews: ReviewProps[];
   filters?: string[];
-  dataByFilter?: Record<string, Review[]>;
+  dataByFilter?: Record<string, ReviewProps[]>;
 }
 
-export interface StoreLocation {
+export interface StoreLocationProps {
   name: string;
   address: string;
   email: string;
   phone: string;
   workingHours: string[];
   closedDays: string[];
+}
+
+export interface BlogCardProps {
+  title: string;
+  description: string;
+  date: string;
+  likes: number;
+  comments: number;
+  imageUrl?: string;
+  href: string;
 }

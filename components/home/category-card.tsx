@@ -1,4 +1,4 @@
-import { ProductCategory } from "@/types";
+import { ProductCategoryProps } from "@/types";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +7,7 @@ export default function CategoryCard({
   title,
   imageUrl,
   href,
-}: ProductCategory) {
+}: ProductCategoryProps) {
   return (
     <div className="relative rounded-3xl overflow-hidden group transition-transform hover:scale-105">
       {imageUrl && (

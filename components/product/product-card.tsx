@@ -15,6 +15,7 @@ export default function ProductCard({
   badges = [],
   imageUrl,
   backgroundColor,
+  href,
 }: ProductCardProps) {
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -34,7 +35,7 @@ export default function ProductCard({
         style={{ backgroundColor }}
       >
         {imageUrl && (
-          <Link href="#" className="relative block w-full h-full">
+          <Link href={href} className="relative block w-full h-full">
             <Image
               src={imageUrl}
               alt={title}
@@ -66,7 +67,7 @@ export default function ProductCard({
       {/* Product Info */}
       <div className="p-4">
         <Link
-          href="#"
+          href={href}
           className="text-base md:text-xl font-medium text-foreground line-clamp-1"
         >
           {title}

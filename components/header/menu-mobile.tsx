@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { ChevronLeft, Menu as MenuIcon, X } from "lucide-react";
 import { menuData } from "@/lib/data";
-import { MenuItem, MenuItemChild } from "@/types";
+import { MenuItemChildProps, MenuItemProps } from "@/types";
 import UserButton from "./user-button";
 
 export default function MobileMenu() {
@@ -66,7 +66,7 @@ export default function MobileMenu() {
 
   // Render menu items recursively for mobile
   const renderMobileMenuItem = (
-    item: MenuItem | MenuItemChild,
+    item: MenuItemProps | MenuItemChildProps,
     index: number,
     level: number = 0
   ) => {
@@ -119,7 +119,7 @@ export default function MobileMenu() {
                   className={`${level > 0 ? "bg-[#f5f5f5] rounded-xl" : ""}`}
                 >
                   {item.children.map(
-                    (child: MenuItemChild, childIndex: number) =>
+                    (child: MenuItemChildProps, childIndex: number) =>
                       child.hasDropdown ? (
                         renderMobileMenuItem(child, childIndex, level + 1)
                       ) : (

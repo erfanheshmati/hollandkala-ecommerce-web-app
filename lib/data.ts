@@ -1,16 +1,17 @@
 import {
   BannerImageProps,
-  FooterLink,
-  MenuItem,
-  MobileNavItem,
+  BlogCardProps,
+  FooterLinkProps,
+  MenuItemProps,
+  MobileNavItemProps,
   ProductCardProps,
-  ProductCategory,
+  ProductCategoryProps,
   PromotionalTextProps,
-  SlideImage,
-  SocialMedia,
-  StoreLocation,
+  ReviewProps,
+  SlideImageProps,
+  SocialMediaProps,
+  StoreLocationProps,
 } from "@/types";
-import type { Review } from "@/types";
 import { AiFillInstagram } from "react-icons/ai";
 import { BsTwitter } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa";
@@ -19,7 +20,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { PiHeart, PiShoppingCartSimple } from "react-icons/pi";
 import { TbSmartHome } from "react-icons/tb";
 
-export const menuData: MenuItem[] = [
+export const menuData: MenuItemProps[] = [
   {
     title: "صفحه اصلی",
     href: "/",
@@ -70,7 +71,7 @@ export const menuData: MenuItem[] = [
   },
 ];
 
-export const footerLinks: FooterLink[] = [
+export const footerLinks: FooterLinkProps[] = [
   {
     title: " عمده فروشی",
     href: "/wholesale",
@@ -93,7 +94,7 @@ export const footerLinks: FooterLink[] = [
   },
 ];
 
-export const socialNetworks: SocialMedia[] = [
+export const socialNetworks: SocialMediaProps[] = [
   {
     href: "#",
     icon: FaLinkedin,
@@ -112,7 +113,7 @@ export const socialNetworks: SocialMedia[] = [
   },
 ];
 
-export const mobileNavItems: MobileNavItem[] = [
+export const mobileNavItems: MobileNavItemProps[] = [
   {
     href: "/",
     label: "صفحه اصلی",
@@ -135,7 +136,7 @@ export const mobileNavItems: MobileNavItem[] = [
   },
 ];
 
-export const slideImages: SlideImage[] = [
+export const slideImages: SlideImageProps[] = [
   {
     title: "slide-1",
     src: "/images/slide-1.jpg",
@@ -150,7 +151,7 @@ export const slideImages: SlideImage[] = [
   },
 ];
 
-export const productsCategory: ProductCategory[] = [
+export const productsCategory: ProductCategoryProps[] = [
   {
     title: "محصولات عمده ی نو",
     imageUrl: "/images/category-1.png",
@@ -202,6 +203,7 @@ export const shoesProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#F0F5F9",
+    href: "#",
   },
   {
     title: "کفش آدیداس لایت ریسر آداپت",
@@ -209,6 +211,7 @@ export const shoesProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#F0F5F9",
+    href: "#",
   },
   {
     title: "کفش آدیداس لایت ریسر آداپت",
@@ -216,6 +219,7 @@ export const shoesProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#F0F5F9",
+    href: "#",
   },
   {
     title: "کفش آدیداس لایت ریسر آداپت",
@@ -223,6 +227,7 @@ export const shoesProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#F0F5F9",
+    href: "#",
   },
   {
     title: "کفش آدیداس لایت ریسر آداپت",
@@ -230,6 +235,7 @@ export const shoesProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#F0F5F9",
+    href: "#",
   },
 ];
 
@@ -242,6 +248,7 @@ export const clothingProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#E2DEDD",
+    href: "#",
   },
   {
     title: "کفش آدیداس لایت ریسر آداپت",
@@ -249,6 +256,7 @@ export const clothingProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#E2DEDD",
+    href: "#",
   },
   {
     title: "کفش آدیداس لایت ریسر آداپت",
@@ -256,6 +264,7 @@ export const clothingProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#E2DEDD",
+    href: "#",
   },
   {
     title: "کفش آدیداس لایت ریسر آداپت",
@@ -263,6 +272,7 @@ export const clothingProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#E2DEDD",
+    href: "#",
   },
   {
     title: "کفش آدیداس لایت ریسر آداپت",
@@ -270,6 +280,7 @@ export const clothingProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#E2DEDD",
+    href: "#",
   },
 ];
 
@@ -282,6 +293,7 @@ export const sportsProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#D64327",
+    href: "#",
   },
   {
     title: "کفش آدیداس لایت ریسر آداپت",
@@ -289,6 +301,7 @@ export const sportsProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#D64327",
+    href: "#",
   },
   {
     title: "کفش آدیداس لایت ریسر آداپت",
@@ -296,6 +309,7 @@ export const sportsProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#D64327",
+    href: "#",
   },
   {
     title: "کفش آدیداس لایت ریسر آداپت",
@@ -303,6 +317,7 @@ export const sportsProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#D64327",
+    href: "#",
   },
   {
     title: "کفش آدیداس لایت ریسر آداپت",
@@ -310,6 +325,7 @@ export const sportsProducts: ProductCardProps[] = [
     badges: ["تعداد عمده", "ورزشکاران حرفه ای"],
     imageUrl: "/images/slide-1.jpg",
     backgroundColor: "#D64327",
+    href: "#",
   },
 ];
 
@@ -361,7 +377,7 @@ export const promotionalText: PromotionalTextProps[] = [
   },
 ];
 
-export const charityReviews: Review[] = [
+export const charityReviews: ReviewProps[] = [
   {
     name: "لیلا حسینی",
     comment:
@@ -412,7 +428,7 @@ export const charityReviews: Review[] = [
   },
 ];
 
-export const athletesReviews: Review[] = [
+export const athletesReviews: ReviewProps[] = [
   {
     name: "آرش کاوه",
     comment:
@@ -459,7 +475,7 @@ export const athletesReviews: Review[] = [
   },
 ];
 
-export const buyersReviews: Review[] = [
+export const buyersReviews: ReviewProps[] = [
   {
     name: "زهرا محمدی",
     comment: "بسته‌بندی مرتب و تحویل به‌موقع بود.",
@@ -504,13 +520,13 @@ export const buyersReviews: Review[] = [
   },
 ];
 
-export const reviewsByFilter: Record<string, Review[]> = {
+export const reviewsByFilter: Record<string, ReviewProps[]> = {
   خیریه: charityReviews,
   ورزشکاران: athletesReviews,
   خریداران: buyersReviews,
 };
 
-export const storeLocations: Record<string, StoreLocation> = {
+export const storeLocations: Record<string, StoreLocationProps> = {
   London: {
     name: "London",
     address: "40 Baker Street, London, W1U 7AJ",
@@ -536,3 +552,16 @@ export const storeLocations: Record<string, StoreLocation> = {
     closedDays: ["Sunday"],
   },
 };
+
+export const relatedArticles: BlogCardProps[] = [
+  {
+    title: "ایا هلندکالا را میشناسید؟",
+    description:
+      "ایپسوم متن ساختگی با تولید سادگی نامفهوم ایپسوم متن ساختگی با تولید سادگی نامفهوم",
+    date: "دو روز قبل",
+    likes: 330,
+    comments: 121,
+    imageUrl: "/images/blog.png",
+    href: "#",
+  },
+];

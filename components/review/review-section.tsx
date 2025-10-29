@@ -52,7 +52,7 @@ export default function ReviewSection({
       </div>
 
       {/* Navbar */}
-      <div className="flex gap-4 w-fit mx-auto bg-[#f7f7f7] p-2 rounded-3xl">
+      <div className="flex gap-4 w-fit mx-auto bg-secondary p-2 rounded-3xl">
         {derivedFilters.map((f) => (
           <button
             key={f}

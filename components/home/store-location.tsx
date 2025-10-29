@@ -11,7 +11,7 @@ export default function StoreLocation() {
 
   return (
     <section className="my-12 md:my-16">
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-4 bg-[#f7f7f7] rounded-3xl p-6">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-4 bg-secondary rounded-3xl p-6">
         <div className="flex flex-col md:h-80 justify-between gap-4 w-full lg:w-1/2">
           <h3 className="text-xl md:text-2xl font-bold text-foreground text-center">
             از فروشگاه ما دیدن کنید

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Review } from "@/types";
+import { ReviewProps } from "@/types";
 
 export default function ReviewCard({
   name,
@@ -7,7 +7,7 @@ export default function ReviewCard({
   comment,
   badges = [],
   images = [],
-}: Review) {
+}: ReviewProps) {
   return (
     <div className="flex flex-col bg-background border border-foreground/44 rounded-xl p-4 h-60">
       {/* User Info */}

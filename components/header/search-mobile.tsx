@@ -39,7 +39,7 @@ export function MobileSearch() {
       {/* Mobile Search Button */}
       <button
         onClick={toggleMobileSearch}
-        className="md:hidden p-3 rounded-xl bg-[#f7f7f7]"
+        className="md:hidden p-3 rounded-xl bg-secondary"
         aria-label="Toggle search"
       >
         <SearchIcon size={24} className="text-foreground" />

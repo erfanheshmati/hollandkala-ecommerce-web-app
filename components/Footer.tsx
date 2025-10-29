@@ -17,7 +17,7 @@ export default function Footer() {
         {/* Main Footer Content */}
         <div className="flex flex-col lg:flex-row justify-between gap-6">
           {/* Right Column - Contact Info */}
-          <div className="flex flex-col gap-4 w-full lg:max-w-sm bg-[#f7f7f7] rounded-xl p-4">
+          <div className="flex flex-col gap-4 w-full lg:max-w-sm bg-secondary rounded-xl p-4">
             {/* Address Box */}
             <div className="flex items-center justify-between gap-3 bg-background rounded-2xl p-4">
               <span className="text-foreground text-base md:text-xl">
@@ -37,7 +37,7 @@ export default function Footer() {
               {/* Email */}
               <Link
                 href="mailto:info@hollandkala.com"
-                className="flex items-center justify-end gap-3 p-3.5 bg-[#F7F7F7] hover:bg-foreground/10 effect rounded-xl"
+                className="flex items-center justify-end gap-3 p-3.5 bg-secondary hover:bg-foreground/10 effect rounded-xl"
               >
                 <span className="text-foreground text-base font-medium">
                   info@hollandkala.com
@@ -49,7 +49,7 @@ export default function Footer() {
               {/* Phone */}
               <Link
                 href="tel:31616009009"
-                className="flex items-center justify-end gap-3 p-3.5 bg-[#F7F7F7] hover:bg-foreground/10 effect rounded-xl"
+                className="flex items-center justify-end gap-3 p-3.5 bg-secondary hover:bg-foreground/10 effect rounded-xl"
               >
                 <span className="text-foreground text-lg font-medium" dir="ltr">
                   +31616009009
@@ -61,7 +61,7 @@ export default function Footer() {
           </div>
 
           {/* Middle Column - Popular Pages */}
-          <div className="w-full lg:max-w-2xs bg-[#f7f7f7] rounded-xl p-3">
+          <div className="w-full lg:max-w-2xs bg-secondary rounded-xl p-3">
             <div className="flex flex-col gap-6 rounded-xl lg:p-4">
               {/* Accordion Header - Clickable on mobile */}
               <button

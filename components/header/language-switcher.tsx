@@ -48,7 +48,7 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-6 h-12 bg-[#F7F7F7] px-3 py-4 rounded-2xl cursor-pointer effect hover:bg-[#e8e8e8]"
+        className="flex items-center gap-6 h-12 bg-secondary px-3 py-4 rounded-2xl cursor-pointer effect hover:bg-[#e8e8e8]"
       >
         {/* Language display */}
         <div className="flex items-center gap-2">
@@ -78,12 +78,12 @@ export default function LanguageSwitcher() {
 
       {/* Dropdown menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-24 md:w-28 bg-white rounded-2xl shadow-lg border border-[#F7F7F7] overflow-hidden z-50">
+        <div className="absolute top-full left-0 mt-2 w-24 md:w-28 bg-white rounded-2xl shadow-lg border border-secondary overflow-hidden z-50">
           {languages.map((language) => (
             <button
               key={language.code}
               onClick={() => handleLanguageSelect(language)}
-              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[#F7F7F7] transition-colors duration-200 cursor-pointer"
+              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-secondary transition-colors duration-200 cursor-pointer"
             >
               <Image
                 src={language.flag}

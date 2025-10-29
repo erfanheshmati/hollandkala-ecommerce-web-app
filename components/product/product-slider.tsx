@@ -12,6 +12,7 @@ export default function ProductSlider({
   title,
   products,
   backgroundColor,
+  href,
 }: ProductSliderProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -58,7 +59,7 @@ export default function ProductSlider({
         </h2>
         <div className="flex items-center gap-3">
           <Link
-            href="/products"
+            href={href}
             className="flex items-center justify-center bg-background/90 hover:bg-background active:bg-background px-4 py-2 rounded-xl text-foreground hover:text-black active:text-black cursor-pointer effect"
           >
             مشاهده همه

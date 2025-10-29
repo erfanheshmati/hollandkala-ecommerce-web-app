@@ -10,7 +10,7 @@ export default function PromotionalText() {
 
   return (
     <section className="my-6 md:my-10">
-      <div className="bg-[#f7f7f7] rounded-2xl overflow-hidden">
+      <div className="bg-secondary rounded-2xl overflow-hidden">
         <div
           className="py-4"
           onMouseEnter={() => setIsPaused(true)}
