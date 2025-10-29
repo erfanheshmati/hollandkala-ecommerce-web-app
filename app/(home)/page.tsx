@@ -18,7 +18,7 @@ import HeroSlider from "@/components/home/hero-slider";
 
 export default function HomePage() {
   return (
-    <div className="container bg-background min-h-screen pt-20 md:pt-32">
+    <div className="container bg-background pt-20 md:pt-32">
       {/* Hero Slider */}
       <HeroSlider />
 

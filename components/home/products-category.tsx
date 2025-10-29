@@ -1,4 +1,4 @@
-import { productsCategory } from "@/lib/data";
+import { productCategories } from "@/lib/data";
 import CategoryCard from "./category-card";
 
 export default function ProductsCategory() {
@@ -14,7 +14,7 @@ export default function ProductsCategory() {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
-          {productsCategory.map((category, index) => (
+          {productCategories.map((category, index) => (
             <CategoryCard key={index} {...category} />
           ))}
         </div>

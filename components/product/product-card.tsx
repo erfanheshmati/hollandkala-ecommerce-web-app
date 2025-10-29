@@ -5,6 +5,7 @@ import { Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { BsCart2 } from "react-icons/bs";
 
 export default function ProductCard({
@@ -14,10 +15,15 @@ export default function ProductCard({
   discount,
   badges = [],
   imageUrl,
-  backgroundColor,
+  // backgroundColor,
   href,
 }: ProductCardProps) {
   const [isFavorite, setIsFavorite] = useState(false);
+  const pathname = usePathname();
+  const routesWithSecondaryBg = ["/products", "/favorites"];
+  const shouldUseSecondaryBg = routesWithSecondaryBg.some((route) =>
+    pathname.includes(route)
+  );
 
   const badgeColorClasses: Record<string, string> = {
     "تعداد عمده": "bg-primary/10 text-primary",
@@ -28,14 +34,21 @@ export default function ProductCard({
     badgeColorClasses[label] ?? "bg-blue-100 text-blue-600";
 
   return (
-    <div className="bg-background rounded-xl overflow-hidden p-1">
+    <div
+      className={`${
+        shouldUseSecondaryBg ? "bg-secondary" : "bg-background"
+      } rounded-xl overflow-hidden p-1`}
+    >
       {/* Product Image */}
       <div
         className="w-full h-40 md:h-56 rounded-xl relative"
-        style={{ backgroundColor }}
+        // style={{ backgroundColor }}
       >
         {imageUrl && (
-          <Link href={href} className="relative block w-full h-full rounded-xl hover:opacity-80 active:opacity-80 effect">
+          <Link
+            href={href}
+            className="relative block w-full h-full rounded-xl hover:opacity-80 active:opacity-80 effect"
+          >
             <Image
               src={imageUrl}
               alt={title}
@@ -95,7 +108,11 @@ export default function ProductCard({
                 {originalPrice}
               </span>
             )}
-            <span className="text-xl md:text-2xl font-medium text-red-500">
+            <span
+              className={`text-xl md:text-2xl font-medium ${
+                originalPrice?.trim() ? "text-red-500" : "text-foreground"
+              }`}
+            >
               {discountedPrice}
             </span>
           </div>

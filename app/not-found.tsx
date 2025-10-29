@@ -5,7 +5,7 @@ import Footer from "@/components/footer";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col">
       <Header />
       <div className="flex flex-col gap-8 items-center justify-center flex-1 px-4 min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh+8rem)]">
         <Image

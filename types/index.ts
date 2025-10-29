@@ -110,3 +110,8 @@ export interface FeatureCardProps {
   description: string;
   iconUrl: string;
 }
+
+export interface SortProps {
+  label: string;
+  param: string;
+}

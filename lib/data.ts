@@ -11,6 +11,7 @@ import {
   ReviewProps,
   SlideImageProps,
   SocialMediaProps,
+  SortProps,
   StoreLocationProps,
 } from "@/types";
 import { AiFillInstagram } from "react-icons/ai";
@@ -28,30 +29,30 @@ export const menuData: MenuItemProps[] = [
   },
   {
     title: "عمده فروشی",
-    href: "/wholesale",
+    href: "/products/wholesale/all",
     hasDropdown: true,
     children: [
       {
         title: "کیف و کفش",
-        href: "/wholesale/shoes",
+        href: "/products/wholesale/shoes",
         hasDropdown: true,
         children: [
-          { title: "کلاسیک", href: "/wholesale/shoes/classic" },
-          { title: "مجلسی", href: "/wholesale/shoes/parliamentary" },
-          { title: "ورزشی", href: "/wholesale/shoes/sports" },
+          { title: "کلاسیک", href: "/products/wholesale/shoes" },
+          { title: "مجلسی", href: "/products/wholesale/shoes" },
+          { title: "ورزشی", href: "/products/wholesale/sports" },
         ],
       },
-      { title: "پوشاک زنانه", href: "/wholesale/female-shoes" },
+      { title: "پوشاک زنانه", href: "/products/wholesale/clothing" },
     ],
   },
   {
     title: "خرده فروشی",
-    href: "/retail",
+    href: "/products/retail/all",
     hasDropdown: true,
     children: [
-      { title: "عمده فروشی", href: "/retail/wholesale" },
-      { title: "خرده فروشی", href: "/retail/retail" },
-      { title: "خدمات پس از فروش", href: "/retail/support" },
+      { title: "کفش", href: "/products/retail/shoes" },
+      { title: "پوشاک", href: "/products/retail/clothing" },
+      { title: "ورزشی", href: "/products/retail/sports" },
     ],
   },
   {
@@ -75,11 +76,11 @@ export const menuData: MenuItemProps[] = [
 export const footerLinks: FooterLinkProps[] = [
   {
     title: " عمده فروشی",
-    href: "/wholesale",
+    href: "/products/wholesale/all",
   },
   {
     title: "خرده فروشی",
-    href: "/retail",
+    href: "/products/retail/all",
   },
   {
     title: "بلاگ",
@@ -152,46 +153,62 @@ export const slideImages: SlideImageProps[] = [
   },
 ];
 
-export const productsCategory: ProductCategoryProps[] = [
+export const productCategories: ProductCategoryProps[] = [
   {
-    title: "محصولات عمده ی نو",
+    title: "محصولات عمده نو",
     imageUrl: "/images/category-1.png",
-    href: "#",
+    href: "/products/wholesale/shoes",
   },
   {
-    title: "محصولات عمده ی دست دوم",
+    title: "محصولات عمده دست دوم",
     imageUrl: "/images/category-2.png",
-    href: "#",
+    href: "/products/wholesale/clothing",
   },
   {
-    title: "محصولات عمده ی نو",
+    title: "خرده فروشی نو",
     imageUrl: "/images/category-3.png",
-    href: "#",
+    href: "/products/retail/sports",
   },
   {
-    title: "محصولات عمده ی نو",
+    title: "خرده فروشی دست دوم",
     imageUrl: "/images/category-4.png",
-    href: "#",
+    href: "/products/retails/shoes",
   },
+];
+
+export const wholesaleCategories: ProductCategoryProps[] = [
   {
-    title: "محصولات عمده ی نو",
-    imageUrl: "/images/category-4.png",
-    href: "#",
-  },
-  {
-    title: "محصولات عمده ی نو",
-    imageUrl: "/images/category-3.png",
-    href: "#",
-  },
-  {
-    title: "محصولات عمده ی دست دوم",
-    imageUrl: "/images/category-2.png",
-    href: "#",
-  },
-  {
-    title: "محصولات عمده ی نو",
+    title: "کیف و کفش",
     imageUrl: "/images/category-1.png",
-    href: "#",
+    href: "/products/wholesale/shoes",
+  },
+  {
+    title: "پوشاک",
+    imageUrl: "/images/category-2.png",
+    href: "/products/wholesale/clothing",
+  },
+  {
+    title: "ورزشی",
+    imageUrl: "/images/category-3.png",
+    href: "/products/wholesale/sports",
+  },
+];
+
+export const retailCategories: ProductCategoryProps[] = [
+  {
+    title: "کیف و کفش",
+    imageUrl: "/images/category-4.png",
+    href: "/products/retails/shoes",
+  },
+  {
+    title: "پوشاک",
+    imageUrl: "/images/category-3.png",
+    href: "/products/retails/clothing",
+  },
+  {
+    title: "ورزشی",
+    imageUrl: "/images/category-2.png",
+    href: "/products/retails/sports",
   },
 ];
 
@@ -328,6 +345,44 @@ export const sportsProducts: ProductCardProps[] = [
     backgroundColor: "#D64327",
     href: "#",
   },
+];
+
+export const wholesaleCategorySlugToProducts: Record<
+  string,
+  ProductCardProps[]
+> = {
+  shoes: shoesProducts,
+  clothing: clothingProducts,
+  sports: sportsProducts,
+};
+
+const withRetailVariant = (
+  items: ProductCardProps[],
+  variant: Partial<ProductCardProps>
+): ProductCardProps[] =>
+  items.map((p, i) => ({
+    ...p,
+    discountedPrice: p.discountedPrice ? p.discountedPrice : "۷۵ یورو",
+    backgroundColor: p.backgroundColor
+      ? p.backgroundColor
+      : i % 2 === 0
+      ? "#F7F7F7"
+      : "#EFEFEF",
+    href: p.href && p.href !== "#" ? p.href : "#",
+    ...variant,
+  }));
+
+export const retailCategorySlugToProducts: Record<string, ProductCardProps[]> =
+  {
+    shoes: withRetailVariant(shoesProducts, {}),
+    clothing: withRetailVariant(clothingProducts, {}),
+    sports: withRetailVariant(sportsProducts, {}),
+  };
+
+export const allProductsMock: ProductCardProps[] = [
+  ...shoesProducts,
+  ...clothingProducts,
+  ...sportsProducts,
 ];
 
 export const bannerImages: BannerImageProps[] = [
@@ -616,5 +671,16 @@ export const features: FeatureCardProps[] = [
     title: "پشتیبانی ممتاز",
     description: "پشتیلانی عالی و ممتاز",
     iconUrl: "/icons/feature-4.svg",
+  },
+];
+
+export const sortData: SortProps[] = [
+  {
+    label: "جدید ترین",
+    param: "newest",
+  },
+  {
+    label: "پرفروش ترین",
+    param: "bestseller",
   },
 ];
