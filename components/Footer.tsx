@@ -134,7 +134,7 @@ export default function Footer() {
                 </button>
               </form>
               {/* Social Media Icons */}
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-center gap-4 lg:justify-between">
                 {socialNetworks.map((social, idx) => (
                   <Link
                     key={idx}

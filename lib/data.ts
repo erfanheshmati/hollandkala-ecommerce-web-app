@@ -1,6 +1,7 @@
 import {
   BannerImageProps,
   BlogCardProps,
+  FeatureCardProps,
   FooterLinkProps,
   MenuItemProps,
   MobileNavItemProps,
@@ -556,8 +557,7 @@ export const storeLocations: Record<string, StoreLocationProps> = {
 export const relatedArticles: BlogCardProps[] = [
   {
     title: "ایا هلندکالا را میشناسید؟",
-    description:
-      " ایپسوم متن ساختگی با تولید سادگی نامفهوم",
+    description: " ایپسوم متن ساختگی با تولید سادگی نامفهوم",
     date: "دو روز قبل",
     likes: 330,
     comments: 121,
@@ -593,5 +593,28 @@ export const relatedArticles: BlogCardProps[] = [
     comments: 121,
     imageUrl: "/images/blog.png",
     href: "#",
+  },
+];
+
+export const features: FeatureCardProps[] = [
+  {
+    title: "ارسال رایگان",
+    description: "ارسال رایگان برای سفارشات بالای ۱۲۰ دلار",
+    iconUrl: "/icons/feature-1.svg",
+  },
+  {
+    title: "مرجوعی ۱۴ روزه",
+    description: "تا ۳۰ روز برای تعویض",
+    iconUrl: "/icons/feature-2.svg",
+  },
+  {
+    title: "پرداخت انعطاف پذیر",
+    description: "پرداخت با کارت های اعتباری مختلف",
+    iconUrl: "/icons/feature-3.svg",
+  },
+  {
+    title: "پشتیبانی ممتاز",
+    description: "پشتیلانی عالی و ممتاز",
+    iconUrl: "/icons/feature-4.svg",
   },
 ];

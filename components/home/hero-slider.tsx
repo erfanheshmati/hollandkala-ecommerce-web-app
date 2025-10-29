@@ -6,7 +6,7 @@ import { slideImages } from "@/lib/data";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
-export default function Slider() {
+export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const sliderRef = useRef<{
@@ -17,6 +17,7 @@ export default function Slider() {
   const timeoutRef = useRef<number | null>(null);
 
   const [ref] = useKeenSlider<HTMLDivElement>({
+    rtl: true,
     loop: true,
     slides: {
       perView: 1,
@@ -69,7 +70,7 @@ export default function Slider() {
       </div>
 
       {/* Dots Navigation */}
-      <div className="flex justify-center gap-2 mt-6" dir="ltr">
+      <div className="flex justify-center gap-2 mt-6">
         {slideImages.map((_, idx) => (
           <button
             key={idx}
@@ -85,10 +86,10 @@ export default function Slider() {
                 }, 4000);
               }
             }}
-            className={`h-2 rounded-full transition-all duration-300 ${
+            className={`h-2 rounded-full cursor-pointer effect ${
               idx === currentSlide
                 ? "bg-primary w-8"
-                : "bg-gray-300 hover:bg-gray-400 w-2 cursor-pointer"
+                : "bg-gray-300 hover:bg-gray-400 active:bg-gray-400 w-2"
             }`}
             aria-label={`Go to slide ${idx + 1}`}
           />

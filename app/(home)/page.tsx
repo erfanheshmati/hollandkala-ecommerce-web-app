@@ -1,8 +1,4 @@
-import Header from "@/components/header/index";
-import FeatureCard from "@/components/FeatureCard";
 import { reviewsByFilter } from "@/lib/data";
-import Footer from "@/components/footer";
-import Slider from "@/components/home/slider";
 import ProductsCategory from "@/components/home/products-category";
 import ProductSlider from "@/components/product/product-slider";
 import {
@@ -17,38 +13,14 @@ import StoreSetupBanner from "@/components/home/store-setup-banner";
 import ReviewSection from "@/components/review/review-section";
 import StoreLocation from "@/components/home/store-location";
 import RelatedArticles from "@/components/home/related-articles";
+import FeatureSection from "@/components/home/feature-section";
+import HeroSlider from "@/components/home/hero-slider";
 
 export default function HomePage() {
-  const features = [
-    {
-      title: "ارسال رایگان",
-      description: "ارسال رایگان برای سفارشات بالای ۱۲۰ دلار",
-      backgroundColor: "#E3F2FD",
-    },
-    {
-      title: "مرجوعی ۱۴ روزه",
-      description: "تا ۳۰ روز برای تعویض",
-      backgroundColor: "#FFF3E0",
-    },
-    {
-      title: "پرداخت انعطاف پذیر",
-      description: "پرداخت با کارت های اعتباری مختلف",
-      backgroundColor: "#E8F5E9",
-    },
-    {
-      title: "پشتیبانی ممتاز",
-      description: "پشتیلانی عالی و ممتاز",
-      backgroundColor: "#F3E5F5",
-    },
-  ];
-
   return (
-    <div className="container bg-background min-h-screen py-20 md:py-32">
-      {/* Header */}
-      <Header />
-
+    <div className="container bg-background min-h-screen pt-20 md:pt-32">
       {/* Hero Slider */}
-      <Slider />
+      <HeroSlider />
 
       {/* Promotional Text */}
       <PromotionalText />
@@ -133,16 +105,7 @@ export default function HomePage() {
       <RelatedArticles />
 
       {/* Features Section */}
-      <section className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
-            <FeatureCard key={index} {...feature} />
-          ))}
-        </div>
-      </section>
-
-      {/* Footer */}
-      <Footer />
+      <FeatureSection />
     </div>
   );
 }

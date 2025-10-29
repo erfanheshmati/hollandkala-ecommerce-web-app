@@ -104,3 +104,9 @@ export interface BlogCardProps {
   imageUrl?: string;
   href: string;
 }
+
+export interface FeatureCardProps {
+  title: string;
+  description: string;
+  iconUrl: string;
+}
