@@ -9,7 +9,7 @@ export default function UserButton({
     <Link
       href="/login"
       className={cn(
-        "flex items-center gap-2 truncate hover:bg-blue-50 text-primary border border-primary/20 hover:border-primary p-2.5 rounded-2xl effect",
+        "flex items-center gap-2 truncate hover:bg-blue-50 active:bg-blue-50 text-primary border border-primary/20 hover:border-primary active:border-primary p-2.5 rounded-2xl effect",
         className
       )}
     >
