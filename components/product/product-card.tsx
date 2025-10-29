@@ -35,7 +35,7 @@ export default function ProductCard({
         style={{ backgroundColor }}
       >
         {imageUrl && (
-          <Link href={href} className="relative block w-full h-full">
+          <Link href={href} className="relative block w-full h-full rounded-xl hover:opacity-80 active:opacity-80 effect">
             <Image
               src={imageUrl}
               alt={title}
@@ -68,7 +68,7 @@ export default function ProductCard({
       <div className="p-4">
         <Link
           href={href}
-          className="text-base md:text-xl font-medium text-foreground line-clamp-1"
+          className="text-base md:text-xl font-medium text-foreground line-clamp-1 hover:text-primary active:text-primary effect"
         >
           {title}
         </Link>

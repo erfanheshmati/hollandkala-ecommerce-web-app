@@ -16,6 +16,7 @@ import BannerImage from "@/components/home/banner-image";
 import StoreSetupBanner from "@/components/home/store-setup-banner";
 import ReviewSection from "@/components/review/review-section";
 import StoreLocation from "@/components/home/store-location";
+import RelatedArticles from "@/components/home/related-articles";
 
 export default function HomePage() {
   const features = [
@@ -69,6 +70,7 @@ export default function HomePage() {
         title="کفش اسپرت و کتانی"
         products={shoesProducts}
         backgroundColor="#F0F5F9"
+        href="#"
       />
 
       {/* Mobile Promotional Banner */}
@@ -94,6 +96,7 @@ export default function HomePage() {
         title="پوشاک"
         products={clothingProducts}
         backgroundColor="#E2DEDD"
+        href="#"
       />
 
       {/* Mobile Promotional Banner */}
@@ -110,6 +113,7 @@ export default function HomePage() {
         title="محصولات ورزشی"
         products={sportsProducts}
         backgroundColor="#D64327"
+        href="#"
       />
 
       {/* Store Setup Banner */}
@@ -124,6 +128,9 @@ export default function HomePage() {
 
       {/* Store Location */}
       <StoreLocation />
+
+      {/* Related Articles */}
+      <RelatedArticles />
 
       {/* Features Section */}
       <section className="container mx-auto px-4 py-8">

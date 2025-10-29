@@ -557,6 +557,36 @@ export const relatedArticles: BlogCardProps[] = [
   {
     title: "ایا هلندکالا را میشناسید؟",
     description:
+      " ایپسوم متن ساختگی با تولید سادگی نامفهوم",
+    date: "دو روز قبل",
+    likes: 330,
+    comments: 121,
+    imageUrl: "/images/blog.png",
+    href: "#",
+  },
+  {
+    title: "ایا هلندکالا را میشناسید؟",
+    description:
+      "ایپسوم متن ساختگی با تولید سادگی نامفهوم ایپسوم متن ساختگی با تولید سادگی نامفهوم",
+    date: "دو روز قبل",
+    likes: 330,
+    comments: 121,
+    imageUrl: "/images/blog.png",
+    href: "#",
+  },
+  {
+    title: "ایا هلندکالا را میشناسید؟",
+    description:
+      "ایپسوم متن ساختگی با تولید سادگی نامفهوم ایپسوم متن ساختگی با تولید سادگی نامفهوم",
+    date: "دو روز قبل",
+    likes: 330,
+    comments: 121,
+    imageUrl: "/images/blog.png",
+    href: "#",
+  },
+  {
+    title: "ایا هلندکالا را میشناسید؟",
+    description:
       "ایپسوم متن ساختگی با تولید سادگی نامفهوم ایپسوم متن ساختگی با تولید سادگی نامفهوم",
     date: "دو روز قبل",
     likes: 330,
