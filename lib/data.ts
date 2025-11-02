@@ -1,6 +1,6 @@
 import {
   BannerImageProps,
-  BlogCardProps,
+  BlogProps,
   FeatureCardProps,
   FooterLinkProps,
   MenuItemProps,
@@ -1075,8 +1075,9 @@ export const storeLocations: Record<string, StoreLocationProps> = {
   },
 };
 
-export const relatedArticles: BlogCardProps[] = [
+export const relatedArticles: BlogProps[] = [
   {
+    slug: 'herh45h6gsfhhfyh',
     title: 'ایا هلندکالا را میشناسید؟',
     description: ' ایپسوم متن ساختگی با تولید سادگی نامفهوم',
     date: 'دو روز قبل',
@@ -1086,6 +1087,7 @@ export const relatedArticles: BlogCardProps[] = [
     href: '#',
   },
   {
+    slug: 'herh45h6gdfhhfyh',
     title: 'ایا هلندکالا را میشناسید؟',
     description:
       'ایپسوم متن ساختگی با تولید سادگی نامفهوم ایپسوم متن ساختگی با تولید سادگی نامفهوم',
@@ -1096,6 +1098,7 @@ export const relatedArticles: BlogCardProps[] = [
     href: '#',
   },
   {
+    slug: 'herh45h6t44hhfyh',
     title: 'ایا هلندکالا را میشناسید؟',
     description:
       'ایپسوم متن ساختگی با تولید سادگی نامفهوم ایپسوم متن ساختگی با تولید سادگی نامفهوم',
@@ -1106,6 +1109,7 @@ export const relatedArticles: BlogCardProps[] = [
     href: '#',
   },
   {
+    slug: 'herh45h6fdsfhhfyh',
     title: 'ایا هلندکالا را میشناسید؟',
     description:
       'ایپسوم متن ساختگی با تولید سادگی نامفهوم ایپسوم متن ساختگی با تولید سادگی نامفهوم',

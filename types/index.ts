@@ -132,13 +132,14 @@ export interface StoreLocationProps {
   closedDays: string[];
 }
 
-export interface BlogCardProps {
+export interface BlogProps {
+  slug: string;
   title: string;
   description: string;
   date: string;
   likes: number;
   comments: number;
-  imageUrl?: string;
+  imageUrl: string;
   href: string;
 }
 
