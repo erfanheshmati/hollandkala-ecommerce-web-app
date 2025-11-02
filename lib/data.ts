@@ -124,7 +124,7 @@ export const mobileNavItems: MobileNavItemProps[] = [
     icon: TbSmartHome,
   },
   {
-    href: '/favorite',
+    href: '/favorites',
     label: 'علاقه مندی',
     icon: PiHeart,
   },

@@ -1,92 +1,94 @@
-"use client";
+'use client';
 
-import { ProductProps } from "@/types";
-import { Heart } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
-import { BsCart2 } from "react-icons/bs";
-import { toPersianDigits } from "@/lib/utils";
+import { ProductProps } from '@/types';
+import { Heart } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { BsCart2 } from 'react-icons/bs';
+import { toPersianDigits } from '@/lib/utils';
 
 type ProductCardComponentProps =
   | ProductProps
   | {
       product: ProductProps;
+      isFavorite?: boolean;
     };
 
 export default function ProductCard(props: ProductCardComponentProps) {
-  const product = "slug" in props ? props : props.product;
-  const [isFavorite, setIsFavorite] = useState(false);
+  const product = 'slug' in props ? props : props.product;
+  const propIsFavorite = 'product' in props ? props.isFavorite : undefined;
+  const [isFavorite, setIsFavorite] = useState(propIsFavorite ?? false);
   const pathname = usePathname();
-  const routesWithSecondaryBg = ["/products", "/favorites"];
+  const routesWithSecondaryBg = ['/products', '/favorites'];
   const shouldUseSecondaryBg = routesWithSecondaryBg.some((route) =>
     pathname.includes(route)
   );
 
   const badgeColorClasses: Record<string, string> = {
-    "تعداد عمده": "bg-primary/10 text-primary",
-    "ورزشکاران حرفه ای": "bg-[#E1324E]/10 text-[#E1324E]",
+    'تعداد عمده': 'bg-primary/10 text-primary',
+    'ورزشکاران حرفه ای': 'bg-[#E1324E]/10 text-[#E1324E]',
   };
 
   const getBadgeClasses = (label: string) =>
-    badgeColorClasses[label] ?? "bg-blue-100 text-blue-600";
+    badgeColorClasses[label] ?? 'bg-blue-100 text-blue-600';
 
   return (
     <div
       className={`${
-        shouldUseSecondaryBg ? "bg-secondary" : "bg-background"
+        shouldUseSecondaryBg ? 'bg-secondary' : 'bg-background'
       } rounded-xl overflow-hidden p-1`}
     >
       {/* Product Image */}
       <div
-        className="w-full h-40 md:h-56 rounded-xl relative"
+        className='w-full h-40 md:h-56 rounded-xl relative'
         // style={{ backgroundColor }}
       >
         <Link
           href={`/product/${product.slug}`}
-          className="relative block w-full h-full rounded-xl hover:opacity-80 active:opacity-80 effect"
-          target="_blank"
+          className='relative block w-full h-full rounded-xl hover:opacity-80 active:opacity-80 effect'
+          target='_blank'
         >
           <Image
-            src={product.imageUrl ?? ""}
+            src={product.imageUrl ?? ''}
             alt={product.title}
             fill
-            sizes="(min-width: 1024px) 100vw, 100vw"
-            className="object-cover rounded-xl"
+            sizes='(min-width: 1024px) 100vw, 100vw'
+            className='object-cover rounded-xl'
           />
         </Link>
         {/* Discount Percentage */}
         {product.discountPercentage && (
-          <div className="absolute top-2 left-0 bg-red-500 text-background px-2 pt-1 rounded-r-lg text-sm md:text-xl font-medium">
+          <div className='absolute top-2 left-0 bg-red-500 text-background px-2 pt-1 rounded-r-lg text-sm md:text-xl font-medium'>
             {toPersianDigits(product.discountPercentage)}%
           </div>
         )}
         {/* Favorite Icon */}
         <button
           onClick={() => setIsFavorite(!isFavorite)}
-          className="absolute top-2 right-2 bg-background hover:bg-background/90 rounded-xl p-2 cursor-pointer effect"
+          className='absolute top-2 right-2 bg-background hover:bg-background/90 rounded-xl p-2 cursor-pointer effect'
         >
           <Heart
             className={`w-4 h-4 md:w-5 md:h-5 ${
-              isFavorite ? "fill-red-500 text-red-500" : "text-gray-500"
+              isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-500'
             }`}
           />
         </button>
       </div>
 
       {/* Product Info */}
-      <div className="p-4">
+      <div className='p-4'>
         <Link
           href={`/product/${product.slug}`}
-          className="text-base md:text-xl font-medium text-foreground line-clamp-1 hover:text-primary active:text-primary effect"
-          target="_blank"
+          className='text-base md:text-xl font-medium text-foreground line-clamp-1 hover:text-primary active:text-primary effect'
+          target='_blank'
         >
           {product.title}
         </Link>
 
         {/* Badges */}
-        <div className="flex gap-2 mt-1">
+        <div className='flex gap-2 mt-1'>
           {product.badges?.map((badge, index) => (
             <span
               key={index}
@@ -100,24 +102,24 @@ export default function ProductCard(props: ProductCardComponentProps) {
         </div>
 
         {/* Price */}
-        <div className="flex items-center justify-between mt-3">
-          <div className="flex items-center gap-2">
+        <div className='flex items-center justify-between mt-3'>
+          <div className='flex items-center gap-2'>
             {product.originalPrice && (
-              <span className="text-foreground/55 text-sm md:text-base line-through">
+              <span className='text-foreground/55 text-sm md:text-base line-through'>
                 {toPersianDigits(product.originalPrice)} یورو
               </span>
             )}
             <span
               className={`text-xl md:text-2xl font-medium ${
                 product.originalPrice?.trim()
-                  ? "text-red-500"
-                  : "text-foreground"
+                  ? 'text-red-500'
+                  : 'text-foreground'
               }`}
             >
               {toPersianDigits(product.discountedPrice)} یورو
             </span>
           </div>
-          <button className="btn-primary p-3 rounded-2xl">
+          <button className='btn-primary p-3 rounded-2xl'>
             <BsCart2 size={24} />
           </button>
         </div>
