@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState, useEffect, useRef, startTransition } from "react";
-import { createPortal } from "react-dom";
-import Link from "next/link";
-import { ChevronLeft, Menu as MenuIcon, X } from "lucide-react";
-import { menuData } from "@/lib/data";
-import { MenuItemChildProps, MenuItemProps } from "@/types";
-import UserButton from "./user-button";
+import { useState, useEffect, useRef, startTransition } from 'react';
+import { createPortal } from 'react-dom';
+import Link from 'next/link';
+import { ChevronLeft, Menu as MenuIcon, X } from 'lucide-react';
+import { menuData } from '@/lib/data';
+import { MenuItemChildProps, MenuItemProps } from '@/types';
+import UserButton from './user-button';
 
 export default function MobileMenu() {
   const [mounted, setMounted] = useState(false);
@@ -45,20 +45,20 @@ export default function MobileMenu() {
   // Disable background scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     }
 
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     };
   }, [isMobileMenuOpen]);
 
   const mobileOverlay = (
     <div
       className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
-        isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
       onClick={() => setIsMobileMenuOpen(false)}
     />
@@ -79,13 +79,13 @@ export default function MobileMenu() {
         : openMobileSubmenu === submenuKey;
 
     return (
-      <div key={index} className="mx-4">
+      <div key={index} className='mx-4'>
         {item.hasDropdown ? (
           <div
             className={`${
               isDropdownOpen && level === 0
-                ? "border border-foreground/22 rounded-2xl"
-                : ""
+                ? 'border border-foreground/22 rounded-2xl'
+                : ''
             }`}
           >
             <button
@@ -97,14 +97,14 @@ export default function MobileMenu() {
                 }
               }}
               className={`flex items-center justify-between w-full rounded-lg p-4 text-foreground transition-colors cursor-pointer ${
-                isDropdownOpen ? "font-bold" : ""
+                isDropdownOpen ? 'font-bold' : ''
               } `}
             >
-              <span className="text-lg">{item.title}</span>
+              <span className='text-lg'>{item.title}</span>
               <ChevronLeft
                 size={20}
                 className={`transition-transform duration-300 ${
-                  isDropdownOpen ? "-rotate-90" : ""
+                  isDropdownOpen ? '-rotate-90' : ''
                 }`}
               />
             </button>
@@ -112,11 +112,11 @@ export default function MobileMenu() {
             {isDropdownOpen && item.children && (
               <div
                 className={`overflow-hidden transition-all duration-300 ${
-                  isDropdownOpen ? "max-h-[1000px]" : "max-h-0"
+                  isDropdownOpen ? 'max-h-[1000px]' : 'max-h-0'
                 }`}
               >
                 <div
-                  className={`${level > 0 ? "bg-[#f5f5f5] rounded-xl" : ""}`}
+                  className={`${level > 0 ? 'bg-[#f5f5f5] rounded-xl' : ''}`}
                 >
                   {item.children.map(
                     (child: MenuItemChildProps, childIndex: number) =>
@@ -131,7 +131,7 @@ export default function MobileMenu() {
                             setOpenMobileDropdown(null);
                             setOpenMobileSubmenu(null);
                           }}
-                          className="block p-4 mx-2 text-foreground transition-colors rounded-lg"
+                          className='block p-4 mx-2 text-foreground transition-colors rounded-lg'
                         >
                           {child.title}
                         </Link>
@@ -149,9 +149,9 @@ export default function MobileMenu() {
               setOpenMobileDropdown(null);
               setOpenMobileSubmenu(null);
             }}
-            className="block p-4 text-foreground active:text-white active:bg-primary rounded-2xl transition-colors"
+            className='block p-4 text-foreground active:text-white active:bg-primary rounded-2xl transition-colors'
           >
-            <span className="text-lg">{item.title}</span>
+            <span className='text-lg'>{item.title}</span>
           </Link>
         )}
       </div>
@@ -165,44 +165,54 @@ export default function MobileMenu() {
 
       {/* Mobile Menu Button */}
       {!isMobileMenuOpen && (
-        <div className="flex items-center gap-2 md:hidden">
+        <div className='flex items-center gap-2 md:hidden'>
           <button
             onClick={toggleMobileMenu}
-            className="p-2.5 rounded-xl border border-primary"
-            aria-label="Toggle menu"
+            className='p-2.5 rounded-xl border border-primary bg-background'
+            aria-label='Toggle menu'
           >
-            <MenuIcon size={24} className="text-primary" />
+            <MenuIcon size={24} className='text-primary' />
           </button>
-          <span className="text-primary text-sm font-medium">منو</span>
+          <span className='text-primary text-sm font-medium'>منو</span>
         </div>
       )}
 
       {/* Mobile Menu */}
       <div
         ref={mobileMenuRef}
-        className={`md:hidden fixed top-0 right-0 h-screen w-80 max-w-[70vw] bg-white z-50 transform transition-transform duration-300 ease-in-out ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        // className={`md:hidden fixed top-0 right-0 h-screen overflow-y-auto w-80 max-w-[70vw] bg-background z-50 effect ${
+        className={`md:hidden fixed top-0 right-0 h-screen overflow-y-auto w-full bg-background z-50 effect ${
+          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex flex-col gap-4">
+        <div className='flex flex-col gap-4'>
           {/* Mobile Menu Close Button */}
-          <div className="flex p-4">
+          <div className='flex items-center justify-between p-4'>
+            <div className='flex items-center gap-2 md:hidden'>
+              <button
+                className='p-2.5 rounded-xl border border-primary bg-primary'
+                aria-label='Toggle menu'
+              >
+                <MenuIcon size={24} className='text-background' />
+              </button>
+              <span className='text-primary text-sm font-medium'>منو</span>
+            </div>
             <button
               onClick={toggleMobileMenu}
-              className="p-2.5 rounded-xl bg-white text-primary border border-primary"
-              aria-label="Close menu"
+              className='p-2.5 rounded-xl bg-background text-primary border border-primary'
+              aria-label='Close menu'
             >
-              <X size={26} />
+              <X size={24} />
             </button>
           </div>
 
-          {/* Mobile Menu Header */}
-          <div className="flex px-4">
-            <UserButton className="w-full justify-center" />
+          {/* Mobile Menu User Btn */}
+          <div className='flex px-4'>
+            <UserButton className='w-full justify-center' />
           </div>
 
           {/* Mobile Menu Items */}
-          <nav className="flex-1 h-full overflow-y-auto py-4">
+          <nav className='flex-1 h-full overflow-y-auto py-4'>
             {menuData.map((item, index) => renderMobileMenuItem(item, index))}
           </nav>
         </div>
