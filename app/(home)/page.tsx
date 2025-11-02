@@ -42,7 +42,7 @@ export default function HomePage() {
         title="کفش اسپرت و کتانی"
         products={shoesProducts}
         backgroundColor="#F0F5F9"
-        href="#"
+        href={`/products/retail/all`}
       />
 
       {/* Mobile Promotional Banner */}
@@ -68,7 +68,7 @@ export default function HomePage() {
         title="پوشاک"
         products={clothingProducts}
         backgroundColor="#E2DEDD"
-        href="#"
+        href={`/products/wholesale/all`}
       />
 
       {/* Mobile Promotional Banner */}
@@ -85,7 +85,7 @@ export default function HomePage() {
         title="محصولات ورزشی"
         products={sportsProducts}
         backgroundColor="#D64327"
-        href="#"
+        href={`/products/wholesale/all`}
       />
 
       {/* Store Setup Banner */}

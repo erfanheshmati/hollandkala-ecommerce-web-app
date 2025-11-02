@@ -73,6 +73,7 @@ export default function PromotionalPopup() {
           alt=""
           width={176}
           height={176}
+          sizes="176px"
           className="absolute -top-28 -left-14 w-[176px] h-[176px] opacity-40"
         />
         <Image
@@ -80,6 +81,7 @@ export default function PromotionalPopup() {
           alt=""
           width={183}
           height={183}
+          sizes="183px"
           className="absolute -bottom-20 -right-20 w-[183px] h-[183px] opacity-43"
         />
 
@@ -110,6 +112,7 @@ export default function PromotionalPopup() {
               src="/images/product-illustration.svg"
               alt="Product illustration"
               fill
+              sizes="200px"
               className="w-full h-auto object-cover"
             />
           </div>

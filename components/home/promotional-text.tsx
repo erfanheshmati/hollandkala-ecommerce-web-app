@@ -30,11 +30,12 @@ export default function PromotionalText() {
                   <div className="flex items-center gap-3">
                     <Link
                       href={text.href}
-                      className="text-foreground/66 hover:text-foreground effect"
+                      className="text-foreground/66 hover:text-foreground active:text-foreground effect"
                     >
                       {text.title}
                     </Link>
                   </div>
+                  {/* Separator */}
                   {idx !== promotionalText.length - 1 && (
                     <ChevronLeft size={20} className="text-primary" />
                   )}

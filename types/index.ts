@@ -1,4 +1,4 @@
-import { IconType } from "react-icons";
+import { IconType } from 'react-icons';
 
 export interface MenuItemChildProps {
   title: string;
@@ -41,20 +41,49 @@ export interface ProductCategoryProps {
   href: string;
 }
 
-export interface ProductCardProps {
+interface PriceComparisonProps {
   title: string;
-  discountedPrice?: string;
+  price: string;
+  href: string;
+}
+
+export interface ProductProps {
+  slug: string;
+  code?: number;
+  barcode?: string;
+  title: string;
+  enTitle?: string;
+  description?: string;
   originalPrice?: string;
-  discount?: string;
+  discountedPrice?: string;
+  discountPercentage?: string;
+  purchaseMode?: string;
+  retailPrice?: string;
+  wholesalePrice?: string;
+  priceComparison?: PriceComparisonProps[];
   badges?: string[];
   imageUrl?: string;
+  gallery?: string[];
   backgroundColor?: string;
-  href: string;
+  href?: string;
+  rating?: number;
+  comment?: number;
+  stock?: number;
+  availability?: boolean;
+  reviews?: ReviewProps[];
+  tags?: string[];
+  colors?: string[];
+  sizes?: string[];
+  gifts: string[];
+  materials?: string;
+  dimensions?: string;
+  weight?: string;
+  type?: string;
 }
 
 export interface ProductSliderProps {
   title: string;
-  products: ProductCardProps[];
+  products: ProductProps[];
   backgroundColor?: string;
   href: string;
 }
@@ -70,12 +99,20 @@ export interface PromotionalTextProps {
   href: string;
 }
 
-export interface ReviewProps {
+export interface ReviewReplyProps {
   name: string;
   avatarUrl?: string;
+  text: string;
+}
+
+export interface ReviewProps {
+  name: string;
+  avatarUrl: string;
   comment: string;
-  badges: string[];
-  images: string[];
+  rating?: number;
+  badges?: string[];
+  images?: string[];
+  reply?: ReviewReplyProps;
 }
 
 export interface ReviewSectionProps {

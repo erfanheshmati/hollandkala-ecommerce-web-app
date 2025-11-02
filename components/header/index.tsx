@@ -61,6 +61,7 @@ export default function Header() {
               <Favorite />
               <Cart />
               <LanguageSwitcher />
+              {/* Separator */}
               <div className="hidden md:block h-8 w-px bg-gray-300"></div>
               <UserButton className="hidden md:flex" />
             </div>

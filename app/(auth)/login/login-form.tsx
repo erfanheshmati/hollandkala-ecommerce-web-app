@@ -62,7 +62,7 @@ export default function LoginForm({ onFormSubmit }: LoginFormProps) {
               setPhoneInput(false);
               setEmailInput(true);
             }}
-            className="btn-foreground text-xl font-medium"
+            className="btn-secondary text-xl font-medium"
           >
             ورود با ایمیل
           </button>
@@ -73,7 +73,7 @@ export default function LoginForm({ onFormSubmit }: LoginFormProps) {
               setPhoneInput(true);
               setEmailInput(false);
             }}
-            className="btn-foreground text-xl font-medium"
+            className="btn-secondary text-xl font-medium"
           >
             ورود با شماره تلفن
           </button>

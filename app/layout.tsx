@@ -4,6 +4,7 @@ import "../styles/globals.css";
 import "../styles/custom.css";
 import MobileBottomNav from "@/components/mobile-bottom-nav";
 import PromotionalPopup from "@/components/promotional-popup";
+import { Suspense } from "react";
 
 const yekanBakh = localFont({
   src: [
@@ -67,9 +68,15 @@ export default function AppLayout({
         suppressHydrationWarning
         className={`${yekanBakh.variable} antialiased`}
       >
-        <div className="pb-20 md:pb-0">{children}</div>
-        <MobileBottomNav />
-        <PromotionalPopup />
+        <Suspense fallback={null}>
+          <div className="pb-20 md:pb-0">{children}</div>
+        </Suspense>
+        <Suspense fallback={null}>
+          <MobileBottomNav />
+        </Suspense>
+        <Suspense fallback={null}>
+          <PromotionalPopup />
+        </Suspense>
       </body>
     </html>
   );

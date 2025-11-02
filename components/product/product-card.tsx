@@ -1,23 +1,22 @@
 "use client";
 
-import { ProductCardProps } from "@/types";
+import { ProductProps } from "@/types";
 import { Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { BsCart2 } from "react-icons/bs";
+import { toPersianDigits } from "@/lib/utils";
 
-export default function ProductCard({
-  title,
-  discountedPrice,
-  originalPrice,
-  discount,
-  badges = [],
-  imageUrl,
-  // backgroundColor,
-  href,
-}: ProductCardProps) {
+type ProductCardComponentProps =
+  | ProductProps
+  | {
+      product: ProductProps;
+    };
+
+export default function ProductCard(props: ProductCardComponentProps) {
+  const product = "slug" in props ? props : props.product;
   const [isFavorite, setIsFavorite] = useState(false);
   const pathname = usePathname();
   const routesWithSecondaryBg = ["/products", "/favorites"];
@@ -44,24 +43,23 @@ export default function ProductCard({
         className="w-full h-40 md:h-56 rounded-xl relative"
         // style={{ backgroundColor }}
       >
-        {imageUrl && (
-          <Link
-            href={href}
-            className="relative block w-full h-full rounded-xl hover:opacity-80 active:opacity-80 effect"
-          >
-            <Image
-              src={imageUrl}
-              alt={title}
-              fill
-              sizes="(min-width: 1024px) 100vw, 100vw"
-              className="object-cover rounded-xl"
-            />
-          </Link>
-        )}
+        <Link
+          href={`/product/${product.slug}`}
+          className="relative block w-full h-full rounded-xl hover:opacity-80 active:opacity-80 effect"
+          target="_blank"
+        >
+          <Image
+            src={product.imageUrl ?? ""}
+            alt={product.title}
+            fill
+            sizes="(min-width: 1024px) 100vw, 100vw"
+            className="object-cover rounded-xl"
+          />
+        </Link>
         {/* Discount Percentage */}
-        {discount && (
+        {product.discountPercentage && (
           <div className="absolute top-2 left-0 bg-red-500 text-background px-2 pt-1 rounded-r-lg text-sm md:text-xl font-medium">
-            {discount}
+            {toPersianDigits(product.discountPercentage)}%
           </div>
         )}
         {/* Favorite Icon */}
@@ -80,15 +78,16 @@ export default function ProductCard({
       {/* Product Info */}
       <div className="p-4">
         <Link
-          href={href}
+          href={`/product/${product.slug}`}
           className="text-base md:text-xl font-medium text-foreground line-clamp-1 hover:text-primary active:text-primary effect"
+          target="_blank"
         >
-          {title}
+          {product.title}
         </Link>
 
         {/* Badges */}
         <div className="flex gap-2 mt-1">
-          {badges.map((badge, index) => (
+          {product.badges?.map((badge, index) => (
             <span
               key={index}
               className={`${getBadgeClasses(
@@ -103,17 +102,19 @@ export default function ProductCard({
         {/* Price */}
         <div className="flex items-center justify-between mt-3">
           <div className="flex items-center gap-2">
-            {originalPrice && (
+            {product.originalPrice && (
               <span className="text-foreground/55 text-sm md:text-base line-through">
-                {originalPrice}
+                {toPersianDigits(product.originalPrice)} یورو
               </span>
             )}
             <span
               className={`text-xl md:text-2xl font-medium ${
-                originalPrice?.trim() ? "text-red-500" : "text-foreground"
+                product.originalPrice?.trim()
+                  ? "text-red-500"
+                  : "text-foreground"
               }`}
             >
-              {discountedPrice}
+              {toPersianDigits(product.discountedPrice)} یورو
             </span>
           </div>
           <button className="btn-primary p-3 rounded-2xl">

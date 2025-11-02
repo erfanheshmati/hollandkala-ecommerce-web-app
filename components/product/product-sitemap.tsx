@@ -14,12 +14,12 @@ export default function ProductSitemap({ items = [] as Crumb[] }) {
             {item.href ? (
               <Link
                 href={item.href}
-                className="text-foreground hover:text-black active:text-black cursor-pointer effect"
+                className="text-sm text-foreground hover:text-black active:text-black cursor-pointer effect line-clamp-1"
               >
                 {item.label}
               </Link>
             ) : (
-              <span className="text-foreground hover:text-black active:text-black cursor-pointer effect">
+              <span className="text-sm font-medium text-foreground hover:text-black active:text-black cursor-pointer effect line-clamp-1">
                 {item.label}
               </span>
             )}
