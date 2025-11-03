@@ -93,7 +93,7 @@ export default function ContactInfo() {
       {/* Map */}
       <Link
         href='#'
-        className='relative rounded-2xl w-full lg:w-1/2 h-52 md:h-80 bg-red-200'
+        className='relative rounded-2xl w-full lg:w-1/2 h-52 md:h-80'
       >
         <Image
           src='/images/map.svg'

@@ -1,21 +1,24 @@
-"use client";
+'use client';
 
-import { useMemo, useState } from "react";
-import { ReviewSectionProps } from "@/types";
-import "keen-slider/keen-slider.min.css";
-
-import ReviewSlider from "./review-slider";
-import Link from "next/link";
+import { useMemo, useState } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { ReviewSectionProps } from '@/types';
+import ReviewSlider from './review-slider';
+import Link from 'next/link';
+import ReviewCard from '@/components/review/review-card';
+import Pagination from '@/components/shared/pagination';
 
 export default function ReviewSection({
-  title = "نظرات کاربران",
+  title = 'نظرات کاربران',
   subtitle = 'بخشی از درآمد "هلند کالا" صرف امور خیریه می شود',
   reviews,
   filters,
   dataByFilter,
 }: ReviewSectionProps) {
+  const pathname = usePathname();
+
   const [activeFilter, setActiveFilter] = useState<string>(
-    filters?.[0] ?? (dataByFilter ? Object.keys(dataByFilter)[0] : "همه")
+    filters?.[0] ?? (dataByFilter ? Object.keys(dataByFilter)[0] : 'همه')
   );
 
   const derivedFilters = useMemo(() => {
@@ -23,44 +26,67 @@ export default function ReviewSection({
       if (filters && filters.length > 0) return [...filters];
       return Object.keys(dataByFilter);
     }
-    if (filters && filters.length > 0) return ["همه", ...filters];
+    if (filters && filters.length > 0) return ['همه', ...filters];
     const set = new Set<string>();
     reviews.forEach((r) => r.badges?.forEach((c) => set.add(c)));
-    return ["همه", ...Array.from(set)];
+    return ['همه', ...Array.from(set)];
   }, [filters, reviews, dataByFilter]);
 
   const visibleReviews = useMemo(() => {
     if (dataByFilter) {
       return dataByFilter[activeFilter] ?? [];
     }
-    if (activeFilter === "همه") return reviews;
+    if (activeFilter === 'همه') return reviews;
     return reviews.filter((r) => r.badges?.includes(activeFilter));
   }, [reviews, activeFilter, dataByFilter]);
 
+  // Pagination
+  const pageSize = 12;
+  const searchParams = useSearchParams();
+  const currentPage = useMemo(() => {
+    const raw = Number(searchParams.get('page') || '1');
+    return Number.isFinite(raw) && raw > 0 ? raw : 1;
+  }, [searchParams]);
+
+  const totalPages = useMemo(
+    () => Math.max(1, Math.ceil(visibleReviews.length / pageSize)),
+    [visibleReviews]
+  );
+
+  const safePage = useMemo(
+    () => Math.min(currentPage, totalPages),
+    [currentPage, totalPages]
+  );
+
+  const paginatedReviews = useMemo(() => {
+    const start = (safePage - 1) * pageSize;
+    return visibleReviews.slice(start, start + pageSize);
+  }, [visibleReviews, safePage]);
+
   return (
-    <section className="flex flex-col gap-4 my-8 md:my-12 -mx-4 md:mx-0">
+    <section className='flex flex-col gap-4 my-8 md:my-12 -mx-4 md:mx-0'>
       {/* Header */}
-      <div className="flex flex-col items-center gap-1">
-        <h2 className="text-xl md:text-2xl font-bold text-foreground">
+      <div className='flex flex-col items-center gap-1'>
+        <h2 className='text-xl md:text-2xl font-bold text-foreground'>
           {title}
         </h2>
         {subtitle ? (
-          <p className="text-foreground/66 font-medium text-base md:text-lg">
+          <p className='text-foreground/66 font-medium text-base md:text-lg'>
             {subtitle}
           </p>
         ) : null}
       </div>
 
       {/* Navbar */}
-      <div className="flex gap-4 w-fit mx-auto bg-secondary p-2 rounded-3xl">
+      <div className='flex gap-4 w-fit mx-auto bg-secondary p-2 rounded-3xl'>
         {derivedFilters.map((f) => (
           <button
             key={f}
             onClick={() => setActiveFilter(f)}
             className={`px-6 md:px-8 py-2 rounded-full cursor-pointer effect ${
               f === activeFilter
-                ? "bg-primary text-background"
-                : "hover:bg-foreground/5"
+                ? 'bg-primary text-background'
+                : 'hover:bg-foreground/5'
             }`}
           >
             {f}
@@ -68,16 +94,36 @@ export default function ReviewSection({
         ))}
       </div>
 
-      {/* Review Slider */}
-      <ReviewSlider reviews={visibleReviews} />
+      {/* Show in home page */}
+      {pathname === '/' && (
+        <>
+          {/* Reviews Slider */}
+          <ReviewSlider reviews={visibleReviews} />
+          {/* Link to see all */}
+          <Link
+            href='/reviews'
+            className='btn-primary w-fit mx-auto rounded-xl font-medium text-sm md:text-base px-8 py-3 mt-2'
+          >
+            مشاهده همه
+          </Link>
+        </>
+      )}
 
-      {/* Link to see all */}
-      <Link
-        href="/reviews"
-        className="btn-primary w-fit mx-auto rounded-xl font-medium text-sm md:text-base px-8 py-3 mt-2"
-      >
-        مشاهده همه
-      </Link>
+      {/* Show in reviews page */}
+      {pathname === '/reviews' && (
+        <div className='container flex flex-col gap-8 md:gap-12 pt-4'>
+          {/* Reviews Grid */}
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
+            {paginatedReviews.map((review, idx) => (
+              <ReviewCard key={`${review.name}-${idx}`} {...review} />
+            ))}
+          </div>
+          {/* Pagination */}
+          <div>
+            <Pagination totalItems={visibleReviews.length} perPage={4} />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
