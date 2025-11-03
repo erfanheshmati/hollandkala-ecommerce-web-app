@@ -70,6 +70,9 @@ body {
   .btn-tertiary {
     @apply bg-secondary hover:bg-foreground/10 active:bg-foreground/10 text-foreground p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;
   }
+  .btn-accent {
+    @apply bg-green-600 hover:bg-green-700 active:bg-green-700 disabled:bg-secondary text-background disabled:text-foreground/40 border disabled:border-foreground/10 p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;
+  }
   .input {
     @apply bg-secondary text-primary placeholder:text-foreground/40 rounded-3xl p-4 outline-none border border-transparent focus:border-primary transition-all ease-in-out duration-300;
   }

@@ -171,3 +171,13 @@ export interface LikeButtonProps {
   initialLikes: number;
   onSubmitLike?: (blogId: string) => Promise<void> | void;
 }
+
+export interface CartProps {
+  id: string;
+  title: string;
+  code: string;
+  price: number;
+  quantity: number;
+  date: string;
+  image: string;
+}

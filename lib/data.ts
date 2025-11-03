@@ -13,6 +13,7 @@ import {
   SocialMediaProps,
   SortProps,
   StoreLocationProps,
+  CartProps,
 } from '@/types';
 import { AiFillInstagram } from 'react-icons/ai';
 import { BsTwitter } from 'react-icons/bs';
@@ -1203,5 +1204,44 @@ export const sortData: SortProps[] = [
   {
     label: 'پرفروش ترین',
     param: 'bestseller',
+  },
+];
+
+export const cartItems: CartProps[] = [
+  {
+    id: '1',
+    title: 'محصول نمونه ۱',
+    code: '543565',
+    price: 35,
+    quantity: 1,
+    date: '۰۴/۲/۲',
+    image: '/images/slide-1.jpg',
+  },
+  {
+    id: '2',
+    title: 'محصول نمونه ۲',
+    code: '354466',
+    price: 22,
+    quantity: 2,
+    date: '۰۴/۲/۲',
+    image: '',
+  },
+  {
+    id: '3',
+    title: 'محصول نمونه ۲',
+    code: '456565',
+    price: 22,
+    quantity: 3,
+    date: '۰۴/۲/۲',
+    image: '/images/slide-1.jpg',
+  },
+  {
+    id: '4',
+    title: 'محصول نمونه ۲',
+    code: '534535',
+    price: 22,
+    quantity: 4,
+    date: '۰۴/۲/۲',
+    image: '/images/slide-1.jpg',
   },
 ];
