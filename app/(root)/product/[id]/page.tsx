@@ -1,4 +1,4 @@
-import Breadcrumb from '@/components/breadcrumb';
+import Breadcrumb from '@/components/shared/breadcrumb';
 import ProductSlider from '@/components/product/product-slider';
 import ProductGallery from '@/components/product/product-gallery';
 import ProductInfo from '@/components/product/product-info';

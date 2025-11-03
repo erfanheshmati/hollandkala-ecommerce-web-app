@@ -1,5 +1,5 @@
 import BlogCard from '@/components/blog/blog-card';
-import Pagination from '@/components/pagination';
+import Pagination from '@/components/shared/pagination';
 import { relatedArticles } from '@/lib/data';
 import { PageProps } from '@/types';
 

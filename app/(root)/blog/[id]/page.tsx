@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import { AiOutlineComment } from 'react-icons/ai';
 import { IoCalendarOutline } from 'react-icons/io5';
-import Breadcrumb from '@/components/breadcrumb';
+import Breadcrumb from '@/components/shared/breadcrumb';
 import BannerImage from '@/components/home/banner-image';
 import LikeButton from '@/components/blog/like-button';
 

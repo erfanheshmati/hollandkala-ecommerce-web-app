@@ -6,8 +6,8 @@ import {
   sortData,
 } from '@/lib/data';
 import ProductCard from '@/components/product/product-card';
-import Breadcrumb from '@/components/breadcrumb';
-import Pagination from '@/components/pagination';
+import Breadcrumb from '@/components/shared/breadcrumb';
+import Pagination from '@/components/shared/pagination';
 import ProductFilter from '@/components/product/product-filter';
 import NotFound from '@/app/not-found';
 import BannerImage from '@/components/home/banner-image';

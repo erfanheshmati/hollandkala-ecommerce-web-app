@@ -1,24 +1,24 @@
-import { reviewsByFilter } from "@/lib/data";
-import ProductsCategory from "@/components/home/products-category";
-import ProductSlider from "@/components/product/product-slider";
+import { reviewsByFilter } from '@/lib/data';
+import ProductsCategory from '@/components/home/products-category';
+import ProductSlider from '@/components/product/product-slider';
 import {
   bannerImages,
   clothingProducts,
   shoesProducts,
   sportsProducts,
-} from "@/lib/data";
-import PromotionalText from "@/components/home/promotional-text";
-import BannerImage from "@/components/home/banner-image";
-import StoreSetupBanner from "@/components/home/store-setup-banner";
-import ReviewSection from "@/components/review/review-section";
-import StoreLocation from "@/components/home/store-location";
-import RelatedArticles from "@/components/home/related-articles";
-import FeatureSection from "@/components/home/feature-section";
-import HeroSlider from "@/components/home/hero-slider";
+} from '@/lib/data';
+import PromotionalText from '@/components/home/promotional-text';
+import BannerImage from '@/components/home/banner-image';
+import StoreSetupBanner from '@/components/home/store-setup-banner';
+import ReviewSection from '@/components/review/review-section';
+import RelatedArticles from '@/components/home/related-articles';
+import FeatureSection from '@/components/home/feature-section';
+import HeroSlider from '@/components/home/hero-slider';
+import ContactInfo from '@/components/shared/contact-info';
 
 export default function HomePage() {
   return (
-    <div className="container bg-background pt-20 md:pt-32">
+    <div className='container bg-background pt-20 md:pt-32'>
       {/* Hero Slider */}
       <HeroSlider />
 
@@ -29,7 +29,7 @@ export default function HomePage() {
       <ProductsCategory />
 
       {/* Mobile Promotional Banner */}
-      <section className="md:hidden">
+      <section className='md:hidden'>
         <BannerImage
           title={bannerImages[0].title}
           imageUrl={bannerImages[0].imageUrl}
@@ -39,14 +39,14 @@ export default function HomePage() {
 
       {/* Product Slider */}
       <ProductSlider
-        title="کفش اسپرت و کتانی"
+        title='کفش اسپرت و کتانی'
         products={shoesProducts}
-        backgroundColor="#F0F5F9"
+        backgroundColor='#F0F5F9'
         href={`/products/retail/all`}
       />
 
       {/* Mobile Promotional Banner */}
-      <section className="md:hidden">
+      <section className='md:hidden'>
         <BannerImage
           title={bannerImages[1].title}
           imageUrl={bannerImages[1].imageUrl}
@@ -55,8 +55,8 @@ export default function HomePage() {
       </section>
 
       {/* Desktop Promotional Banner */}
-      <section className="my-14 md:my-20 hidden md:block">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <section className='my-14 md:my-20 hidden md:block'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
           {bannerImages.map((banner) => (
             <BannerImage key={banner.title} {...banner} />
           ))}
@@ -65,14 +65,14 @@ export default function HomePage() {
 
       {/* Product Slider */}
       <ProductSlider
-        title="پوشاک"
+        title='پوشاک'
         products={clothingProducts}
-        backgroundColor="#E2DEDD"
+        backgroundColor='#E2DEDD'
         href={`/products/wholesale/all`}
       />
 
       {/* Mobile Promotional Banner */}
-      <section className="md:hidden">
+      <section className='md:hidden'>
         <BannerImage
           title={bannerImages[0].title}
           imageUrl={bannerImages[0].imageUrl}
@@ -82,9 +82,9 @@ export default function HomePage() {
 
       {/* Product Slider */}
       <ProductSlider
-        title="محصولات ورزشی"
+        title='محصولات ورزشی'
         products={sportsProducts}
-        backgroundColor="#D64327"
+        backgroundColor='#D64327'
         href={`/products/wholesale/all`}
       />
 
@@ -98,8 +98,10 @@ export default function HomePage() {
         dataByFilter={reviewsByFilter}
       />
 
-      {/* Store Location */}
-      <StoreLocation />
+      {/* Contact Info */}
+      <section className='my-12 md:my-16'>
+        <ContactInfo />
+      </section>
 
       {/* Related Articles */}
       <RelatedArticles />

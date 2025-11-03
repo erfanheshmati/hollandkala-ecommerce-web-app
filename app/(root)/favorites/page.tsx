@@ -1,4 +1,4 @@
-import Pagination from '@/components/pagination';
+import Pagination from '@/components/shared/pagination';
 import ProductCard from '@/components/product/product-card';
 import { shoesProducts } from '@/lib/data';
 
