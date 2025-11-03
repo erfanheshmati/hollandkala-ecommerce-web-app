@@ -17,8 +17,16 @@ type ProductCardComponentProps =
     };
 
 export default function ProductCard(props: ProductCardComponentProps) {
-  const product = 'slug' in props ? props : props.product;
-  const propIsFavorite = 'product' in props ? props.isFavorite : undefined;
+  const product =
+    'product' in props && props.product
+      ? props.product
+      : (props as ProductProps);
+
+  const propIsFavorite =
+    'product' in props && typeof props.isFavorite !== 'undefined'
+      ? props.isFavorite
+      : undefined;
+
   const [isFavorite, setIsFavorite] = useState(propIsFavorite ?? false);
   const pathname = usePathname();
   const routesWithSecondaryBg = ['/products', '/favorites'];
@@ -46,7 +54,7 @@ export default function ProductCard(props: ProductCardComponentProps) {
         // style={{ backgroundColor }}
       >
         <Link
-          href={`/product/${product.slug}`}
+          href={`/product/${product.id}`}
           className='relative block w-full h-full rounded-xl hover:opacity-80 active:opacity-80 effect'
           target='_blank'
         >
@@ -80,7 +88,7 @@ export default function ProductCard(props: ProductCardComponentProps) {
       {/* Product Info */}
       <div className='p-4'>
         <Link
-          href={`/product/${product.slug}`}
+          href={`/product/${product.id}`}
           className='text-base md:text-xl font-medium text-foreground line-clamp-1 hover:text-primary active:text-primary effect'
           target='_blank'
         >

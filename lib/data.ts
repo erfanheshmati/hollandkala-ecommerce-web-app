@@ -216,7 +216,7 @@ export const retailCategories: ProductCategoryProps[] = [
 
 export const shoesProducts: ProductProps[] = [
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -328,7 +328,7 @@ export const shoesProducts: ProductProps[] = [
     href: '#',
   },
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -363,7 +363,7 @@ export const shoesProducts: ProductProps[] = [
     href: '#',
   },
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -398,7 +398,7 @@ export const shoesProducts: ProductProps[] = [
     href: '#',
   },
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -433,7 +433,7 @@ export const shoesProducts: ProductProps[] = [
     href: '#',
   },
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -470,7 +470,7 @@ export const shoesProducts: ProductProps[] = [
 
 export const clothingProducts: ProductProps[] = [
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -505,7 +505,7 @@ export const clothingProducts: ProductProps[] = [
     href: '#',
   },
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -539,7 +539,7 @@ export const clothingProducts: ProductProps[] = [
     href: '#',
   },
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -573,7 +573,7 @@ export const clothingProducts: ProductProps[] = [
     href: '#',
   },
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -607,7 +607,7 @@ export const clothingProducts: ProductProps[] = [
     href: '#',
   },
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -644,7 +644,7 @@ export const clothingProducts: ProductProps[] = [
 
 export const sportsProducts: ProductProps[] = [
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -680,7 +680,7 @@ export const sportsProducts: ProductProps[] = [
     href: '#',
   },
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -714,7 +714,7 @@ export const sportsProducts: ProductProps[] = [
     href: '#',
   },
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -748,7 +748,7 @@ export const sportsProducts: ProductProps[] = [
     href: '#',
   },
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -782,7 +782,7 @@ export const sportsProducts: ProductProps[] = [
     href: '#',
   },
   {
-    slug: 'adidas-light-rise-adapt',
+    id: 'adidas-light-rise-adapt',
     title: 'کفش آدیداس لایت ریسر آداپت',
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
@@ -1077,17 +1077,67 @@ export const storeLocations: Record<string, StoreLocationProps> = {
 
 export const relatedArticles: BlogProps[] = [
   {
-    slug: 'herh45h6gsfhhfyh',
+    id: 'herh45h6gsfhhfyh',
     title: 'ایا هلندکالا را میشناسید؟',
     description: ' ایپسوم متن ساختگی با تولید سادگی نامفهوم',
+    content:
+      'هلند کالا در حقیقت یک پلاتفرم قوی خرید محصولات برند از هلند و ارسال به هر نقطه‌ای از جهان است. در هلند کالا هیچ واسطه‌ای وجود ندارد؛ بنابراین تمامی فروشگاه‌های لاکچری و مزون‌داران می‌توانند به‌راحتی و مستقیماً خرید خود را از هلند انجام دهند. شما در هر نقطه‌ای که حضور دارید، می‌توانید با هر بودجه‌ای از هلند کالا خرید کرده و آن را در فروشگاه، مزون، شبکه‌های اجتماعی و مارکت‌پلیس‌های محلی (مانند سایت دیوار) در هر نقطه‌ای از دنیا مستقیماً به فروش برسانید. کارکنان هلند کالا هر نوع خریدی را که مشکل حقوقی نداشته باشد، می‌توانند برای شما در هلند و اروپا انجام دهند. برای تجار بزرگ ایرانی که قصد صادرات کالاهای خود به اتحادیه اروپا و به‌ویژه هلند را دارند، هلند کالا اقامت تجاری هلند را مهیا می‌کند. شما همواره و به سادگی می‌توانید با شماره‌های 0031616009009 و 0031640001511 در تماس باشید',
     date: 'دو روز قبل',
-    likes: 330,
+    likes: 33,
     comments: 121,
     imageUrl: '/images/blog.png',
-    href: '#',
+    reviews: [
+      {
+        name: 'سامان جعفری',
+        avatarUrl: '/icons/flag-fa.svg',
+        comment:
+          'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده،الخصوص طراحان خلاقی ',
+        reply: {
+          name: 'محمد حسینی',
+          avatarUrl: '/images/avatar.png',
+          text: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده،الخصوص طراحان خلاقی ',
+        },
+      },
+      {
+        name: 'سامان جعفری',
+        avatarUrl: '/icons/flag-en.svg',
+        comment:
+          'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده،الخصوص طراحان خلاقی ',
+      },
+      {
+        name: 'سامان جعفری',
+        avatarUrl: '/icons/flag-fa.svg',
+        comment:
+          'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده،الخصوص طراحان خلاقی ',
+      },
+      {
+        name: 'سامان جعفری',
+        avatarUrl: '/icons/flag-fa.svg',
+        comment:
+          'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده،الخصوص طراحان خلاقی ',
+      },
+      {
+        name: 'سامان جعفری',
+        avatarUrl: '/icons/flag-fa.svg',
+        comment:
+          'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده،الخصوص طراحان خلاقی ',
+      },
+      {
+        name: 'سامان جعفری',
+        avatarUrl: '/icons/flag-fa.svg',
+        comment:
+          'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده،الخصوص طراحان خلاقی ',
+      },
+      {
+        name: 'سامان جعفری',
+        avatarUrl: '/icons/flag-fa.svg',
+        comment:
+          'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده،الخصوص طراحان خلاقی ',
+      },
+    ],
   },
   {
-    slug: 'herh45h6gdfhhfyh',
+    id: 'herh45h6gdfhhfyh',
     title: 'ایا هلندکالا را میشناسید؟',
     description:
       'ایپسوم متن ساختگی با تولید سادگی نامفهوم ایپسوم متن ساختگی با تولید سادگی نامفهوم',
@@ -1095,10 +1145,9 @@ export const relatedArticles: BlogProps[] = [
     likes: 330,
     comments: 121,
     imageUrl: '/images/blog.png',
-    href: '#',
   },
   {
-    slug: 'herh45h6t44hhfyh',
+    id: 'herh45h6t44hhfyh',
     title: 'ایا هلندکالا را میشناسید؟',
     description:
       'ایپسوم متن ساختگی با تولید سادگی نامفهوم ایپسوم متن ساختگی با تولید سادگی نامفهوم',
@@ -1106,10 +1155,9 @@ export const relatedArticles: BlogProps[] = [
     likes: 330,
     comments: 121,
     imageUrl: '/images/blog.png',
-    href: '#',
   },
   {
-    slug: 'herh45h6fdsfhhfyh',
+    id: 'herh45h6fdsfhhfyh',
     title: 'ایا هلندکالا را میشناسید؟',
     description:
       'ایپسوم متن ساختگی با تولید سادگی نامفهوم ایپسوم متن ساختگی با تولید سادگی نامفهوم',
@@ -1117,7 +1165,6 @@ export const relatedArticles: BlogProps[] = [
     likes: 330,
     comments: 121,
     imageUrl: '/images/blog.png',
-    href: '#',
   },
 ];
 

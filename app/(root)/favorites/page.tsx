@@ -40,7 +40,7 @@ export default async function FavoritesPage({ searchParams }: PageProps) {
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
           {pagedProducts.map((product, idx) => (
             <ProductCard
-              key={`${product.slug}-${idx}`}
+              key={`${product.id}-${idx}`}
               product={product}
               isFavorite
             />

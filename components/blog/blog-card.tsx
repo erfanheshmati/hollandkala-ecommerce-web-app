@@ -11,7 +11,8 @@ export default function BlogCard({ blog }: { blog: BlogProps }) {
       {/* Product Image */}
       <div className='w-full max-w-20 md:max-w-full h-20 md:h-56 rounded-xl relative'>
         <Link
-          href={blog.href}
+          href={`/blog/${blog.id}`}
+          target='_blank'
           className='relative block w-full h-full rounded-xl hover:opacity-80 active:opacity-80 effect'
         >
           <Image
@@ -27,7 +28,8 @@ export default function BlogCard({ blog }: { blog: BlogProps }) {
       {/* Product Info */}
       <div className='p-1 w-full'>
         <Link
-          href={blog.href}
+          href={`/blog/${blog.id}`}
+          target='_blank'
           className='text-base md:text-xl font-medium text-foreground line-clamp-1 hover:text-primary active:text-primary effect'
         >
           {blog.title}

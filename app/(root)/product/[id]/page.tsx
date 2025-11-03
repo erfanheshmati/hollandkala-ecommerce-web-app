@@ -1,4 +1,4 @@
-import ProductSitemap from '@/components/product/product-sitemap';
+import Breadcrumb from '@/components/breadcrumb';
 import ProductSlider from '@/components/product/product-slider';
 import ProductGallery from '@/components/product/product-gallery';
 import ProductInfo from '@/components/product/product-info';
@@ -7,16 +7,22 @@ import ProductComparison from '@/components/product/price-comparison';
 import ProductTabs from '@/components/product/product-tabs';
 import BannerImage from '@/components/home/banner-image';
 import { shoesProducts, bannerImages } from '@/lib/data';
+import { notFound } from 'next/navigation';
 
-export default function ProductDetailsPage() {
-  // Demo product
-  const product = shoesProducts[0];
+export default async function ProductDetailsPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const product = shoesProducts.find((pro) => pro.id === id);
+  if (!product) notFound();
 
   return (
     <main className='container pt-24 md:pt-36'>
       {/* Breadcrumbs */}
       <div className='mb-7'>
-        <ProductSitemap
+        <Breadcrumb
           items={[
             { label: 'خانه', href: '/' },
             { label: 'محصولات ورزشی', href: '/products/retail/sports' },

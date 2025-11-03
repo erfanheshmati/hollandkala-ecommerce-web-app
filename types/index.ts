@@ -48,7 +48,7 @@ interface PriceComparisonProps {
 }
 
 export interface ProductProps {
-  slug: string;
+  id?: string;
   code?: number;
   barcode?: string;
   title: string;
@@ -133,14 +133,15 @@ export interface StoreLocationProps {
 }
 
 export interface BlogProps {
-  slug: string;
+  id: string;
   title: string;
   description: string;
+  content?: string;
   date: string;
   likes: number;
   comments: number;
   imageUrl: string;
-  href: string;
+  reviews?: ReviewProps[];
 }
 
 export interface FeatureCardProps {
@@ -152,4 +153,21 @@ export interface FeatureCardProps {
 export interface SortProps {
   label: string;
   param: string;
+}
+
+export interface BreadcrumbProps {
+  label: string;
+  href?: string;
+}
+
+export interface PageProps {
+  searchParams?:
+    | Promise<Record<string, string | string[] | undefined>>
+    | Record<string, string | string[] | undefined>;
+}
+
+export interface LikeButtonProps {
+  blogId: string;
+  initialLikes: number;
+  onSubmitLike?: (blogId: string) => Promise<void> | void;
 }

@@ -1,12 +1,7 @@
 import BlogCard from '@/components/blog/blog-card';
 import Pagination from '@/components/pagination';
 import { relatedArticles } from '@/lib/data';
-
-interface PageProps {
-  searchParams?:
-    | Promise<Record<string, string | string[] | undefined>>
-    | Record<string, string | string[] | undefined>;
-}
+import { PageProps } from '@/types';
 
 export default async function BlogPage({ searchParams }: PageProps) {
   const awaitedSearch = (await searchParams) as
@@ -30,7 +25,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
   const pagedBlog = allBlog.slice(start, end);
 
   return (
-    <div className='container flex flex-col gap-10 pt-28 md:pt-40'>
+    <main className='container flex flex-col gap-10 pt-28 md:pt-40'>
       <div className='flex flex-col gap-4'>
         {/* Header */}
         <h1 className='font-bold text-foreground text-xl md:text-2xl'>
@@ -39,12 +34,12 @@ export default async function BlogPage({ searchParams }: PageProps) {
         {/* Content */}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
           {pagedBlog.map((blog, idx) => (
-            <BlogCard key={`${blog.slug}-${idx}`} blog={blog} />
+            <BlogCard key={`${blog.id}-${idx}`} blog={blog} />
           ))}
         </div>
       </div>
       {/* Pagination */}
       <Pagination totalItems={totalItems} perPage={PER_PAGE} />
-    </div>
+    </main>
   );
 }
