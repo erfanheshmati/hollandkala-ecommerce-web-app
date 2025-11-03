@@ -29,7 +29,7 @@ export default function ProductCard(props: ProductCardComponentProps) {
 
   const [isFavorite, setIsFavorite] = useState(propIsFavorite ?? false);
   const pathname = usePathname();
-  const routesWithSecondaryBg = ['/products', '/favorites'];
+  const routesWithSecondaryBg = ['/products', '/favorites', 'gifts'];
   const shouldUseSecondaryBg = routesWithSecondaryBg.some((route) =>
     pathname.includes(route)
   );

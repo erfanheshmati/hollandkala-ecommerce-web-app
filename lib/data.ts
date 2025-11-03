@@ -70,8 +70,12 @@ export const menuData: MenuItemProps[] = [
     href: '/contact',
   },
   {
-    title: 'هدایا و نظرات کاربران',
-    href: '/gift',
+    title: 'هدایا',
+    href: '/gifts',
+  },
+  {
+    title: 'نظرات کاربران',
+    href: '/reviews',
   },
 ];
 
