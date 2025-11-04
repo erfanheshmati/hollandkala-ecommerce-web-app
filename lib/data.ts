@@ -158,6 +158,14 @@ export const slideImages: SlideImageProps[] = [
     title: 'slide-3',
     src: '/images/slide-3.jpg',
   },
+  {
+    title: 'slide-1',
+    src: '/images/slide-1.jpg',
+  },
+  {
+    title: 'slide-2',
+    src: '/images/slide-2.jpg',
+  },
 ];
 
 export const productCategories: ProductCategoryProps[] = [
@@ -497,8 +505,8 @@ export const clothingProducts: ProductProps[] = [
     dimensions: '۲۰۰×۱۰۰×۵۰ میلیمتر',
     weight: '۱۰۰ گرم',
     type: 'کفش',
-    discountedPrice: '۸۷ یورو',
-    originalPrice: '۹۵ یورو',
+    discountedPrice: '۸۷ ',
+    originalPrice: '۹۵ ',
     badges: ['تعداد عمده', 'ورزشکاران حرفه ای'],
     imageUrl: '/images/slide-1.jpg',
     gallery: [
@@ -532,7 +540,7 @@ export const clothingProducts: ProductProps[] = [
     dimensions: '۲۰۰×۱۰۰×۵۰ میلیمتر',
     weight: '۱۰۰ گرم',
     type: 'کفش',
-    discountedPrice: '۸۷ یورو',
+    discountedPrice: '۸۷ ',
     badges: ['تعداد عمده', 'ورزشکاران حرفه ای'],
     imageUrl: '/images/slide-1.jpg',
     gallery: [
@@ -566,7 +574,7 @@ export const clothingProducts: ProductProps[] = [
     dimensions: '۲۰۰×۱۰۰×۵۰ میلیمتر',
     weight: '۱۰۰ گرم',
     type: 'کفش',
-    discountedPrice: '۸۷ یورو',
+    discountedPrice: '۸۷ ',
     badges: ['تعداد عمده', 'ورزشکاران حرفه ای'],
     imageUrl: '/images/slide-1.jpg',
     gallery: [
@@ -600,7 +608,7 @@ export const clothingProducts: ProductProps[] = [
     dimensions: '۲۰۰×۱۰۰×۵۰ میلیمتر',
     weight: '۱۰۰ گرم',
     type: 'کفش',
-    discountedPrice: '۸۷ یورو',
+    discountedPrice: '۸۷ ',
     badges: ['تعداد عمده', 'ورزشکاران حرفه ای'],
     imageUrl: '/images/slide-1.jpg',
     gallery: [
@@ -634,7 +642,7 @@ export const clothingProducts: ProductProps[] = [
     dimensions: '۲۰۰×۱۰۰×۵۰ میلیمتر',
     weight: '۱۰۰ گرم',
     type: 'کفش',
-    discountedPrice: '۸۷ یورو',
+    discountedPrice: '۸۷ ',
     badges: ['تعداد عمده', 'ورزشکاران حرفه ای'],
     imageUrl: '/images/slide-1.jpg',
     gallery: [
@@ -671,8 +679,8 @@ export const sportsProducts: ProductProps[] = [
     dimensions: '۲۰۰×۱۰۰×۵۰ میلیمتر',
     weight: '۱۰۰ گرم',
     type: 'کفش',
-    discountedPrice: '۸۷ یورو',
-    originalPrice: '۹۵ یورو',
+    discountedPrice: '۸۷ ',
+    originalPrice: '۹۵ ',
     discountPercentage: '9',
     badges: ['تعداد عمده', 'ورزشکاران حرفه ای'],
     imageUrl: '/images/slide-1.jpg',
@@ -707,7 +715,7 @@ export const sportsProducts: ProductProps[] = [
     dimensions: '۲۰۰×۱۰۰×۵۰ میلیمتر',
     weight: '۱۰۰ گرم',
     type: 'کفش',
-    discountedPrice: '۸۷ یورو',
+    discountedPrice: '۸۷ ',
     badges: ['تعداد عمده', 'ورزشکاران حرفه ای'],
     imageUrl: '/images/slide-1.jpg',
     gallery: [
@@ -741,7 +749,7 @@ export const sportsProducts: ProductProps[] = [
     dimensions: '۲۰۰×۱۰۰×۵۰ میلیمتر',
     weight: '۱۰۰ گرم',
     type: 'کفش',
-    discountedPrice: '۸۷ یورو',
+    discountedPrice: '۸۷ ',
     badges: ['تعداد عمده', 'ورزشکاران حرفه ای'],
     imageUrl: '/images/slide-1.jpg',
     gallery: [
@@ -775,7 +783,7 @@ export const sportsProducts: ProductProps[] = [
     dimensions: '۲۰۰×۱۰۰×۵۰ میلیمتر',
     weight: '۱۰۰ گرم',
     type: 'کفش',
-    discountedPrice: '۸۷ یورو',
+    discountedPrice: '۸۷ ',
     badges: ['تعداد عمده', 'ورزشکاران حرفه ای'],
     imageUrl: '/images/slide-1.jpg',
     gallery: [
@@ -809,7 +817,7 @@ export const sportsProducts: ProductProps[] = [
     dimensions: '۲۰۰×۱۰۰×۵۰ میلیمتر',
     weight: '۱۰۰ گرم',
     type: 'کفش',
-    discountedPrice: '۸۷ یورو',
+    discountedPrice: '۸۷ ',
     badges: ['تعداد عمده', 'ورزشکاران حرفه ای'],
     imageUrl: '/images/slide-1.jpg',
     gallery: [
@@ -834,7 +842,7 @@ const withRetailVariant = (
 ): ProductProps[] =>
   items.map((p, i) => ({
     ...p,
-    discountedPrice: p.discountedPrice ? p.discountedPrice : '۷۵ یورو',
+    discountedPrice: p.discountedPrice ? p.discountedPrice : '۷۵ ',
     backgroundColor: p.backgroundColor
       ? p.backgroundColor
       : i % 2 === 0

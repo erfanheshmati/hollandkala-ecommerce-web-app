@@ -8,14 +8,14 @@
   --secondary: #f7f7f7;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
     --primary: #21468b;
     --secondary: #f7f7f7;
   }
-}
+} */
 
 @theme inline {
   --color-background: var(--background);

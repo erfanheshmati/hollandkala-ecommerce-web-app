@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { features } from "@/lib/data";
-import FeatureCard from "./feature-card";
+import { features } from '@/lib/data';
+import FeatureCard from './feature-card';
 import "keen-slider/keen-slider.min.css";
-import { useKeenSlider } from "keen-slider/react";
-import { useState } from "react";
+import { useKeenSlider } from 'keen-slider/react';
+import { useState } from 'react';
 
 export default function FeatureSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -30,20 +30,20 @@ export default function FeatureSection() {
   });
 
   return (
-    <section className="my-8">
+    <section className='mt-8'>
       {/* Mobile: slider */}
-      <div className="md:hidden">
-        <div ref={sliderRef} className="keen-slider">
+      <div className='md:hidden'>
+        <div ref={sliderRef} className='keen-slider'>
           {features.map((feature, index) => (
-            <div key={index} className="keen-slider__slide">
+            <div key={index} className='keen-slider__slide'>
               <FeatureCard {...feature} />
             </div>
           ))}
         </div>
         {loaded && (
           <div
-            className="flex items-center justify-center gap-2 mt-4"
-            aria-label="feature slider pagination"
+            className='flex items-center justify-center gap-2 mt-4'
+            aria-label='feature slider pagination'
           >
             {Array.from({ length: lastSlide + 1 }).map((_, idx) => (
               <button
@@ -52,8 +52,8 @@ export default function FeatureSection() {
                 onClick={() => instanceRef.current?.moveToIdx(idx)}
                 className={`h-2 rounded-full cursor-pointer effect ${
                   currentSlide === idx
-                    ? "bg-primary w-8"
-                    : "bg-gray-300 hover:bg-gray-400 active:bg-gray-400 w-2"
+                    ? 'bg-primary w-8'
+                    : 'bg-gray-300 hover:bg-gray-400 active:bg-gray-400 w-2'
                 }`}
               />
             ))}
@@ -62,7 +62,7 @@ export default function FeatureSection() {
       </div>
 
       {/* Desktop: grid */}
-      <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className='hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
         {features.map((feature, index) => (
           <FeatureCard key={index} {...feature} />
         ))}

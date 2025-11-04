@@ -24,6 +24,18 @@ export default function PromotionalPopup() {
     }
   }, []);
 
+  // Disable background scroll when popup is open
+  useEffect(() => {
+    if (!mounted) return;
+    if (showPopup) {
+      const previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = previousOverflow;
+      };
+    }
+  }, [showPopup, mounted]);
+
   // Don't render anything until after hydration
   if (!mounted) return null;
 
@@ -46,11 +58,12 @@ export default function PromotionalPopup() {
       onClick={handleOverlayClick}
     >
       {/* Overlay */}
-      <div className='absolute inset-0 bg-black/50' />
+      <div className='absolute inset-0 bg-black/50' onClick={handleClose} />
 
       {/* Popup Content */}
       <div
         className='relative w-full max-w-sm rounded-3xl overflow-hidden'
+        onClick={(e) => e.stopPropagation()}
         style={{
           background:
             'linear-gradient(223deg, rgba(76, 70, 255, 1) 10%, rgba(144, 0, 255, 1) 98%)',
@@ -64,7 +77,7 @@ export default function PromotionalPopup() {
           <div className='flex items-center justify-center w-9 h-9 rounded-lg border group-hover:bg-background/20 effect'>
             <X className='w-5 h-5 text-background' />
           </div>
-          <span className='text-2xl font-medium'>بستن</span>
+          {/* <span className='text-xl font-medium'>بستن</span> */}
         </button>
 
         {/* Decorative Circles */}

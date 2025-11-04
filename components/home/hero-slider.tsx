@@ -1,95 +1,108 @@
-"use client";
+'use client';
 
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
-import { slideImages } from "@/lib/data";
-import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { slideImages } from '@/lib/data';
+import Image from 'next/image';
+import { useState, useEffect, useRef } from 'react';
 
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  const sliderRef = useRef<{
-    moveToIdx: (idx: number, skip?: boolean) => void;
-    next: () => void;
-  } | null>(null);
-
   const timeoutRef = useRef<number | null>(null);
 
-  const [ref] = useKeenSlider<HTMLDivElement>({
-    rtl: true,
-    loop: true,
-    slides: {
-      perView: 1,
-      spacing: 20,
-    },
-    slideChanged(slider) {
-      // Use relative index which is better for loop mode
-      const relativeIndex = slider.track.details.rel;
-      setCurrentSlide(relativeIndex);
-      // Restart autoplay timer
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      timeoutRef.current = window.setTimeout(() => {
-        slider.next();
-      }, 4000);
-    },
-    created(slider) {
-      sliderRef.current = slider;
-      // Start autoplay
-      timeoutRef.current = window.setTimeout(() => {
-        slider.next();
-      }, 4000);
-    },
-  });
+  const goTo = (idx: number) => {
+    const total = slideImages.length;
+    const normalized = ((idx % total) + total) % total;
+    setCurrentSlide(normalized);
+  };
 
-  // Cleanup timeout on unmount
   useEffect(() => {
+    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    timeoutRef.current = window.setTimeout(() => {
+      goTo(currentSlide + 1);
+    }, 4000);
     return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
     };
-  }, []);
+  }, [currentSlide]);
+
+  const total = slideImages.length;
 
   return (
-    <section className="my-6 md:my-10">
-      <div ref={ref} className="keen-slider">
-        {slideImages.map((img) => (
-          <div
-            key={img.title}
-            className="keen-slider__slide relative h-[400px] md:h-[500px] overflow-hidden rounded-2xl"
-          >
-            <Image
-              src={img.src}
-              alt={img.title}
-              fill
-              sizes="100vw"
-              className="object-cover rounded-2xl"
-              style={{ objectPosition: "center" }}
-            />
-          </div>
-        ))}
+    <section className='my-6 md:my-10'>
+      {/* Desktop: 5 images visible (60px, 60px, center, 60px, 60px) */}
+      <div className='hidden md:grid grid-cols-[60px_60px_1fr_60px_60px] gap-3 md:h-80 lg:h-[400px] xl:h-[500px] 2xl:h-[540px]'>
+        {[-2, -1, 0, 1, 2].map((offset) => {
+          const idx = (currentSlide + offset + total) % total;
+          const img = slideImages[idx];
+          const isCenter = offset === 0;
+          return (
+            <button
+              key={`hero-col-${offset}-${idx}`}
+              onClick={() => {
+                if (timeoutRef.current) clearTimeout(timeoutRef.current);
+                goTo(idx);
+              }}
+              className={`relative w-full h-full overflow-hidden rounded-4xl effect ${
+                isCenter ? '' : 'hover:opacity-80 cursor-pointer'
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            >
+              <Image
+                src={img.src}
+                alt={img.title}
+                fill
+                sizes={isCenter ? '40vw' : '60px'}
+                className='object-cover'
+                priority={isCenter}
+              />
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Mobile: 3 images visible (30px, center, 30px) */}
+      <div className='grid md:hidden grid-cols-[30px_1fr_30px] gap-2 h-[210px] sm:h-[280px]'>
+        {[-1, 0, 1].map((offset) => {
+          const idx = (currentSlide + offset + total) % total;
+          const img = slideImages[idx];
+          const isCenter = offset === 0;
+          return (
+            <button
+              key={`hero-mobile-col-${offset}-${idx}`}
+              onClick={() => {
+                if (timeoutRef.current) clearTimeout(timeoutRef.current);
+                goTo(idx);
+              }}
+              className={`relative w-full h-full overflow-hidden rounded-2xl ${
+                isCenter ? '' : ''
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            >
+              <Image
+                src={img.src}
+                alt={img.title}
+                fill
+                sizes={isCenter ? '70vw' : '30px'}
+                className='object-cover'
+                priority={isCenter}
+              />
+            </button>
+          );
+        })}
       </div>
 
       {/* Dots Navigation */}
-      <div className="flex justify-center gap-2 mt-6">
+      <div className='flex justify-center gap-2 mt-4 md:mt-6'>
         {slideImages.map((_, idx) => (
           <button
             key={idx}
             onClick={() => {
               if (timeoutRef.current) clearTimeout(timeoutRef.current);
-              const slider = sliderRef.current;
-              if (slider) {
-                // Move to the target slide
-                slider.moveToIdx(idx);
-                // Restart autoplay after clicking
-                timeoutRef.current = window.setTimeout(() => {
-                  slider.next();
-                }, 4000);
-              }
+              goTo(idx);
             }}
             className={`h-2 rounded-full cursor-pointer effect ${
               idx === currentSlide
-                ? "bg-primary w-8"
-                : "bg-gray-300 hover:bg-gray-400 active:bg-gray-400 w-2"
+                ? 'bg-primary w-8'
+                : 'bg-gray-300 hover:bg-gray-400 active:bg-gray-400 w-2'
             }`}
             aria-label={`Go to slide ${idx + 1}`}
           />

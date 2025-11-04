@@ -10,7 +10,7 @@ export default function Search() {
         placeholder="جست و جو کنید..."
         className="input w-full pr-12 rounded-xl h-12"
       />
-      <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+      <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 pb-1">
         <SearchIcon size={24} />
       </span>
     </div>
