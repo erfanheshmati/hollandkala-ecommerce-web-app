@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-"use client";
+'use client';
 
-import ProductCard from "./product-card";
-import { ProductSliderProps } from "@/types";
-import "keen-slider/keen-slider.min.css";
-import { useKeenSlider } from "keen-slider/react";
-import Link from "next/link";
-import { useState } from "react";
+import ProductCard from './product-card';
+import { ProductSliderProps } from '@/types';
+import 'keen-slider/keen-slider.min.css';
+import { useKeenSlider } from 'keen-slider/react';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 export default function ProductSlider({
   title,
@@ -20,18 +20,19 @@ export default function ProductSlider({
 
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     rtl: true,
+    loop: true,
     slides: {
       perView: 1.4,
       spacing: 16,
     },
     breakpoints: {
-      "(min-width: 540px)": {
+      '(min-width: 540px)': {
         slides: { perView: 2, spacing: 16 },
       },
-      "(min-width: 860px)": {
+      '(min-width: 860px)': {
         slides: { perView: 3, spacing: 16 },
       },
-      "(min-width: 1280px)": {
+      '(min-width: 1280px)': {
         slides: { perView: 4, spacing: 24 },
       },
     },
@@ -47,20 +48,33 @@ export default function ProductSlider({
     },
   });
 
+  // Autoplay functionality
+  useEffect(() => {
+    if (!loaded) return;
+
+    const interval = setInterval(() => {
+      if (instanceRef.current) {
+        instanceRef.current.next();
+      }
+    }, 3000); // Change slide every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [loaded, instanceRef]);
+
   return (
     <section
-      className="my-14 md:my-20 rounded-3xl p-6"
+      className='my-14 md:my-20 rounded-3xl p-6'
       style={{ backgroundColor }}
     >
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl md:text-2xl font-bold text-foreground">
+      <div className='flex items-center justify-between mb-6'>
+        <h2 className='text-xl md:text-2xl font-bold text-foreground'>
           {title}
         </h2>
-        <div className="flex items-center gap-3">
+        <div className='flex items-center gap-3'>
           <Link
             href={href}
-            className="flex items-center justify-center bg-background/90 hover:bg-background active:bg-background px-4 py-2 rounded-xl text-foreground hover:text-black active:text-black cursor-pointer effect"
+            className='flex items-center justify-center bg-background/90 hover:bg-background active:bg-background px-4 py-2 rounded-xl text-foreground hover:text-black active:text-black cursor-pointer effect'
           >
             مشاهده همه
           </Link>
@@ -68,9 +82,9 @@ export default function ProductSlider({
       </div>
 
       {/* Products Slider */}
-      <div ref={sliderRef} className="keen-slider">
+      <div ref={sliderRef} className='keen-slider'>
         {products.map((product, index) => (
-          <div key={index} className="keen-slider__slide">
+          <div key={index} className='keen-slider__slide'>
             <ProductCard {...product} />
           </div>
         ))}
