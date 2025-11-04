@@ -63,13 +63,13 @@ export function MobileSearch() {
                 className="input w-full px-12 rounded-xl h-12"
               />
               <button className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                <SearchIcon size={24} />
+                <SearchIcon size={24} className="pb-1" />
               </button>
               <button
                 onClick={() => setIsMobileSearchOpen(false)}
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
               >
-                <X size={24} />
+                <X size={20} />
               </button>
             </div>
           </div>

@@ -164,18 +164,16 @@ export default function MobileMenu() {
       {mounted && createPortal(mobileOverlay, document.body)}
 
       {/* Mobile Menu Button */}
-      {!isMobileMenuOpen && (
-        <div className='flex items-center gap-2 md:hidden'>
-          <button
-            onClick={toggleMobileMenu}
-            className='p-2.5 rounded-xl border border-primary bg-background'
-            aria-label='Toggle menu'
-          >
-            <MenuIcon size={24} className='text-primary' />
-          </button>
-          <span className='text-primary text-sm font-medium'>منو</span>
-        </div>
-      )}
+      <div className='flex items-center gap-2 md:hidden min-w-36'>
+        <button
+          onClick={toggleMobileMenu}
+          className='p-2.5 rounded-xl border border-primary bg-background'
+          aria-label='Toggle menu'
+        >
+          <MenuIcon size={24} className='text-primary' />
+        </button>
+        <span className='text-primary text-sm font-medium'>منو</span>
+      </div>
 
       {/* Mobile Menu */}
       <div
@@ -186,10 +184,12 @@ export default function MobileMenu() {
         }`}
       >
         <div className='flex flex-col gap-4'>
-          {/* Mobile Menu Close Button */}
+          {/* Mobile Menu Top */}
           <div className='flex items-center justify-between p-4'>
+            {/* Menu Button */}
             <div className='flex items-center gap-2 md:hidden'>
               <button
+                onClick={toggleMobileMenu}
                 className='p-2.5 rounded-xl border border-primary bg-primary'
                 aria-label='Toggle menu'
               >
@@ -197,6 +197,7 @@ export default function MobileMenu() {
               </button>
               <span className='text-primary text-sm font-medium'>منو</span>
             </div>
+            {/* Close Button */}
             <button
               onClick={toggleMobileMenu}
               className='p-2.5 rounded-xl bg-background text-primary border border-primary'
@@ -206,7 +207,7 @@ export default function MobileMenu() {
             </button>
           </div>
 
-          {/* Mobile Menu User Btn */}
+          {/* Mobile Menu User Button */}
           <div className='flex px-4'>
             <UserButton className='w-full justify-center' />
           </div>

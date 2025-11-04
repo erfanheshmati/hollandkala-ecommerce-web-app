@@ -73,7 +73,7 @@ export default function Menu() {
 
   const overlay = (
     <div
-      className={`fixed top-[128px] left-0 right-0 bottom-0 bg-black/50 z-99 transition-opacity duration-300 ${
+      className={`fixed top-32 left-0 right-0 bottom-0 bg-black/50 z-99 transition-opacity duration-300 ${
         hasActiveDropdown ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       onClick={() => {
