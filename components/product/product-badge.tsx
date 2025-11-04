@@ -139,19 +139,24 @@ export default function ProductBadge({ product }: { product: ProductProps }) {
                 <span className='text-sm text-foreground/50'>
                   {activePriceLabel}
                 </span>
-                <span className='rounded-2xl bg-red-500 px-4 py-1 font-semibold text-background'>
+                <span className='rounded-2xl bg-red-500 px-3 pt-1 font-semibold text-background'>
                   {product.discountPercentage}%
                 </span>
               </div>
-              <div className='flex flex-col items-end gap-1'>
+              <div className='flex flex-col items-end gap-0'>
                 <span className='text-2xl font-bold text-foreground'>
                   {product.purchaseMode === 'تکی'
                     ? toPersianDigits(product.retailPrice)
                     : toPersianDigits(product.wholesalePrice)}{' '}
                   یورو
                 </span>
-                <span className='text-foreground/55 text-sm md:text-base line-through'>
+                <span className='text-foreground/55 text-lg font-bold relative inline-block px-1'>
                   {toPersianDigits(product.originalPrice)} یورو
+                  {/* Line Through */}
+                  <span
+                    className='absolute left-0 right-0 border-b-2 border-primary'
+                    style={{ bottom: '50%' }}
+                  />
                 </span>
               </div>
             </div>

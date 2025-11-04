@@ -86,7 +86,7 @@ export default function ProductCard(props: ProductCardComponentProps) {
       </div>
 
       {/* Product Info */}
-      <div className='p-4'>
+      <div className='p-1 mt-1'>
         <Link
           href={`/product/${product.id}`}
           className='text-base md:text-xl font-medium text-foreground line-clamp-1 hover:text-primary active:text-primary effect'
@@ -110,15 +110,20 @@ export default function ProductCard(props: ProductCardComponentProps) {
         </div>
 
         {/* Price */}
-        <div className='flex items-center justify-between mt-3'>
-          <div className='flex items-center gap-2'>
+        <div className='flex items-center justify-between mt-2'>
+          <div className='flex items-center gap-1'>
             {product.originalPrice && (
-              <span className='text-foreground/55 text-sm md:text-base line-through'>
+              <span className='text-foreground/55 text-lg font-bold relative inline-block px-1'>
                 {toPersianDigits(product.originalPrice)} یورو
+                {/* Line Through */}
+                <span
+                  className='absolute left-0 right-0 border-b-2 border-primary'
+                  style={{ bottom: '50%' }}
+                />
               </span>
             )}
             <span
-              className={`text-xl md:text-2xl font-medium ${
+              className={`text-xl md:text-2xl font-bold ${
                 product.originalPrice?.trim()
                   ? 'text-red-500'
                   : 'text-foreground'
