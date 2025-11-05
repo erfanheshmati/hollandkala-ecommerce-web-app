@@ -1,7 +1,6 @@
 'use client';
 
 import { ProductProps } from '@/types';
-import Link from 'next/link';
 import React, { useState } from 'react';
 
 export default function PriceComparison({
@@ -19,17 +18,21 @@ export default function PriceComparison({
       </h3>
 
       {/* Content */}
-      <div className='bg-background rounded-xl overflow-hidden'>
+      <div className='bg-background rounded-xl overflow-hidden cursor-grab'>
         <div
           className='py-1'
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+          onTouchCancel={() => setIsPaused(false)}
         >
           <div className='relative overflow-hidden'>
             <div
-              className='flex items-center gap-6 whitespace-nowrap'
+              className='flex items-center gap-10 whitespace-nowrap [--marquee-duration:10s] md:[--marquee-duration:20s]'
               style={{
-                animation: 'marqueeScroll 15s linear infinite',
+                animation:
+                  'marqueeScroll var(--marquee-duration) linear infinite',
                 animationPlayState: isPaused ? 'paused' : 'running',
                 willChange: 'transform',
               }}
@@ -37,17 +40,14 @@ export default function PriceComparison({
               {product.priceComparison?.map((item, idx) => (
                 <React.Fragment key={idx}>
                   <div className='flex items-center gap-10 bg-secondary px-4 py-2 rounded-lg'>
-                    <Link
-                      href={item.href}
-                      className='text-primary hover:underline active:underline effect'
-                    >
+                    <div className='text-primary'>
                       {item.title}: {item.price} یورو
-                    </Link>
+                    </div>
                   </div>
                   {/* Separator */}
                   {product.priceComparison &&
                     idx !== product.priceComparison.length - 1 && (
-                      <div className='block h-6 w-px bg-foreground/20'></div>
+                      <span className='text-primary/30'>&#124;</span>
                     )}
                 </React.Fragment>
               ))}

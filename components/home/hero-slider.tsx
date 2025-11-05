@@ -114,6 +114,7 @@ export default function HeroSlider() {
           const idx = (currentSlide + offset + total) % total;
           const img = slideImages[idx];
           const isCenter = offset === 0;
+
           return (
             <button
               key={`hero-col-${offset}-${idx}`}
@@ -122,7 +123,7 @@ export default function HeroSlider() {
                 goTo(idx);
               }}
               className={`relative w-full h-full overflow-hidden rounded-4xl effect ${
-                isCenter ? '' : 'hover:opacity-80 cursor-pointer'
+                isCenter ? 'cursor-grab' : 'hover:opacity-80 cursor-pointer'
               }`}
               aria-label={`Go to slide ${idx + 1}`}
               type='button'
