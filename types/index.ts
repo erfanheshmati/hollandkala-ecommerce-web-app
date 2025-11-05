@@ -181,3 +181,8 @@ export interface CartProps {
   date: string;
   image: string;
 }
+
+export interface ProfileNavItemProps {
+  href: string;
+  label: string;
+}

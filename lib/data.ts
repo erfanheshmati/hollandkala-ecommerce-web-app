@@ -14,6 +14,7 @@ import {
   SortProps,
   StoreLocationProps,
   CartProps,
+  ProfileNavItemProps,
 } from '@/types';
 import { AiFillInstagram } from 'react-icons/ai';
 import { BsTwitter } from 'react-icons/bs';
@@ -1251,5 +1252,28 @@ export const cartItems: CartProps[] = [
     quantity: 4,
     date: '۰۴/۲/۲',
     image: '/images/slide-1.jpg',
+  },
+];
+
+export const profileNavItems: ProfileNavItemProps[] = [
+  {
+    href: '/profile/info',
+    label: 'اطلاعات فردی',
+  },
+  {
+    href: '/profile/orders',
+    label: 'لیست سفارشات',
+  },
+  {
+    href: '/profile/ticket',
+    label: 'ارسال تیکت',
+  },
+  {
+    href: '/profile/collaboration',
+    label: 'درخواست همکاری',
+  },
+  {
+    href: '/profile/reviews',
+    label: 'دیدگاه ها',
   },
 ];
