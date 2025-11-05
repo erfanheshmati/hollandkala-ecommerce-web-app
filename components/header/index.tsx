@@ -56,7 +56,7 @@ export default function Header() {
             </div>
 
             {/* Actions */}
-            <div className='flex items-center justify-end gap-2 md:gap-3 lg:gap-4 md:w-full'>
+            <div className='flex items-center justify-end gap-1 sm:gap-2 md:gap-3 lg:gap-4 md:w-full'>
               <MobileSearch />
               <Favorite />
               <Cart />

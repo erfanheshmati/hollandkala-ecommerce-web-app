@@ -12,13 +12,16 @@ interface CartItemProps {
   onRemove: (id: string) => void;
 }
 
-export default function CartItem({ item, onIncrement, onDecrement, onRemove }: CartItemProps) {
+export default function CartItem({
+  item,
+  onIncrement,
+  onDecrement,
+  onRemove,
+}: CartItemProps) {
   return (
-    <li
-      className='flex flex-col gap-2 relative rounded-2xl border border-primary/20 p-2'
-    >
+    <li className='flex flex-col gap-2 relative rounded-2xl border border-primary/20 p-2'>
       {/* Product Info Group */}
-      <div className='flex gap-3'>
+      <div className='flex gap-2'>
         {/* Image */}
         <div className='flex items-center justify-center w-16 h-16 rounded-xl overflow-hidden bg-secondary'>
           {item.image ? (
@@ -40,27 +43,35 @@ export default function CartItem({ item, onIncrement, onDecrement, onRemove }: C
           <div className='font-bold'>{item.title}</div>
           {/* Code */}
           <div className='flex items-center gap-1'>
-            <span className='text-[16px] font-medium text-foreground/60'>کد سفارش:</span>
-            <span className='text-[16px] font-medium'>{item.code}</span>
+            <span className='font-medium text-foreground/60 line-clamp-1'>
+              کد سفارش:
+            </span>
+            <span className='font-medium'>{item.code}</span>
           </div>
         </div>
 
         {/* Date */}
-        <div className='flex items-start gap-1  mr-auto'>
+        <div className='flex items-start gap-1 mr-auto'>
           <span className='text-sm font-medium text-foreground/60'>تاریخ:</span>
           <span className='text-sm font-medium'>{item.date}</span>
         </div>
       </div>
 
+      {/* Price */}
+      <div className='min-[390px]:hidden flex items-center gap-1'>
+        <span className='font-medium text-foreground/60'>مبلغ:</span>
+        <span className='font-bold'>{item.price} یورو</span>
+      </div>
+
       {/* Bottom Section: Price, Quantity, Order Button */}
       <div className='flex items-center justify-between gap-2'>
         {/* Price */}
-        <div className='flex items-center gap-1'>
+        <div className='hidden min-[390px]:flex items-center gap-1'>
           <span className='font-medium text-foreground/60'>مبلغ:</span>
           <span className='font-bold'>{item.price} یورو</span>
         </div>
         {/* Quantity Controls */}
-        <div className='flex items-center gap-2 bg-secondary rounded-xl px-2 py-1 mr-auto'>
+        <div className='flex items-center gap-2 bg-secondary rounded-xl px-2 py-1 min-[390px]:mr-auto'>
           {/* Plus Button */}
           <button
             className='text-foreground/90 hover:text-black cursor-pointer effect'
@@ -100,5 +111,3 @@ export default function CartItem({ item, onIncrement, onDecrement, onRemove }: C
     </li>
   );
 }
-
-

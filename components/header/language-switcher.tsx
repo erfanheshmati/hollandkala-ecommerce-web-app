@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
-import flagFaIcon from "../../public/icons/flag-fa.svg";
-import flagEnIcon from "../../public/icons/flag-en.svg";
-import { ChevronDown } from "lucide-react";
+import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
+import flagFaIcon from '../../public/icons/flag-fa.svg';
+import flagEnIcon from '../../public/icons/flag-en.svg';
+import { ChevronDown } from 'lucide-react';
 
 interface Language {
   code: string;
@@ -13,8 +13,8 @@ interface Language {
 }
 
 const languages: Language[] = [
-  { code: "fa", name: "فا", flag: flagFaIcon },
-  { code: "en", name: "En", flag: flagEnIcon },
+  { code: 'fa', name: 'فا', flag: flagFaIcon },
+  { code: 'en', name: 'En', flag: flagEnIcon },
 ];
 
 export default function LanguageSwitcher() {
@@ -32,9 +32,9 @@ export default function LanguageSwitcher() {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
@@ -45,23 +45,23 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className='relative' ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-6 h-12 bg-secondary px-3 py-4 rounded-2xl cursor-pointer effect hover:bg-[#e8e8e8]"
+        className='flex items-center gap-2 sm:gap-6 h-12 bg-secondary px-3 py-4 rounded-xl cursor-pointer effect hover:bg-[#e8e8e8]'
       >
         {/* Language display */}
-        <div className="flex items-center gap-2">
+        <div className='flex items-center gap-2'>
           <Image
             src={selectedLanguage.flag}
             alt={selectedLanguage.name}
             width={24}
             height={24}
-            className="rounded-full object-cover"
+            className='rounded-full object-cover min-w-6 max-w-6'
           />
           <span
-            className="text-base text-[#2B2B2B]"
-            style={{ fontFamily: "Shabnam, sans-serif" }}
+            className='hidden min-[380px]:block'
+            style={{ fontFamily: 'Shabnam, sans-serif' }}
           >
             {selectedLanguage.name}
           </span>
@@ -69,36 +69,35 @@ export default function LanguageSwitcher() {
 
         {/* Down arrow */}
         <ChevronDown
-          size={20}
-          className={`text-foreground/70 transition-transform duration-300 ${
-            isOpen ? "rotate-180" : ""
+          className={`hidden min-[350px]:block w-4 h-4 text-foreground/70 transition-transform duration-300 ${
+            isOpen ? 'rotate-180' : ''
           }`}
         />
       </button>
 
       {/* Dropdown menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-24 md:w-28 bg-white rounded-2xl shadow-lg border border-secondary overflow-hidden z-50">
+        <div className='absolute top-full left-0 mt-2 w-24 md:w-28 bg-white rounded-2xl shadow-lg border border-secondary overflow-hidden z-50'>
           {languages.map((language) => (
             <button
               key={language.code}
               onClick={() => handleLanguageSelect(language)}
-              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-secondary transition-colors duration-200 cursor-pointer"
+              className='w-full flex items-center gap-2 px-4 py-3 hover:bg-secondary transition-colors duration-200 cursor-pointer'
             >
               <Image
                 src={language.flag}
                 alt={language.name}
                 width={24}
                 height={24}
-                className="rounded-full object-cover"
+                className='rounded-full object-cover'
                 onError={(e) => {
                   // Fallback if flag icon is not available
-                  e.currentTarget.style.display = "none";
+                  e.currentTarget.style.display = 'none';
                 }}
               />
               <span
-                className="text-base text-[#2B2B2B]"
-                style={{ fontFamily: "Shabnam, sans-serif" }}
+                className='text-base text-[#2B2B2B]'
+                style={{ fontFamily: 'Shabnam, sans-serif' }}
               >
                 {language.name}
               </span>

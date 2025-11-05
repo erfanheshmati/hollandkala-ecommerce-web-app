@@ -164,7 +164,7 @@ export default function MobileMenu() {
       {mounted && createPortal(mobileOverlay, document.body)}
 
       {/* Mobile Menu Button */}
-      <div className='flex items-center gap-2 md:hidden min-w-36'>
+      <div className='flex items-center gap-2 md:hidden min-w-28 min-[380px]:min-w-36'>
         <button
           onClick={toggleMobileMenu}
           className='p-2.5 rounded-xl border border-primary bg-background'
