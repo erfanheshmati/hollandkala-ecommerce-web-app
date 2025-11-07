@@ -38,7 +38,7 @@ export default function ProfileLayout({
       <Header />
 
       {/* Desktop: show nav and content side-by-side */}
-      <div className='container hidden md:flex flex-1 gap-10 mt-32 py-8'>
+      <div className='container hidden md:flex flex-1 gap-4 lg:gap-6 xl:gap-10 mt-32 py-8'>
         <ProfileNav />
         <main className='flex flex-1 flex-col border border-foreground/20 rounded-2xl'>
           {children}
@@ -55,9 +55,9 @@ export default function ProfileLayout({
             }}
           />
         ) : (
-          <main className='flex flex-1 flex-col gap-4'>
+          <main className='flex flex-1 flex-col'>
             <div className='flex items-center gap-2'>
-              <Link href='/profile' className='flex items-center gap-2 py-1'>
+              <Link href='/profile' className='flex items-center gap-1 py-1'>
                 <ChevronRight size={24} className='text-primary m-1' />
                 <span className='text-xl font-bold text-primary pt-1'>
                   {currentTitle}

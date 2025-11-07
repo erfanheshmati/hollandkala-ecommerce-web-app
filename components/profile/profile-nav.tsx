@@ -63,7 +63,7 @@ export default function ProfileNav({ onItemClick }: ProfileNavProps) {
       </nav>
 
       {/* Logout Button */}
-      <button className='flex items-center justify-center gap-2 border border-red-500 text-red-500 bg-background hover:bg-red-50 active:bg-red-50 rounded-xl md:mx-4 py-4 md:py-3 cursor-pointer effect'>
+      <button className='flex items-center justify-center gap-2 border border-red-500 text-red-500 bg-background hover:bg-red-50 active:bg-red-50 rounded-2xl md:rounded-xl md:mx-4 py-4 md:py-3 cursor-pointer effect'>
         <CiLogout className='w-5 h-5 rotate-180' />
         <span className='font-medium'> خروج از حساب کاربری</span>
       </button>

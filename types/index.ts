@@ -150,7 +150,7 @@ export interface FeatureCardProps {
   iconUrl: string;
 }
 
-export interface SortProps {
+export interface ProductSortProps {
   label: string;
   param: string;
 }
@@ -185,4 +185,23 @@ export interface CartProps {
 export interface ProfileNavItemProps {
   href: string;
   label: string;
+}
+
+export type OrderStatusProps = 'shipped' | 'processing' | 'cancelled';
+
+export interface ProfileOrderProps {
+  id: string;
+  title: string;
+  code: string;
+  date: string;
+  status: OrderStatusProps;
+  total: string;
+  count: number;
+  thumbnail: string;
+  href: string;
+}
+
+export interface OderSortProps {
+  label: string;
+  param: string;
 }

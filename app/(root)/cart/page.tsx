@@ -36,7 +36,7 @@ export default function CartPage() {
   //   const total = items.reduce((sum, it) => sum + it.price * it.quantity, 0);
 
   return (
-    <div className='container flex flex-col gap-4 pt-28 md:pt-40'>
+    <div className='container flex flex-col gap-4 pt-28 md:pt-40 min-h-screen'>
       <h1 className='text-2xl font-bold'>سبد خرید</h1>
 
       {items.length === 0 ? (

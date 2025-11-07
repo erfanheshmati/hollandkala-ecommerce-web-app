@@ -11,10 +11,12 @@ import {
   ReviewProps,
   SlideImageProps,
   SocialMediaProps,
-  SortProps,
   StoreLocationProps,
   CartProps,
   ProfileNavItemProps,
+  ProfileOrderProps,
+  ProductSortProps,
+  OderSortProps,
 } from '@/types';
 import { AiFillInstagram } from 'react-icons/ai';
 import { BsTwitter } from 'react-icons/bs';
@@ -1205,7 +1207,7 @@ export const features: FeatureCardProps[] = [
   },
 ];
 
-export const sortData: SortProps[] = [
+export const productSortData: ProductSortProps[] = [
   {
     label: 'جدید ترین',
     param: 'newest',
@@ -1275,5 +1277,60 @@ export const profileNavItems: ProfileNavItemProps[] = [
   {
     href: '/profile/reviews',
     label: 'دیدگاه ها',
+  },
+];
+
+export const profileOrders: ProfileOrderProps[] = [
+  {
+    id: 'HK-98421',
+    title: 'نام محصول',
+    code: '۹۸۴۲',
+    date: '۰۳/۰۸/۱۴',
+    status: 'shipped',
+    total: '37',
+    count: 6,
+    thumbnail: '/images/slide-1.jpg',
+    href: '#',
+  },
+  {
+    id: 'HK-98422',
+    title: 'نام محصول',
+    code: '۹۴۲۱',
+    date: '۰۳/۰۸/۱۴',
+    status: 'processing',
+    total: '37',
+    count: 6,
+    thumbnail: '/images/slide-1.jpg',
+    href: '#',
+  },
+  {
+    id: 'HK-98423',
+    title: 'نام محصول',
+    code: '۹۸۴۱',
+    date: '۰۳/۰۸/۱۴',
+    status: 'cancelled',
+    total: '37',
+    count: 6,
+    thumbnail: '',
+    href: '#',
+  },
+];
+
+export const orderSortData: OderSortProps[] = [
+  {
+    label: 'همه',
+    param: 'all',
+  },
+  {
+    label: 'جاری',
+    param: 'processing',
+  },
+  {
+    label: 'تحویل شده',
+    param: 'shipped',
+  },
+  {
+    label: 'لغو شده',
+    param: 'cancelled',
   },
 ];

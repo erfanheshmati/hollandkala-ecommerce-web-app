@@ -3,7 +3,7 @@ import {
   retailCategorySlugToProducts,
   allProductsMock,
   bannerImages,
-  sortData,
+  productSortData,
 } from '@/lib/data';
 import ProductCard from '@/components/product/product-card';
 import Breadcrumb from '@/components/shared/breadcrumb';
@@ -114,7 +114,7 @@ export default async function ProductsSegmentCategoryPage({
                 </span>
               </div>
               <div className='flex items-center gap-2'>
-                {sortData.map((sort, idx) => (
+                {productSortData.map((sort, idx) => (
                   <button
                     key={idx}
                     className='font-medium text-foreground hover:text-primary active:text-primary border border-foreground/30 hover:border-primary active:border-primary rounded-xl px-6 py-1 cursor-pointer effect'
