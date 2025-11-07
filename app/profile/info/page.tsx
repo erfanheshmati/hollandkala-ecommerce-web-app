@@ -1,3 +1,5 @@
+'use client';
+
 export default function ProfileInfoPage() {
   return (
     <div className='py-4 md:p-8'>
@@ -10,6 +12,7 @@ export default function ProfileInfoPage() {
             type='text'
             placeholder='نام و نام خانوادگی'
             value='محمد رمضانی'
+            onChange={() => {}}
             className='peer h-11 w-full rounded-xl border border-foreground/20 bg-background text-primary placeholder:text-foreground/50 text-lg placeholder:text-base font-medium placeholder:font-normal px-4 py-7 md:py-6 outline-none focus:border-primary/60 focus:placeholder-transparent'
           />
           <label
