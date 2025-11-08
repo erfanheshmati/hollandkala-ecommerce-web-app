@@ -65,7 +65,7 @@ body {
     @apply bg-primary hover:bg-[#092468] active:bg-[#092468] disabled:bg-secondary text-background disabled:text-foreground/40 border disabled:border-foreground/10 p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;
   }
   .btn-secondary {
-    @apply bg-background text-primary hover:text-[#092468] border border-primary hover:border-[#092468] p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;
+    @apply bg-background text-primary hover:text-[#092468] border border-primary/40 hover:border-[#092468] active:border-[#092468] p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;
   }
   .btn-tertiary {
     @apply bg-secondary hover:bg-foreground/10 active:bg-foreground/10 text-foreground p-4 rounded-3xl cursor-pointer transition-all ease-in-out duration-300;

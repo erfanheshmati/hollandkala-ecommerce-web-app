@@ -229,3 +229,11 @@ export interface ProfileTicketProps {
   supportResponse?: SupportResponseProps;
   href?: string;
 }
+
+export interface ProfileReviewProps {
+  id: string;
+  code: string;
+  name: string;
+  image: string;
+  rating: number;
+}

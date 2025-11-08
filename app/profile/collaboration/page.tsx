@@ -30,9 +30,9 @@ export default function ProfileCollaborationPage() {
   };
 
   return (
-    <div className='flex flex-col gap-6 p-4 md:p-6 lg:p-8'>
+    <div className='flex flex-col gap-6 py-4 md:p-6 lg:p-8'>
       {/* Title */}
-      <h1 className='text-xl font-bold text-foreground'>همکاری با ما</h1>
+      <h1 className='hidden md:flex text-xl font-bold text-foreground'>همکاری با ما</h1>
 
       {/* Form */}
       <form onSubmit={handleSubmit} className='flex flex-col gap-6'>

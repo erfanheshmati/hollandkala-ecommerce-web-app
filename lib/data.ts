@@ -19,6 +19,7 @@ import {
   ProductSortProps,
   OderSortProps,
   TicketSortProps,
+  ProfileReviewProps,
 } from '@/types';
 import { AiFillInstagram } from 'react-icons/ai';
 import { BsTwitter } from 'react-icons/bs';
@@ -1409,5 +1410,36 @@ export const profileTickets: ProfileTicketProps[] = [
     status: 'closed',
     description:
       'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال',
+  },
+];
+
+export const profileReviews: ProfileReviewProps[] = [
+  {
+    id: '1',
+    code: '۳۲۳۳۴۲۳۵۲',
+    name: 'محمد رمضانی',
+    image: '/images/slide-1.jpg',
+    rating: 4.2,
+  },
+  {
+    id: '2',
+    code: '۳۲۳۳۴۲۳۵۲',
+    name: 'محمد رمضانی',
+    image: '/images/slide-1.jpg',
+    rating: 3.3,
+  },
+  {
+    id: '3',
+    code: '۳۲۳۳۴۲۳۵۲',
+    name: 'محمد رمضانی',
+    image: '/images/slide-1.jpg',
+    rating: 4,
+  },
+  {
+    id: '4',
+    code: '۳۲۳۳۴۲۳۵۲',
+    name: 'محمد رمضانی',
+    image: '/images/slide-1.jpg',
+    rating: 3.5,
   },
 ];
