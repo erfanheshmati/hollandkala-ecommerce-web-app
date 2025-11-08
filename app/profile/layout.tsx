@@ -14,11 +14,10 @@ export default function ProfileLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-
+  const [pendingTitle, setPendingTitle] = React.useState<string | null>(null);
   const [isMobileNavOpen, setIsMobileNavOpen] = React.useState(
     pathname === '/profile'
   );
-  const [pendingTitle, setPendingTitle] = React.useState<string | null>(null);
 
   const currentTitle = React.useMemo(() => {
     if (pendingTitle) return pendingTitle;
@@ -55,14 +54,17 @@ export default function ProfileLayout({
             }}
           />
         ) : (
-          <main className='flex flex-1 flex-col'>
+          <main className='flex flex-1 flex-col gap-2'>
             <div className='flex items-center gap-2'>
-              <Link href='/profile' className='flex items-center gap-1 py-1'>
-                <ChevronRight size={24} className='text-primary m-1' />
-                <span className='text-xl font-bold text-primary pt-1'>
-                  {currentTitle}
-                </span>
+              <Link
+                href='/profile'
+                className='rounded-full p-1 hover:bg-primary/10 active:bg-primary/15 effect'
+              >
+                <ChevronRight size={24} className='text-primary' />
               </Link>
+              <span className='text-xl font-bold text-primary pt-1'>
+                {currentTitle}
+              </span>
             </div>
             {children}
           </main>
