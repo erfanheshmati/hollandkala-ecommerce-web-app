@@ -205,3 +205,27 @@ export interface OderSortProps {
   label: string;
   param: string;
 }
+
+export interface TicketSortProps {
+  label: string;
+  param: string;
+}
+
+export type TicketStatusProps = 'answered' | 'reviewing' | 'closed';
+
+export interface SupportResponseProps {
+  name: string;
+  text: string;
+  date?: string;
+  hasFileUpload?: boolean;
+}
+
+export interface ProfileTicketProps {
+  id: string;
+  title: string;
+  date: string;
+  status: TicketStatusProps;
+  description: string;
+  supportResponse?: SupportResponseProps;
+  href?: string;
+}

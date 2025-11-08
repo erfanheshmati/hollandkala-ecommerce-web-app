@@ -15,7 +15,7 @@ export default function ProfileNav({ onItemClick }: ProfileNavProps) {
   const pathname = usePathname();
 
   return (
-    <aside className='flex flex-col md:justify-between gap-4 md:gap-8 pt-2 md:pt-6 md:pb-4 w-full md:w-1/3 lg:w-1/4 md:border border-foreground/20 rounded-2xl'>
+    <aside className='flex flex-col md:justify-between gap-4 md:gap-8 pt-2 md:pt-6 md:pb-4 w-full md:w-1/3 lg:w-1/4 md:border border-foreground/20 rounded-2xl md:sticky md:top-8 md:max-h-[calc(100vh-4rem)] md:overflow-y-auto'>
       <nav className='flex flex-col gap-4 md:gap-8'>
         {/* Header */}
         <h2 className='font-bold text-xl md:text-2xl px-1 md:px-3'>

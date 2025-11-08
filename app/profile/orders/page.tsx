@@ -30,7 +30,7 @@ export default function ProfileOrdersPage() {
 
   return (
     <section className='flex flex-col gap-6 py-4 md:p-4 lg:p-6 xl:p-8'>
-      <div className='flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6'>
+      <div className='flex flex-col lg:flex-row items-start xl:items-center justify-between gap-6'>
         {/* Sort Bar */}
         <OrderSort value={statusFilter} onChange={setStatusFilter} />
         {/* Search Box */}

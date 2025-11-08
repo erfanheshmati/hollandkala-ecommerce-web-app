@@ -1,26 +1,26 @@
-import { orderSortData } from '@/lib/data';
-import clsx from 'clsx';
+import { ticketSortData } from '@/lib/data';
+import { clsx } from 'clsx';
 
-export type OrderSortValue = (typeof orderSortData)[number]['param'];
+export type TicketSortValue = (typeof ticketSortData)[number]['param'];
 
-interface OrderSortProps {
-  value: OrderSortValue;
-  onChange: (value: OrderSortValue) => void;
+interface TicketSortProps {
+  value: TicketSortValue;
+  onChange: (value: TicketSortValue) => void;
 }
 
-export default function OrderSort({ value, onChange }: OrderSortProps) {
+export default function TicketSort({ value, onChange }: TicketSortProps) {
   return (
     <div className='flex items-center gap-2 w-full lg:h-full'>
       <div className='hidden sm:flex md:hidden xl:flex items-center gap-2 shrink-0'>
         <span className='text-foreground font-bold text-xl'>
-          سفارشات بر اساس:
+          تیکت ها بر اساس:
         </span>
       </div>
       <div
         className='flex items-center gap-2 flex-nowrap overflow-x-auto -ml-4 pl-4'
         style={{ scrollbarWidth: 'none' }}
       >
-        {orderSortData.map((sort) => (
+        {ticketSortData.map((sort) => (
           <button
             key={sort.param}
             type='button'
