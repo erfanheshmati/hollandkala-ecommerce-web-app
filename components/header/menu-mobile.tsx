@@ -55,9 +55,53 @@ export default function MobileMenu() {
     };
   }, [isMobileMenuOpen]);
 
+  const mobileMenu = (
+    <div
+      ref={mobileMenuRef}
+      className={`md:hidden fixed top-0 right-0 h-screen overflow-y-auto w-80 max-w-[70vw] bg-background z-120 effect ${
+        isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      }`}
+    >
+      <div className='flex flex-col gap-4'>
+        {/* Mobile Menu Top */}
+        <div className='flex items-center justify-between p-4'>
+          {/* Menu Button */}
+          <div className='flex items-center gap-2 md:hidden'>
+            <button
+              onClick={toggleMobileMenu}
+              className='p-2.5 rounded-xl border border-primary bg-primary'
+              aria-label='Toggle menu'
+            >
+              <MenuIcon size={24} className='text-background' />
+            </button>
+            <span className='text-primary text-sm font-medium'>منو</span>
+          </div>
+          {/* Close Button */}
+          <button
+            onClick={toggleMobileMenu}
+            className='p-2.5 rounded-xl bg-background text-primary border border-primary'
+            aria-label='Close menu'
+          >
+            <X size={24} />
+          </button>
+        </div>
+
+        {/* Mobile Menu User Button */}
+        <div className='flex px-4'>
+          <UserButton className='w-full justify-center' />
+        </div>
+
+        {/* Mobile Menu Items */}
+        <nav className='flex-1 h-full overflow-y-auto py-4'>
+          {menuData.map((item, index) => renderMobileMenuItem(item, index))}
+        </nav>
+      </div>
+    </div>
+  );
+
   const mobileOverlay = (
     <div
-      className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
+      className={`fixed inset-0 bg-black/50 z-110 transition-opacity duration-300 ${
         isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
       onClick={() => setIsMobileMenuOpen(false)}
@@ -65,11 +109,11 @@ export default function MobileMenu() {
   );
 
   // Render menu items recursively for mobile
-  const renderMobileMenuItem = (
+  function renderMobileMenuItem(
     item: MenuItemProps | MenuItemChildProps,
     index: number,
     level: number = 0
-  ) => {
+  ) {
     const itemKey =
       level === 0 ? index.toString() : `${openMobileDropdown}-${index}`;
     const submenuKey = `${itemKey}-${index}`;
@@ -156,7 +200,7 @@ export default function MobileMenu() {
         )}
       </div>
     );
-  };
+  }
 
   return (
     <>
@@ -175,49 +219,8 @@ export default function MobileMenu() {
         <span className='text-primary text-sm font-medium'>منو</span>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        ref={mobileMenuRef}
-        // className={`md:hidden fixed top-0 right-0 h-screen overflow-y-auto w-80 max-w-[70vw] bg-background z-50 effect ${
-        className={`md:hidden fixed top-0 right-0 h-screen overflow-y-auto w-full bg-background z-50 effect ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <div className='flex flex-col gap-4'>
-          {/* Mobile Menu Top */}
-          <div className='flex items-center justify-between p-4'>
-            {/* Menu Button */}
-            <div className='flex items-center gap-2 md:hidden'>
-              <button
-                onClick={toggleMobileMenu}
-                className='p-2.5 rounded-xl border border-primary bg-primary'
-                aria-label='Toggle menu'
-              >
-                <MenuIcon size={24} className='text-background' />
-              </button>
-              <span className='text-primary text-sm font-medium'>منو</span>
-            </div>
-            {/* Close Button */}
-            <button
-              onClick={toggleMobileMenu}
-              className='p-2.5 rounded-xl bg-background text-primary border border-primary'
-              aria-label='Close menu'
-            >
-              <X size={24} />
-            </button>
-          </div>
-
-          {/* Mobile Menu User Button */}
-          <div className='flex px-4'>
-            <UserButton className='w-full justify-center' />
-          </div>
-
-          {/* Mobile Menu Items */}
-          <nav className='flex-1 h-full overflow-y-auto py-4'>
-            {menuData.map((item, index) => renderMobileMenuItem(item, index))}
-          </nav>
-        </div>
-      </div>
+      {/* Mobile Menu - rendered via portal to escape header stacking context */}
+      {mounted && createPortal(mobileMenu, document.body)}
     </>
   );
 }
