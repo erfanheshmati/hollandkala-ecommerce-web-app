@@ -1,15 +1,18 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { CartProps } from '@/types';
 import { Plus, Trash2, Minus } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface CartItemProps {
   item: CartProps;
   onIncrement: (id: string) => void;
   onDecrement: (id: string) => void;
   onRemove: (id: string) => void;
+  className?: string;
 }
 
 export default function CartItem({
@@ -17,9 +20,17 @@ export default function CartItem({
   onIncrement,
   onDecrement,
   onRemove,
+  className = '',
 }: CartItemProps) {
+  const pathname = usePathname();
+
   return (
-    <li className='flex flex-col gap-2 relative rounded-2xl border border-primary/20 p-2'>
+    <li
+      className={cn(
+        'flex flex-col gap-2 relative rounded-2xl border border-primary/20 p-2',
+        className
+      )}
+    >
       {/* Product Info Group */}
       <div className='flex gap-2'>
         {/* Image */}
@@ -104,9 +115,11 @@ export default function CartItem({
           )}
         </div>
         {/*  Order Button */}
-        <Link href='/cart' className='btn-accent py-2 rounded-xl'>
-          ثبت سفارش
-        </Link>
+        {pathname !== '/checkout' && (
+          <Link href='/checkout' className='btn-accent py-2 rounded-xl'>
+            ثبت سفارش
+          </Link>
+        )}
       </div>
     </li>
   );
