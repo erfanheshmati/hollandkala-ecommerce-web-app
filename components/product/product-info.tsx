@@ -5,6 +5,7 @@ import { ProductProps } from '@/types';
 import { GoGift, GoStarFill } from 'react-icons/go';
 import { IoCheckmark } from 'react-icons/io5';
 import Image from 'next/image';
+import Share from '@/components/shared/share';
 
 const COLOR_HEX_MAP: Record<string, string> = {
   قرمز: '#CF0221',

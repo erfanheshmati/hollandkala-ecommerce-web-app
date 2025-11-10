@@ -8,6 +8,7 @@ import ProductTabs from '@/components/product/product-tabs';
 import BannerImage from '@/components/home/banner-image';
 import { shoesProducts, bannerImages } from '@/lib/data';
 import { notFound } from 'next/navigation';
+import Share from '@/components/shared/share';
 
 export default async function ProductDetailsPage({
   params,
@@ -20,8 +21,9 @@ export default async function ProductDetailsPage({
 
   return (
     <main className='container pt-24 md:pt-36'>
-      {/* Breadcrumbs */}
-      <div className='mb-7'>
+      {/* Breadcrumb & Share */}
+      <div className='flex items-center justify-between gap-4 mb-7'>
+        {/* Breadcrumbs */}
         <Breadcrumb
           items={[
             { label: 'خانه', href: '/' },
@@ -29,6 +31,8 @@ export default async function ProductDetailsPage({
             { label: product.title },
           ]}
         />
+        {/* Share */}
+        <Share />
       </div>
 
       {/* Product */}

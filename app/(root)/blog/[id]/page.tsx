@@ -9,6 +9,7 @@ import { IoCalendarOutline } from 'react-icons/io5';
 import Breadcrumb from '@/components/shared/breadcrumb';
 import BannerImage from '@/components/home/banner-image';
 import LikeButton from '@/components/blog/like-button';
+import Share from '@/components/shared/share';
 
 export default async function BlogSinglePage({
   params,
@@ -24,8 +25,9 @@ export default async function BlogSinglePage({
 
   return (
     <main className='container pt-24 md:pt-36'>
-      {/* Breadcrumb */}
-      <div className='mb-7 flex justify-end'>
+      {/* Breadcrumb & Share */}
+      <div className='flex items-center justify-between gap-4 mb-7'>
+        {/* Breadcrumb */}
         <Breadcrumb
           items={[
             { label: 'صفحه اصلی', href: '/' },
@@ -33,6 +35,8 @@ export default async function BlogSinglePage({
             { label: blog.title, href: `/blog/${blog.id}` },
           ]}
         />
+        {/* Share */}
+        <Share />
       </div>
 
       {/* Blog */}
