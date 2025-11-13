@@ -3,8 +3,10 @@
 import { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export default function PromotionalPopup() {
+  const t = useTranslations();
   const [showPopup, setShowPopup] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -104,9 +106,9 @@ export default function PromotionalPopup() {
           <div className='flex flex-col items-center justify-center h-full p-6 relative mt-14'>
             {/* Text Content */}
             <div className='flex flex-col items-center gap-2 mb-6'>
-              <h2 className='text-4xl font-bold text-white'>با خرید عمده</h2>
+              <h2 className='text-4xl font-bold text-white'>{t('gifts.promotional.title')}</h2>
               <p className='text-2xl font-normal text-white'>
-                زیر قیمت بازار خرید کن
+                {t('gifts.promotional.subtitle')}
               </p>
               {/* CTA Button */}
               <button
@@ -117,7 +119,7 @@ export default function PromotionalPopup() {
                 }}
                 className='bg-white text-foreground px-4 py-3 rounded-2xl font-medium text-xl hover:bg-white/70 cursor-pointer effect'
               >
-                مشاهده ی همه محصولات
+                {t('common.viewAllProducts')}
               </button>
             </div>
 

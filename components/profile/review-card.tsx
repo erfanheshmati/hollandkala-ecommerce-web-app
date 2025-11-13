@@ -6,6 +6,7 @@ import { GoStar, GoStarFill } from 'react-icons/go';
 import { ProfileReviewProps } from '@/types';
 import { AiOutlineMessage } from 'react-icons/ai';
 import ReviewFormModal from './review-form-modal';
+import { useTranslations } from 'next-intl';
 
 export default function ReviewCard({
   code,
@@ -13,6 +14,7 @@ export default function ReviewCard({
   image,
   rating,
 }: ProfileReviewProps) {
+  const t = useTranslations();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const getStarState = (starNumber: number, rating: number) => {
     if (starNumber <= Math.floor(rating)) {
@@ -49,7 +51,7 @@ export default function ReviewCard({
           {/* Order Code */}
           <div className='flex items-center justify-end gap-2'>
             <span className='text-base font-medium text-foreground/66'>
-              کد سفارش:
+              {t('profile.order.orderCode')}:
             </span>
             <span className='text-base font-medium text-foreground'>
               {code}
@@ -59,7 +61,7 @@ export default function ReviewCard({
           {/* Rating Button */}
           <div className='flex items-center justify-center gap-3 bg-background rounded-2xl p-3'>
             <span className='lg:hidden xl:block text-base font-medium text-foreground/66'>
-              امتیاز
+              {t('profile.review.rate')}
             </span>
             <div className='flex items-center gap-1' dir='ltr'>
               {[1, 2, 3, 4, 5].map((star) => {
@@ -72,7 +74,7 @@ export default function ReviewCard({
                       e.stopPropagation();
                     }}
                     className='focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 rounded cursor-pointer effect relative'
-                    aria-label={`امتیاز ${star} از 5`}
+                    aria-label={t('profile.review.ratingOf', { rating: star })}
                   >
                     {starState.type === 'full' ? (
                       <GoStarFill
@@ -114,8 +116,8 @@ export default function ReviewCard({
         onClick={() => setIsModalOpen(true)}
         className='btn-secondary flex items-center justify-center gap-2 rounded-2xl py-3 px-10 w-full sm:w-fit md:w-full mx-auto'
       >
-        <AiOutlineMessage size={24} className='text-primary mb-1' />
-        <span className='text-xl font-bold text-primary'>ثبت دیدگاه</span>
+        <AiOutlineMessage size={24} className='text-primary rtl:mb-1' />
+        <span className='text-xl font-bold text-primary'>{t('profile.review.submitReview')}</span>
       </button>
 
       {/* Review Form Modal */}

@@ -1,4 +1,6 @@
 import { IconType } from 'react-icons';
+import type { Link } from '@/i18n/routing';
+import type { ComponentProps } from 'react';
 
 export interface MenuItemChildProps {
   title: string;
@@ -25,7 +27,7 @@ export interface SocialMediaProps {
 }
 
 export interface MobileNavItemProps {
-  href: string;
+  href: ComponentProps<typeof Link>['href'];
   label: string;
   icon: IconType;
 }
@@ -41,7 +43,7 @@ export interface ProductCategoryProps {
   href: string;
 }
 
-interface PriceComparisonProps {
+export interface PriceComparisonProps {
   title: string;
   price: string;
   href: string;
@@ -54,6 +56,7 @@ export interface ProductProps {
   title: string;
   enTitle?: string;
   description?: string;
+  enDescription?: string;
   originalPrice?: string;
   discountedPrice?: string;
   discountPercentage?: string;
@@ -85,13 +88,13 @@ export interface ProductSliderProps {
   title: string;
   products: ProductProps[];
   backgroundColor?: string;
-  href: string;
+  href: ComponentProps<typeof Link>['href'];
 }
 
 export interface BannerImageProps {
   title: string;
   imageUrl: string;
-  href: string;
+  href: ComponentProps<typeof Link>['href'];
 }
 
 export interface PromotionalTextProps {
@@ -107,7 +110,7 @@ export interface ReviewReplyProps {
 
 export interface ReviewProps {
   name: string;
-  avatarUrl: string;
+  avatarUrl?: string;
   comment: string;
   rating?: number;
   badges?: string[];
@@ -157,7 +160,7 @@ export interface ProductSortProps {
 
 export interface BreadcrumbProps {
   label: string;
-  href?: string;
+  href?: ComponentProps<typeof Link>['href'];
 }
 
 export interface PageProps {
@@ -183,7 +186,7 @@ export interface CartProps {
 }
 
 export interface ProfileNavItemProps {
-  href: string;
+  href: ComponentProps<typeof Link>['href'];
   label: string;
 }
 
@@ -198,7 +201,7 @@ export interface ProfileOrderProps {
   total: string;
   count: number;
   thumbnail: string;
-  href: string;
+  href: ComponentProps<typeof Link>['href'];
 }
 
 export interface OderSortProps {

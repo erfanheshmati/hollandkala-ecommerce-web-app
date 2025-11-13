@@ -1,44 +1,83 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/preserve-manual-memoization */
 'use client';
 
 import { useMemo, useState } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { ReviewSectionProps } from '@/types';
 import ReviewSlider from './review-slider';
-import Link from 'next/link';
+import { Link, usePathname } from '@/i18n/routing';
 import ReviewCard from '@/components/review/review-card';
 import Pagination from '@/components/shared/pagination';
+import { useTranslations } from 'next-intl';
 
 export default function ReviewSection({
-  title = 'نظرات کاربران',
-  subtitle = 'بخشی از درآمد "هلند کالا" صرف امور خیریه می شود',
+  title,
+  subtitle,
   reviews,
   filters,
   dataByFilter,
 }: ReviewSectionProps) {
+  const t = useTranslations();
   const pathname = usePathname();
 
-  const [activeFilter, setActiveFilter] = useState<string>(
-    filters?.[0] ?? (dataByFilter ? Object.keys(dataByFilter)[0] : 'همه')
-  );
+  // Map filter keys to translation keys
+  const getFilterTranslation = (filterKey: string): string => {
+    if (filterKey === 'خریداران' || filterKey === 'buyers') {
+      return t('reviews.filters.buyers');
+    }
+    if (filterKey === 'ورزشکاران' || filterKey === 'athletes') {
+      return t('reviews.filters.athletes');
+    }
+    if (filterKey === 'خیریه' || filterKey === 'charity') {
+      return t('reviews.filters.charity');
+    }
+    if (filterKey === t('reviews.all')) {
+      return t('reviews.all');
+    }
+    return filterKey; // Return as-is if no translation found
+  };
 
-  const derivedFilters = useMemo(() => {
+  // Get initial filter keys (original keys from data)
+  const initialFilterKeys = useMemo(() => {
     if (dataByFilter) {
-      if (filters && filters.length > 0) return [...filters];
+      // When using dataByFilter, just use the filter keys (no "all" option)
+      if (filters && filters.length > 0) return filters;
       return Object.keys(dataByFilter);
     }
-    if (filters && filters.length > 0) return ['همه', ...filters];
+    // When using reviews array, include "all" option
+    const allKey = t('reviews.all');
+    if (filters && filters.length > 0) {
+      return [allKey, ...filters];
+    }
     const set = new Set<string>();
     reviews.forEach((r) => r.badges?.forEach((c) => set.add(c)));
-    return ['همه', ...Array.from(set)];
-  }, [filters, reviews, dataByFilter]);
+    return [allKey, ...Array.from(set)];
+  }, [filters, reviews, dataByFilter, t]);
+
+  // Store original filter key in state for data lookup
+  const [activeFilterKey, setActiveFilterKey] = useState<string>(() => {
+    if (dataByFilter) {
+      return filters?.[0] ?? Object.keys(dataByFilter)[0] ?? '';
+    }
+    return t('reviews.all');
+  });
+
+  // Get translated filters for display
+  const derivedFilters = useMemo(() => {
+    return initialFilterKeys.map((key) => ({
+      original: key,
+      translated: getFilterTranslation(key),
+    }));
+  }, [initialFilterKeys, t]);
 
   const visibleReviews = useMemo(() => {
     if (dataByFilter) {
-      return dataByFilter[activeFilter] ?? [];
+      return dataByFilter[activeFilterKey] ?? [];
     }
-    if (activeFilter === 'همه') return reviews;
-    return reviews.filter((r) => r.badges?.includes(activeFilter));
-  }, [reviews, activeFilter, dataByFilter]);
+    if (activeFilterKey === t('reviews.all')) return reviews;
+    return reviews.filter((r) => r.badges?.includes(activeFilterKey));
+  }, [reviews, activeFilterKey, dataByFilter, t]);
 
   // Pagination
   const pageSize = 12;
@@ -68,49 +107,34 @@ export default function ReviewSection({
       {/* Header */}
       <div className='flex flex-col items-center gap-1'>
         <h2 className='text-xl md:text-2xl font-bold text-foreground'>
-          {title}
+          {title ?? t('reviews.title')}
         </h2>
-        {subtitle ? (
+        {subtitle ?? t('reviews.subtitle') ? (
           <p className='text-foreground/66 font-medium text-base md:text-lg'>
-            {subtitle}
+            {subtitle ?? t('reviews.subtitle')}
           </p>
         ) : null}
       </div>
 
       {/* Navbar */}
       <div className='flex gap-4 w-fit mx-auto bg-secondary p-2 rounded-3xl'>
-        {derivedFilters.map((f) => (
+        {derivedFilters.map((filter) => (
           <button
-            key={f}
-            onClick={() => setActiveFilter(f)}
+            key={filter.original}
+            onClick={() => setActiveFilterKey(filter.original)}
             className={`px-6 md:px-8 py-2 rounded-full cursor-pointer effect ${
-              f === activeFilter
+              filter.original === activeFilterKey
                 ? 'bg-primary text-background'
                 : 'hover:bg-foreground/5'
             }`}
           >
-            {f}
+            {filter.translated}
           </button>
         ))}
       </div>
 
-      {/* Show in home page */}
-      {pathname === '/' && (
-        <>
-          {/* Reviews Slider */}
-          <ReviewSlider reviews={visibleReviews} />
-          {/* Link to see all */}
-          <Link
-            href='/reviews'
-            className='btn-primary w-fit mx-auto rounded-xl font-medium text-sm md:text-base px-8 py-3 mt-2'
-          >
-            مشاهده همه
-          </Link>
-        </>
-      )}
-
       {/* Show in reviews page */}
-      {pathname === '/reviews' && (
+      {pathname === '/reviews' ? (
         <div className='container flex flex-col gap-8 md:gap-12 pt-4'>
           {/* Reviews Grid */}
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
@@ -123,6 +147,21 @@ export default function ReviewSection({
             <Pagination totalItems={visibleReviews.length} perPage={4} />
           </div>
         </div>
+      ) : (
+        /* Show slider on home page and other pages */
+        visibleReviews.length > 0 && (
+          <>
+            {/* Reviews Slider */}
+            <ReviewSlider reviews={visibleReviews} />
+            {/* Link to see all */}
+            <Link
+              href='/reviews'
+              className='btn-primary w-fit mx-auto rounded-xl font-medium text-sm md:text-base px-8 py-3 mt-2'
+            >
+              {t('common.viewAll')}
+            </Link>
+          </>
+        )
       )}
     </section>
   );

@@ -1,9 +1,11 @@
-"use client";
+'use client';
 
-import { useState, useEffect, useRef } from "react";
-import { Search as SearchIcon, X } from "lucide-react";
+import { useState, useEffect, useRef } from 'react';
+import { Search as SearchIcon, X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function MobileSearch() {
+  const t = useTranslations();
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const searchInputRef = useRef<HTMLDivElement>(null);
 
@@ -22,11 +24,11 @@ export function MobileSearch() {
     };
 
     if (isMobileSearchOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isMobileSearchOpen]);
 
@@ -39,38 +41,38 @@ export function MobileSearch() {
       {/* Mobile Search Button */}
       <button
         onClick={toggleMobileSearch}
-        className="md:hidden p-3 rounded-xl bg-secondary"
-        aria-label="Toggle search"
+        className='md:hidden p-3 rounded-xl bg-secondary'
+        aria-label={t('common.search')}
       >
-        <SearchIcon size={24} className="text-foreground" />
+        <SearchIcon size={24} className='text-foreground' />
       </button>
 
       {/* Mobile Search Input */}
       {isMobileSearchOpen && (
         <div
           ref={searchInputRef}
-          className="absolute top-full left-0 right-0 p-4 bg-white shadow-lg md:hidden"
+          className='absolute top-full left-0 right-0 p-4 bg-white shadow-lg md:hidden'
         >
           <div
             className={`transition-all duration-300 overflow-hidden ${
-              isMobileSearchOpen ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
+              isMobileSearchOpen ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
             }`}
           >
-            <div className="relative">
+            <div className='relative'>
               <input
-                type="text"
-                placeholder="جست و جو کنید..."
-                className="input w-full px-12 rounded-xl h-12"
+                type='text'
+                placeholder={t('common.search')}
+                className='input w-full rtl:pr-12 ltr:pl-12 rounded-xl h-12'
               />
-              <button className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                <SearchIcon size={24} className="pb-1" />
+              <button className='absolute rtl:right-4 ltr:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 pb-1'>
+                <SearchIcon size={24} />
               </button>
-              <button
+              {/* <button
                 onClick={() => setIsMobileSearchOpen(false)}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+                className='absolute ltr:right-4 rtl:left-4 top-1/2 transform -translate-y-1/2 text-gray-400'
               >
-                <X size={20} />
-              </button>
+                <X size={24} />
+              </button> */}
             </div>
           </div>
         </div>

@@ -6,8 +6,10 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { GoStar, GoStarFill } from 'react-icons/go';
 import { ImReply } from 'react-icons/im';
+import { useTranslations } from 'next-intl';
 
 export default function ProductReview({ product }: { product: ProductProps }) {
+  const t = useTranslations();
   const visibleReviews = product.reviews?.slice(0, 3);
   const [comment, setComment] = useState('');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -69,14 +71,14 @@ export default function ProductReview({ product }: { product: ProductProps }) {
       <div className='flex flex-col gap-4'>
         {/* Title */}
         <h3 className='text-lg md:text-xl font-bold text-foreground'>
-          دیدگاه ها
+          {t('product.reviews')}
         </h3>
 
         {/* Review Form */}
         <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
           <textarea
             name='comment'
-            placeholder='دیدگاه خود را با ما به اشتراک بگذارید...'
+            placeholder={t('profile.review.shareComment')}
             rows={2}
             required
             className='w-full rounded-2xl border border-primary/20 focus:border-primary bg-background p-4 text-sm sm:text-base text-foreground outline-none resize-none effect'
@@ -98,7 +100,7 @@ export default function ProductReview({ product }: { product: ProductProps }) {
                 <div className='relative h-10 w-10'>
                   <Image
                     src={imagePreview}
-                    alt='Preview'
+                    alt={t('common.preview')}
                     fill
                     className='object-cover rounded-lg'
                   />
@@ -106,7 +108,7 @@ export default function ProductReview({ product }: { product: ProductProps }) {
                     type='button'
                     onClick={handleRemoveImage}
                     className='absolute -top-2 -right-2 bg-red-500 text-background rounded-full p-1 hover:bg-red-600 cursor-pointer effect'
-                    aria-label='حذف عکس'
+                    aria-label={t('common.removeImage')}
                   >
                     <X className='h-3 w-3' />
                   </button>
@@ -117,7 +119,7 @@ export default function ProductReview({ product }: { product: ProductProps }) {
                   className='flex items-center gap-1 btn-tertiary rounded-xl border px-4 py-2 border-foreground/10 text-foreground/50'
                 >
                   <Paperclip className='h-4 w-4' />
-                  <span className=''>تصویر</span>
+                  <span className=''>{t('common.image')}</span>
                 </label>
               )}
             </div>
@@ -132,7 +134,7 @@ export default function ProductReview({ product }: { product: ProductProps }) {
                   type='button'
                   onClick={() => setRating(star)}
                   className='focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 rounded cursor-pointer effect'
-                  aria-label={`امتیاز ${star} از 5`}
+                  aria-label={t('profile.review.ratingOf', { rating: star })}
                 >
                   {star <= rating ? (
                     <GoStarFill
@@ -154,7 +156,7 @@ export default function ProductReview({ product }: { product: ProductProps }) {
               className='btn-tertiary py-2 rounded-xl border border-foreground/10'
               disabled={!comment?.trim()}
             >
-              ارسال
+              {t('common.submit')}
             </button>
           </div>
         </form>
@@ -176,7 +178,7 @@ export default function ProductReview({ product }: { product: ProductProps }) {
                       />
                     ) : (
                       <div className='flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-base font-bold text-primary'>
-                        {review.name?.at(0) ?? '؟'}
+                        {review.name?.at(0) ?? t('common.fallbackInitial')}
                       </div>
                     )}
                   </div>
@@ -215,7 +217,7 @@ export default function ProductReview({ product }: { product: ProductProps }) {
                 >
                   <ImReply size={16} />
                   <span className='text-sm font-bold text-primary pt-1'>
-                    پاسخ
+                    {t('common.reply')}
                   </span>
                 </button>
                 {/* Reply Form */}
@@ -225,7 +227,7 @@ export default function ProductReview({ product }: { product: ProductProps }) {
                     className='flex flex-col gap-2 rounded-2xl bg-background p-4'
                   >
                     <textarea
-                      placeholder='پاسخ خود را بنویسید...'
+                      placeholder={t('profile.review.writeReply')}
                       rows={2}
                       required
                       className='w-full rounded-xl border border-primary/20 focus:border-primary bg-secondary p-3 text-sm text-foreground outline-none resize-none effect'
@@ -243,14 +245,14 @@ export default function ProductReview({ product }: { product: ProductProps }) {
                         }}
                         className='px-4 py-2 text-sm text-foreground/60 hover:text-foreground cursor-pointer effect'
                       >
-                        انصراف
+                        {t('common.cancel')}
                       </button>
                       <button
                         type='submit'
                         className='btn-primary py-2 px-4 rounded-xl text-sm'
                         disabled={!replyText[idx]?.trim()}
                       >
-                        ارسال پاسخ
+                        {t('common.reply')}
                       </button>
                     </div>
                   </form>
@@ -269,7 +271,7 @@ export default function ProductReview({ product }: { product: ProductProps }) {
                         />
                       ) : (
                         <div className='flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-base font-bold text-primary'>
-                          {review.reply.name?.at(0) ?? '؟'}
+                          {review.reply.name?.at(0) ?? t('common.fallbackInitial')}
                         </div>
                       )}
                       <span className='font-semibold text-primary'>
@@ -285,7 +287,7 @@ export default function ProductReview({ product }: { product: ProductProps }) {
             ))
           ) : (
             <div className='p-4 text-center text-sm text-foreground/60 sm:text-base'>
-              نخستین نفری باشید که دیدگاه خود را ثبت می‌کند.
+              {t('blog.noComments')}
             </div>
           )}
         </div>

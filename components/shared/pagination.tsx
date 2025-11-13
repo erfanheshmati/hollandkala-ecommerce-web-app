@@ -1,8 +1,11 @@
-"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
 
-import { useMemo } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { ChevronRight, ChevronLeft, MoreHorizontal } from "lucide-react";
+import { useMemo } from 'react';
+import { useLocale } from 'next-intl';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { useRouter } from '@/i18n/routing';
+import { ChevronRight, ChevronLeft, MoreHorizontal } from 'lucide-react';
 
 interface PaginationProps {
   totalItems: number;
@@ -26,9 +29,10 @@ export default function Pagination({
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const locale = useLocale();
 
   const currentPage = useMemo(() => {
-    const raw = Number(searchParams.get("page") || "1");
+    const raw = Number(searchParams.get('page') || '1');
     return Number.isFinite(raw) && raw > 0 ? raw : 1;
   }, [searchParams]);
 
@@ -37,13 +41,19 @@ export default function Pagination({
 
   const createQueryString = (page: number) => {
     const params = new URLSearchParams(searchParams.toString());
-    if (page <= 1) params.delete("page");
-    else params.set("page", String(page));
-    return `${pathname}?${params.toString()}`.replace(/\?$/, "");
+    if (page <= 1) params.delete('page');
+    else params.set('page', String(page));
+    let normalizedPath = pathname;
+    const localePrefix = `/${locale}`;
+    if (normalizedPath.startsWith(localePrefix)) {
+      normalizedPath = normalizedPath.slice(localePrefix.length) || '/';
+    }
+    const query = params.toString();
+    return query ? `${normalizedPath}?${query}` : normalizedPath;
   };
 
   const goTo = (page: number) => {
-    router.push(createQueryString(page));
+    router.push(createQueryString(page) as any);
   };
 
   if (totalPages <= 1) return null;
@@ -53,13 +63,13 @@ export default function Pagination({
   const leftSibling = Math.max(safeCurrent - siblingCount, firstPage);
   const rightSibling = Math.min(safeCurrent + siblingCount, lastPage);
 
-  const pages: (number | "ellipsis-left" | "ellipsis-right")[] = [];
+  const pages: (number | 'ellipsis-left' | 'ellipsis-right')[] = [];
 
   // Always show first page
   pages.push(firstPage);
 
   // Left ellipsis
-  if (leftSibling > firstPage + 1) pages.push("ellipsis-left");
+  if (leftSibling > firstPage + 1) pages.push('ellipsis-left');
 
   // Middle range
   for (let p = leftSibling; p <= rightSibling; p++) {
@@ -67,40 +77,41 @@ export default function Pagination({
   }
 
   // Right ellipsis
-  if (rightSibling < lastPage - 1) pages.push("ellipsis-right");
+  if (rightSibling < lastPage - 1) pages.push('ellipsis-right');
 
   // Always show last page
   if (lastPage !== firstPage) pages.push(lastPage);
 
   const btnBase =
-    "min-w-10 h-10 md:min-w-11 md:h-11 flex items-center justify-center rounded-xl border effect text-foreground border-foreground/30 hover:border-primary hover:text-primary cursor-pointer";
-  const activeBtn = "bg-primary text-background! border-primary cursor-pointer";
+    'min-w-10 h-10 md:min-w-11 md:h-11 flex items-center justify-center rounded-xl border effect text-foreground border-foreground/30 hover:border-primary hover:text-primary cursor-pointer';
+  const activeBtn = 'bg-primary text-background! border-primary cursor-pointer';
 
   return (
     <nav
       className={`w-full flex flex-row-reverse items-center justify-center gap-2 md:gap-3 select-none ${
-        className || ""
+        className || ''
       }`}
-      aria-label="pagination"
+      aria-label='pagination'
+      dir={locale === 'fa' ? 'ltr' : 'rtl'}
     >
       {/* Next/Prev */}
       <button
         className={`${btnBase} disabled:opacity-50 disabled:cursor-not-allowed`}
         onClick={() => goTo(safeCurrent - 1)}
         disabled={safeCurrent <= 1}
-        aria-label="previous page"
+        aria-label='previous page'
       >
-        <ChevronLeft className="w-4 h-4" />
+        <ChevronLeft className={`w-4 h-4 ${locale === 'fa' && 'rotate-180'}`} />
       </button>
 
       {pages.map((item, idx) => {
-        if (item === "ellipsis-left" || item === "ellipsis-right") {
+        if (item === 'ellipsis-left' || item === 'ellipsis-right') {
           return (
             <span
               key={`${item}-${idx}`}
-              className="min-w-10 h-10 md:min-w-11 md:h-11 flex items-center justify-center text-foreground/60"
+              className='min-w-10 h-10 md:min-w-11 md:h-11 flex items-center justify-center text-foreground/60'
             >
-              <MoreHorizontal className="w-4 h-4" />
+              <MoreHorizontal className='w-4 h-4' />
             </span>
           );
         }
@@ -110,9 +121,9 @@ export default function Pagination({
         return (
           <button
             key={pageNum}
-            className={`${btnBase} ${isActive ? activeBtn : "bg-background"}`}
+            className={`${btnBase} ${isActive ? activeBtn : 'bg-background'}`}
             onClick={() => goTo(pageNum)}
-            aria-current={isActive ? "page" : undefined}
+            aria-current={isActive ? 'page' : undefined}
             aria-label={`page ${pageNum}`}
           >
             {pageNum}
@@ -124,9 +135,11 @@ export default function Pagination({
         className={`${btnBase} disabled:opacity-50 disabled:cursor-not-allowed`}
         onClick={() => goTo(safeCurrent + 1)}
         disabled={safeCurrent >= totalPages}
-        aria-label="next page"
+        aria-label='next page'
       >
-        <ChevronRight className="w-4 h-4" />
+        <ChevronRight
+          className={`w-4 h-4 ${locale === 'fa' && 'rotate-180'}`}
+        />
       </button>
     </nav>
   );

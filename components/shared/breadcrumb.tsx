@@ -1,6 +1,6 @@
 import { BreadcrumbProps } from '@/types';
 import { ChevronLeft } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 
 export default function Breadcrumb({ items = [] as BreadcrumbProps[] }) {
   if (!items.length) return null;
@@ -24,7 +24,10 @@ export default function Breadcrumb({ items = [] as BreadcrumbProps[] }) {
             )}
 
             {idx < items.length - 1 && (
-              <ChevronLeft size={16} className='mx-2 text-foreground/60' />
+              <ChevronLeft
+                size={16}
+                className='mx-2 text-foreground/60 ltr:rotate-180'
+              />
             )}
           </li>
         ))}

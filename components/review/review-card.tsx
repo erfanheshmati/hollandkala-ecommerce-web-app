@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ReviewProps } from '@/types';
 import ImageModal from '@/components/shared/image-modal';
+import { useTranslations } from 'next-intl';
 
 export default function ReviewCard({
   name,
@@ -15,8 +16,31 @@ export default function ReviewCard({
 }: ReviewProps & {
   onImageClick?: (imageUrl: string) => void;
 }) {
+  const t = useTranslations();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
+
+  const getBadgeTranslation = (badge: string): string => {
+    // Map Persian badge text to translation keys
+    // Filter badges
+    if (badge === 'خریداران' || badge === 'buyers') {
+      return t('reviews.filters.buyers');
+    }
+    if (badge === 'ورزشکاران' || badge === 'athletes') {
+      return t('reviews.filters.athletes');
+    }
+    if (badge === 'خیریه' || badge === 'charity') {
+      return t('reviews.filters.charity');
+    }
+    // Review badges (product/accessibility related)
+    if (badge === 'نقص عضو' || badge === 'disability') {
+      return t('reviews.badges.disability');
+    }
+    if (badge === 'دستکش مخصوص ویلچر' || badge === 'wheelchairGloves') {
+      return t('reviews.badges.wheelchairGloves');
+    }
+    return badge; // Return as-is if no translation found
+  };
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -67,7 +91,7 @@ export default function ReviewCard({
                   key={index}
                   className='bg-primary/10 text-primary text-[10px] px-1.5 py-0.5 rounded-full'
                 >
-                  {badge}
+                  {getBadgeTranslation(badge)}
                 </span>
               ))}
             </div>

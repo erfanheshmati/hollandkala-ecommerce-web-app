@@ -5,8 +5,10 @@ import { createPortal } from 'react-dom';
 import { ShoppingCart } from 'lucide-react';
 import CartModal from '@/components/cart/cart-modal';
 import { cartItems } from '@/lib/data';
+import { useTranslations } from 'next-intl';
 
 export default function Cart() {
+  const t = useTranslations();
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const itemsCount = cartItems.reduce((sum, it) => sum + it.quantity, 0);
@@ -30,11 +32,11 @@ export default function Cart() {
         type='button'
         onClick={() => setOpen(true)}
         className='hidden md:block p-3 rounded-xl bg-secondary hover:bg-[#e8e8e8] cursor-pointer effect relative'
-        aria-label='Open cart'
+        aria-label={t('nav.cart')}
       >
         <ShoppingCart size={24} className='text-foreground' />
         {itemsCount > 0 && (
-          <span className='absolute -top-2 -right-2 w-5 h-5 p-1 rounded-full bg-primary text-background text-xs font-bold'>
+          <span className='absolute -top-2 -right-2 w-5 h-5 rtl:p-1 ltr:p-0.5 rounded-full bg-primary text-background text-xs font-bold'>
             {itemsCount}
           </span>
         )}

@@ -1,14 +1,18 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import { useState, useEffect, useRef, startTransition } from 'react';
 import { createPortal } from 'react-dom';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { ChevronLeft, Menu as MenuIcon, X } from 'lucide-react';
 import { menuData } from '@/lib/data';
+import { useTranslations } from 'next-intl';
 import { MenuItemChildProps, MenuItemProps } from '@/types';
 import UserButton from './user-button';
 
 export default function MobileMenu() {
+  const t = useTranslations();
+  const common = useTranslations('common');
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(
@@ -55,11 +59,63 @@ export default function MobileMenu() {
     };
   }, [isMobileMenuOpen]);
 
+  const isRTL = common('dir') === 'rtl';
+
+  const getMenuLabel = (
+    item: MenuItemProps | MenuItemChildProps,
+    level: number,
+    parent?: MenuItemProps | MenuItemChildProps,
+    childIndex?: number
+  ) => {
+    if (level === 0) {
+      if (item.href === '/') return t('data.menu.home');
+      if (item.href.startsWith('/products/wholesale'))
+        return t('data.menu.wholesale');
+      if (item.href.startsWith('/products/retail'))
+        return t('data.menu.retail');
+      if (item.href.startsWith('/blog')) return t('data.menu.blog');
+      if (item.href.startsWith('/about')) return t('data.menu.about');
+      if (item.href.startsWith('/contact')) return t('data.menu.contact');
+      if (item.href.startsWith('/gifts')) return t('data.menu.gifts');
+      if (item.href.startsWith('/reviews')) return t('data.menu.reviews');
+    }
+
+    if (parent?.href.startsWith('/products/wholesale/shoes') && level >= 2) {
+      if (childIndex === 0) return t('data.menu.shoes.classic');
+      if (childIndex === 1) return t('data.menu.shoes.formal');
+      return t('data.menu.shoes.sport');
+    }
+
+    if (item.href.startsWith('/products/wholesale/shoes'))
+      return t('data.menu.shoesBags');
+    if (item.href.startsWith('/products/wholesale/clothing'))
+      return t('data.menu.womenClothing');
+    if (item.href.startsWith('/products/wholesale/sports'))
+      return t('data.menu.sports');
+    if (item.href.startsWith('/products/wholesale/accessories'))
+      return t('data.menu.accessories');
+    if (item.href.startsWith('/products/retail/shoes'))
+      return t('data.menu.shoesBags');
+    if (item.href.startsWith('/products/retail/clothing'))
+      return t('data.menu.womenClothing');
+    if (item.href.startsWith('/products/retail/sports'))
+      return t('data.menu.sports');
+
+    return item.title;
+  };
+
   const mobileMenu = (
     <div
       ref={mobileMenuRef}
-      className={`md:hidden fixed top-0 right-0 h-screen overflow-y-auto w-80 max-w-[70vw] bg-background z-120 effect ${
-        isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      dir={isRTL ? 'rtl' : 'ltr'}
+      className={`md:hidden fixed top-0 ${
+        isRTL ? 'right-0' : 'left-0'
+      } h-screen overflow-y-auto w-80 max-w-[70vw] bg-background z-120 effect ${
+        isMobileMenuOpen
+          ? 'translate-x-0'
+          : isRTL
+          ? 'translate-x-full'
+          : '-translate-x-full'
       }`}
     >
       <div className='flex flex-col gap-4'>
@@ -74,7 +130,9 @@ export default function MobileMenu() {
             >
               <MenuIcon size={24} className='text-background' />
             </button>
-            <span className='text-primary text-sm font-medium'>منو</span>
+            <span className='text-primary text-sm font-medium pt-1'>
+              {t('ui.menu')}
+            </span>
           </div>
           {/* Close Button */}
           <button
@@ -112,7 +170,8 @@ export default function MobileMenu() {
   function renderMobileMenuItem(
     item: MenuItemProps | MenuItemChildProps,
     index: number,
-    level: number = 0
+    level: number = 0,
+    parent?: MenuItemProps | MenuItemChildProps
   ) {
     const itemKey =
       level === 0 ? index.toString() : `${openMobileDropdown}-${index}`;
@@ -144,11 +203,15 @@ export default function MobileMenu() {
                 isDropdownOpen ? 'font-bold' : ''
               } `}
             >
-              <span className='text-lg'>{item.title}</span>
+              <span className='text-lg'>
+                {getMenuLabel(item, level, parent, index)}
+              </span>
               <ChevronLeft
                 size={20}
                 className={`transition-transform duration-300 ${
-                  isDropdownOpen ? '-rotate-90' : ''
+                  isDropdownOpen
+                    ? `${isRTL ? '-rotate-90' : 'rotate-270'}`
+                    : `${isRTL ? '' : 'rotate-180'}`
                 }`}
               />
             </button>
@@ -165,11 +228,11 @@ export default function MobileMenu() {
                   {item.children.map(
                     (child: MenuItemChildProps, childIndex: number) =>
                       child.hasDropdown ? (
-                        renderMobileMenuItem(child, childIndex, level + 1)
+                        renderMobileMenuItem(child, childIndex, level + 1, item)
                       ) : (
                         <Link
                           key={childIndex}
-                          href={child.href}
+                          href={child.href as any}
                           onClick={() => {
                             setIsMobileMenuOpen(false);
                             setOpenMobileDropdown(null);
@@ -177,7 +240,7 @@ export default function MobileMenu() {
                           }}
                           className='block p-4 mx-2 text-foreground transition-colors rounded-lg'
                         >
-                          {child.title}
+                          {getMenuLabel(child, level + 1, item, childIndex)}
                         </Link>
                       )
                   )}
@@ -187,7 +250,7 @@ export default function MobileMenu() {
           </div>
         ) : (
           <Link
-            href={item.href}
+            href={item.href as any}
             onClick={() => {
               setIsMobileMenuOpen(false);
               setOpenMobileDropdown(null);
@@ -195,7 +258,9 @@ export default function MobileMenu() {
             }}
             className='block p-4 text-foreground active:text-white active:bg-primary rounded-2xl transition-colors'
           >
-            <span className='text-lg'>{item.title}</span>
+            <span className='text-lg'>
+              {getMenuLabel(item, level, parent, index)}
+            </span>
           </Link>
         )}
       </div>
@@ -216,7 +281,9 @@ export default function MobileMenu() {
         >
           <MenuIcon size={24} className='text-primary' />
         </button>
-        <span className='text-primary text-sm font-medium'>منو</span>
+        <span className='text-primary text-sm font-medium pt-1'>
+          {t('ui.menu')}
+        </span>
       </div>
 
       {/* Mobile Menu - rendered via portal to escape header stacking context */}

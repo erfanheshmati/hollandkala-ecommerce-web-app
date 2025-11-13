@@ -1,10 +1,12 @@
 import { cn } from '@/lib/utils';
 import { User } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
 export default function UserButton({
   className,
 }: React.HTMLAttributes<HTMLElement>) {
+  const t = useTranslations();
   const isLoggedIn = true;
 
   return (
@@ -15,11 +17,11 @@ export default function UserButton({
         className
       )}
     >
-      <User size={24} className='pb-0.5' />
+      <User size={24} />
       {isLoggedIn ? (
-        <span className='text-[16px] font-medium'>علیرضا رحمانی</span>
+        <span className='font-medium rtl:pt-1'>{t('profile.title')}</span>
       ) : (
-        <span className='text-[16px] font-medium'>ورود / ثبت نام</span>
+        <span className='font-medium rtl:pt-1'>{t('auth.login')}</span>
       )}
     </Link>
   );

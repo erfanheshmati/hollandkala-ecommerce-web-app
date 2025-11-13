@@ -103,7 +103,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className={`my-6 md:my-10 select-none`}>
+    <section className='my-6 md:my-10 select-none'>
       {/* Desktop: 5 images visible (60px, 60px, center, 60px, 60px) */}
       <div
         className={`hidden md:grid grid-cols-[60px_60px_1fr_60px_60px] gap-3 md:h-80 lg:h-[400px] xl:h-[500px] 2xl:h-[540px] effect ${

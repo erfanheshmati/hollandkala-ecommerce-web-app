@@ -1,10 +1,19 @@
 'use client';
 
-import { promotionalText } from '@/lib/data';
 import React, { useState } from 'react';
+import { useLocale } from 'next-intl';
+import { getDirection } from '@/i18n-config';
 
-export default function PromotionalText() {
+export default function PromotionalText({
+  items = [] as { title: string; href?: string }[],
+}: {
+  items?: { title: string; href?: string }[];
+}) {
   const [isPaused, setIsPaused] = useState(false);
+  const locale = useLocale();
+  const direction = getDirection(locale);
+  const animationName =
+    direction === 'rtl' ? 'marqueeRtlScroll' : 'marqueeLtrScroll';
 
   return (
     <section className='my-6 md:my-10'>
@@ -21,13 +30,12 @@ export default function PromotionalText() {
             <div
               className='flex items-center gap-10 whitespace-nowrap [--marquee-duration:10s] md:[--marquee-duration:20s]'
               style={{
-                animation:
-                  'marqueeScroll var(--marquee-duration) linear infinite',
+                animation: `${animationName} var(--marquee-duration) linear infinite`,
                 animationPlayState: isPaused ? 'paused' : 'running',
                 willChange: 'transform',
               }}
             >
-              {promotionalText.map((text, idx) => (
+              {items.map((text, idx) => (
                 <React.Fragment key={idx}>
                   <div className='flex items-center'>
                     <div className='text-foreground/66 hover:text-foreground active:text-foreground effect'>
@@ -35,8 +43,8 @@ export default function PromotionalText() {
                     </div>
                   </div>
                   {/* Separator */}
-                  {idx !== promotionalText.length - 1 && (
-                    <span className='rotate-180 w-4 h-4 text-primary'>
+                  {idx !== items.length - 1 && (
+                    <span className='rotate-180 w-4 h-4 text-primary ltr:mt-2'>
                       &#10094;
                     </span>
                   )}

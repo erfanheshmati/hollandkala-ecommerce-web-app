@@ -1,13 +1,14 @@
 import { toPersianDigits } from '@/lib/utils';
 import { OrderStatusProps, ProfileOrderProps } from '@/types';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { LuTrash2 } from 'react-icons/lu';
+import { useTranslations } from 'next-intl';
 
-const statusText: Record<OrderStatusProps, string> = {
-  processing: 'جاری',
-  shipped: 'ارسال شده',
-  cancelled: 'لغو شده',
+const statusKey: Record<OrderStatusProps, string> = {
+  processing: 'status.processing',
+  shipped: 'status.shipped',
+  cancelled: 'status.cancelled',
 };
 
 const statusColor: Record<OrderStatusProps, string> = {
@@ -17,6 +18,7 @@ const statusColor: Record<OrderStatusProps, string> = {
 };
 
 export default function OrderCard(order: ProfileOrderProps) {
+  const t = useTranslations();
   const { title, code, date, status, total, count, thumbnail, href } = order;
 
   return (
@@ -35,7 +37,7 @@ export default function OrderCard(order: ProfileOrderProps) {
               />
             ) : (
               <div className='flex items-center justify-center w-full h-full bg-foreground/10 text-[10px]'>
-                No Image
+                {t('profile.order.noImage')}
               </div>
             )}
           </div>
@@ -46,7 +48,7 @@ export default function OrderCard(order: ProfileOrderProps) {
         <div
           className={`flex items-center justify-center w-20 px-3 py-1 rounded-full text-sm font-medium ${statusColor[status]}`}
         >
-          {statusText[status]}
+          {t(statusKey[status])}
         </div>
       </div>
 
@@ -54,15 +56,15 @@ export default function OrderCard(order: ProfileOrderProps) {
         {/* Details */}
         <div className='flex flex-wrap items-center justify-between sm:justify-start px-1 gap-1 sm:gap-4 w-full'>
           <div className='font-medium text-foreground/60'>
-            مبلغ: <span className='text-foreground'>{total} یورو</span>
+            {t('profile.order.amount')}: <span className='text-foreground'>{total} {t('product.range.currency')}</span>
           </div>
           <span className='text-primary/30'>&#124;</span>
           <div className='font-medium text-foreground/60'>
-            کد سفارش: <span className='text-foreground'>{code}</span>
+            {t('profile.order.orderCode')}: <span className='text-foreground'>{code}</span>
           </div>
           <span className='text-primary/30'>&#124;</span>
           <div className='font-medium text-foreground/60'>
-            تاریخ: <span className='text-foreground'>{date}</span>
+            {t('profile.order.date')}: <span className='text-foreground'>{date}</span>
           </div>
         </div>
         {/* CTA */}
@@ -72,14 +74,14 @@ export default function OrderCard(order: ProfileOrderProps) {
               <span className='flex items-center justify-center min-w-12 h-8 px-4 rounded-xl bg-background text-base'>
                 {toPersianDigits(count)}
               </span>
-              <span className='text-foreground font-bold'>عدد</span>
+              <span className='text-foreground font-bold'>{/* count unit intentionally omitted or localize if needed */}</span>
             </div>
             <button
               type='button'
               className='w-full sm:w-fit flex items-center justify-center gap-2 px-4 sm:px-5 py-3 rounded-2xl bg-foreground/5 text-red-500 text-sm font-medium truncate cursor-pointer effect'
             >
               <LuTrash2 className='h-4 w-4' />
-              <span>لغو سفارش</span>
+              <span>{t('profile.order.cancel')}</span>
             </button>
           </div>
         ) : (
@@ -87,7 +89,7 @@ export default function OrderCard(order: ProfileOrderProps) {
             href={href}
             className='text-primary hover:underline active:underline mx-auto sm:mx-0 md:mr-auto lg:mx-0 min-w-max effect'
           >
-            دریافت فاکتور
+            {t('profile.order.invoiceReceive')}
           </Link>
         )}
       </div>

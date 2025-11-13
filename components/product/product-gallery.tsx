@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { IoIosMore } from 'react-icons/io';
+import { useTranslations } from 'next-intl';
 
 interface ProductGalleryProps {
   images: string[];
@@ -10,6 +11,7 @@ interface ProductGalleryProps {
 }
 
 export default function ProductGallery({ images, alt }: ProductGalleryProps) {
+  const t = useTranslations();
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -38,7 +40,7 @@ export default function ProductGallery({ images, alt }: ProductGalleryProps) {
                   ? 'border-primary'
                   : 'border-foreground/10 hover:border-foreground/30'
               }`}
-              aria-label={`تصویر ${index + 1}`}
+              aria-label={t('product.imageLabel', { number: index + 1, defaultValue: `Image ${index + 1}` })}
               style={{ pointerEvents: isLast ? 'none' : undefined }} // disable click for the blurred one
             >
               <Image

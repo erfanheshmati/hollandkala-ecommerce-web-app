@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import '../styles/globals.css';
 import '../styles/custom.css';
-import MobileBottomNav from '@/components/shared/mobile-bottom-nav';
-import PromotionalPopup from '@/components/shared/promotional-popup';
 import { Suspense } from 'react';
+import { getLocale, getTranslations } from 'next-intl/server';
+import { getDirection } from '@/i18n-config';
 
 const yekanBakh = localFont({
   src: [
@@ -52,31 +52,31 @@ const yekanBakh = localFont({
   variable: '--font-yekan-bakh',
 });
 
-export const metadata: Metadata = {
-  title: 'هلندکالا - فروشگاه آنلاین',
-  description: 'به فروشگاه هلندکالا خوش آمدید',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = await getTranslations({ locale, namespace: 'metadata' });
 
-export default function AppLayout({
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
+}
+
+export default async function AppLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const dir = getDirection(locale);
+
   return (
-    <html lang='fa' dir='rtl'>
+    <html lang={locale} dir={dir}>
       <body
         suppressHydrationWarning
         className={`${yekanBakh.variable} antialiased`}
       >
-        <Suspense fallback={null}>
-          <div className='pb-20 md:pb-0'>{children}</div>
-        </Suspense>
-        <Suspense fallback={null}>
-          <MobileBottomNav />
-        </Suspense>
-        <Suspense fallback={null}>
-          <PromotionalPopup />
-        </Suspense>
+        <Suspense fallback={null}>{children}</Suspense>
       </body>
     </html>
   );

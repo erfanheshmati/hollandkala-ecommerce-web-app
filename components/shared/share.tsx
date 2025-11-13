@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { IoShareSocialOutline } from 'react-icons/io5';
 
 type ShareProps = {
@@ -8,6 +9,7 @@ type ShareProps = {
 };
 
 export default function Share({ className }: ShareProps) {
+  const t = useTranslations();
   const [currentUrl] = useState<string>(() =>
     typeof window !== 'undefined' ? window.location.href : ''
   );
@@ -37,7 +39,7 @@ export default function Share({ className }: ShareProps) {
   const promptFallback = () => {
     if (typeof window === 'undefined') return;
     try {
-      window.prompt('لینک زیر را انتخاب و کپی کنید:', shareUrl);
+      window.prompt(t('common.share'), shareUrl);
     } catch {
       // ignored
     }
@@ -59,11 +61,11 @@ export default function Share({ className }: ShareProps) {
         type='button'
         onClick={handleNativeShare}
         className='flex items-center gap-1 px-3 py-2 rounded-2xl bg-secondary hover:bg-foreground/10 active:bg-foreground/10 cursor-pointer effect truncate'
-        aria-label='اشتراک گذاری'
+        aria-label={t('common.share')}
       >
         <IoShareSocialOutline size={18} />
         <span className='hidden sm:block text-sm font-medium'>
-          {copied ? 'لینک کپی شد' : 'اشتراک گذاری'}
+          {copied ? t('common.copied') : t('common.share')}
         </span>
       </button>
     </div>

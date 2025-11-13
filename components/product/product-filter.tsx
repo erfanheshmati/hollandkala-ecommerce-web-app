@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   useState,
@@ -6,10 +6,11 @@ import {
   useEffect,
   useCallback,
   startTransition,
-} from "react";
-import { createPortal } from "react-dom";
-import { ChevronDown, ChevronUp, X } from "lucide-react";
-import { GiSettingsKnobs } from "react-icons/gi";
+} from 'react';
+import { createPortal } from 'react-dom';
+import { ChevronDown, ChevronUp, X } from 'lucide-react';
+import { GiSettingsKnobs } from 'react-icons/gi';
+import { useLocale, useTranslations } from 'next-intl';
 
 interface AccordionItemProps {
   title: string;
@@ -26,19 +27,19 @@ function AccordionItem({
   children,
 }: AccordionItemProps) {
   return (
-    <div className="border-b border-foreground/22 last:border-0">
+    <div className='border-b border-foreground/22 last:border-0'>
       <button
         onClick={onToggle}
-        className="flex items-center justify-between w-full py-3 text-right cursor-pointer"
+        className='flex items-center justify-between w-full py-3 text-right cursor-pointer'
       >
-        <span className="text-xl font-medium text-foreground">{title}</span>
+        <span className='text-xl font-medium text-foreground'>{title}</span>
         {isOpen ? (
-          <ChevronUp className="w-4 h-4 text-foreground" />
+          <ChevronUp className='w-4 h-4 text-foreground' />
         ) : (
-          <ChevronDown className="w-4 h-4 text-foreground" />
+          <ChevronDown className='w-4 h-4 text-foreground' />
         )}
       </button>
-      {isOpen && <div className="pb-3">{children}</div>}
+      {isOpen && <div className='pb-3'>{children}</div>}
     </div>
   );
 }
@@ -52,23 +53,23 @@ interface ToggleSwitchProps {
 // Toggle Switch
 function ToggleSwitch({ label, checked, onChange }: ToggleSwitchProps) {
   return (
-    <label className="flex items-center justify-between w-full cursor-pointer py-1">
-      <span className="text-foreground font-medium text-xl">{label}</span>
-      <div className="relative">
+    <label className='flex items-center justify-between w-full cursor-pointer py-1'>
+      <span className='text-foreground font-medium text-xl'>{label}</span>
+      <div className='relative' dir='ltr'>
         <input
-          type="checkbox"
+          type='checkbox'
           checked={checked}
           onChange={(e) => onChange(e.target.checked)}
-          className="sr-only"
+          className='sr-only'
         />
         <div
           className={`w-11 h-6 pt-0.5 rounded-full effect ${
-            checked ? "bg-primary" : "bg-foreground/20"
+            checked ? 'bg-primary' : 'bg-foreground/20'
           }`}
         >
           <div
             className={`w-5 h-5 bg-white rounded-full transform effect ${
-              checked ? "-translate-x-1" : "-translate-x-5"
+              checked ? 'translate-x-5' : 'translate-x-1'
             }`}
           />
         </div>
@@ -82,6 +83,33 @@ interface CheckboxOption {
   label: string;
 }
 
+interface FilterOptionConfig {
+  id: string;
+  defaultLabel: string;
+}
+
+const GENDER_OPTIONS: FilterOptionConfig[] = [
+  { id: 'men', defaultLabel: 'Men' },
+  { id: 'women', defaultLabel: 'Women' },
+];
+
+const BRAND_OPTIONS: FilterOptionConfig[] = [
+  { id: 'adidas', defaultLabel: 'Adidas' },
+  { id: 'nike', defaultLabel: 'Nike' },
+];
+
+const COLOR_OPTIONS: FilterOptionConfig[] = [
+  { id: 'black', defaultLabel: 'Black' },
+  { id: 'white', defaultLabel: 'White' },
+  { id: 'red', defaultLabel: 'Red' },
+];
+
+const CATEGORY_OPTIONS: FilterOptionConfig[] = [
+  { id: 'shoes', defaultLabel: 'Shoes & Bags' },
+  { id: 'clothing', defaultLabel: 'Clothing' },
+  { id: 'sports', defaultLabel: 'Sports' },
+];
+
 interface CheckboxGroupProps {
   options: CheckboxOption[];
   selected: string[];
@@ -91,21 +119,21 @@ interface CheckboxGroupProps {
 // Checkbox Group
 function CheckboxGroup({ options, selected, onChange }: CheckboxGroupProps) {
   return (
-    <div className="flex flex-col gap-2 py-2">
+    <div className='flex flex-col gap-2 py-2'>
       {options.map((option, idx) => (
         <label
           key={option.id}
-          className="flex items-center gap-2 cursor-pointer group"
+          className='flex items-center gap-2 cursor-pointer group'
         >
           <input
-            type="checkbox"
+            type='checkbox'
             checked={selected.includes(option.id)}
             onChange={() => onChange(option.id)}
-            className="w-5 h-5 accent-primary cursor-pointer"
+            className='w-5 h-5 accent-primary cursor-pointer mb-2'
           />
           <span
             className={`font-medium text-foreground/70 group-hover:text-foreground w-full py-4 pr-1 effect ${
-              idx !== options.length - 1 && "border-b border-foreground/22"
+              idx !== options.length - 1 && 'border-b border-foreground/22'
             }`}
           >
             {option.label}
@@ -125,15 +153,16 @@ interface RangeSliderProps {
 
 // Range Slider
 function RangeSlider({ min, max, value, onChange }: RangeSliderProps) {
+  const t = useTranslations();
   const [minValue, maxValue] = value;
   const range = max - min;
   const minPercent = ((minValue - min) / range) * 100;
   const maxPercent = ((maxValue - min) / range) * 100;
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState<"min" | "max" | null>(null);
+  const [isDragging, setIsDragging] = useState<'min' | 'max' | null>(null);
   const isRtl =
-    typeof document !== "undefined" &&
-    document?.documentElement?.dir?.toLowerCase() === "rtl";
+    typeof document !== 'undefined' &&
+    document?.documentElement?.dir?.toLowerCase() === 'rtl';
 
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
@@ -145,7 +174,7 @@ function RangeSlider({ min, max, value, onChange }: RangeSliderProps) {
       const newValue = Math.round(min + (percent / 100) * range);
       const clampedValue = Math.max(min, Math.min(max, newValue));
 
-      if (isDragging === "min") {
+      if (isDragging === 'min') {
         onChange([Math.min(clampedValue, maxValue), maxValue]);
       } else {
         onChange([minValue, Math.max(clampedValue, minValue)]);
@@ -169,7 +198,7 @@ function RangeSlider({ min, max, value, onChange }: RangeSliderProps) {
       // Prevent the page from scrolling while dragging
       e.preventDefault();
 
-      if (isDragging === "min") {
+      if (isDragging === 'min') {
         onChange([Math.min(clampedValue, maxValue), maxValue]);
       } else {
         onChange([minValue, Math.max(clampedValue, minValue)]);
@@ -184,33 +213,35 @@ function RangeSlider({ min, max, value, onChange }: RangeSliderProps) {
 
   useEffect(() => {
     if (isDragging) {
-      document.addEventListener("mousemove", handleMouseMove);
-      document.addEventListener("mouseup", handleMouseUp);
-      document.addEventListener("touchmove", handleTouchMove, {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+      document.addEventListener('touchmove', handleTouchMove, {
         passive: false,
       });
-      document.addEventListener("touchend", handleMouseUp);
+      document.addEventListener('touchend', handleMouseUp);
       return () => {
-        document.removeEventListener("mousemove", handleMouseMove);
-        document.removeEventListener("mouseup", handleMouseUp);
-        document.removeEventListener("touchmove", handleTouchMove);
-        document.removeEventListener("touchend", handleMouseUp);
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+        document.removeEventListener('touchmove', handleTouchMove);
+        document.removeEventListener('touchend', handleMouseUp);
       };
     }
   }, [isDragging, handleMouseMove, handleTouchMove, handleMouseUp]);
 
-  const handleMouseDown = (type: "min" | "max") => {
+  const handleMouseDown = (type: 'min' | 'max') => {
     setIsDragging(type);
   };
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className='flex flex-col gap-6'>
       {/* Price Inputs */}
-      <div className="flex flex-col items-center gap-2">
-        <div className="flex items-center justify-between gap-2 w-full bg-secondary rounded-2xl p-2">
-          <span className="text-foreground/60 font-medium">از</span>
+      <div className='flex flex-col items-center gap-2'>
+        <div className='flex items-center justify-between gap-2 w-full bg-secondary rounded-2xl p-2'>
+          <span className='text-foreground/60 font-medium'>
+            {t('product.range.from')}
+          </span>
           <input
-            type="number"
+            type='number'
             value={minValue}
             onChange={(e) => {
               const newMin = Math.max(
@@ -219,14 +250,18 @@ function RangeSlider({ min, max, value, onChange }: RangeSliderProps) {
               );
               onChange([newMin, maxValue]);
             }}
-            className="rounded-lg bg-background w-40 py-1.5 text-lg font-bold outline-none text-center"
+            className='rounded-lg bg-background w-40 py-1.5 text-lg font-bold outline-none text-center'
           />
-          <span className="text-foreground/60 font-medium">یورو</span>
+          <span className='text-foreground/60 font-medium'>
+            {t('product.range.currency')}
+          </span>
         </div>
-        <div className="flex items-center justify-between gap-2 w-full bg-secondary rounded-2xl p-2">
-          <span className="text-foreground/60 font-medium">تا</span>
+        <div className='flex items-center justify-between gap-2 w-full bg-secondary rounded-2xl p-2'>
+          <span className='text-foreground/60 font-medium'>
+            {t('product.range.to')}
+          </span>
           <input
-            type="number"
+            type='number'
             value={maxValue}
             onChange={(e) => {
               const newMax = Math.min(
@@ -235,15 +270,17 @@ function RangeSlider({ min, max, value, onChange }: RangeSliderProps) {
               );
               onChange([minValue, newMax]);
             }}
-            className="rounded-lg bg-background w-40 py-1.5 text-lg font-bold outline-none text-center"
+            className='rounded-lg bg-background w-40 py-1.5 text-lg font-bold outline-none text-center'
           />
-          <span className="text-foreground/60 font-medium">یورو</span>
+          <span className='text-foreground/60 font-medium'>
+            {t('product.range.currency')}
+          </span>
         </div>
       </div>
       {/* Price Range Slider */}
       <div
         ref={sliderRef}
-        className="relative h-2 bg-secondary rounded-full cursor-pointer"
+        className='relative h-2 bg-secondary rounded-full cursor-pointer'
         onMouseDown={(e) => {
           if (!sliderRef.current) return;
           const rect = sliderRef.current.getBoundingClientRect();
@@ -277,15 +314,15 @@ function RangeSlider({ min, max, value, onChange }: RangeSliderProps) {
           const distToMax = Math.abs(clampedValue - maxValue);
           if (distToMin <= distToMax) {
             onChange([Math.min(clampedValue, maxValue), maxValue]);
-            setIsDragging("min");
+            setIsDragging('min');
           } else {
             onChange([minValue, Math.max(clampedValue, minValue)]);
-            setIsDragging("max");
+            setIsDragging('max');
           }
         }}
       >
         <div
-          className="absolute h-2 bg-primary rounded-full"
+          className='absolute h-2 bg-primary rounded-full'
           style={
             isRtl
               ? {
@@ -296,7 +333,7 @@ function RangeSlider({ min, max, value, onChange }: RangeSliderProps) {
           }
         />
         <div
-          className="absolute w-4 h-4 bg-primary rounded-full cursor-grab active:cursor-grabbing transform -translate-y-1 touch-none"
+          className='absolute w-4 h-4 bg-primary rounded-full cursor-grab active:cursor-grabbing transform -translate-y-1 touch-none'
           style={
             isRtl
               ? { right: `calc(${minPercent}% - 8px)` }
@@ -304,15 +341,15 @@ function RangeSlider({ min, max, value, onChange }: RangeSliderProps) {
           }
           onMouseDown={(e) => {
             e.preventDefault();
-            handleMouseDown("min");
+            handleMouseDown('min');
           }}
           onTouchStart={(e) => {
             e.preventDefault();
-            handleMouseDown("min");
+            handleMouseDown('min');
           }}
         />
         <div
-          className="absolute w-4 h-4 bg-primary rounded-full cursor-grab active:cursor-grabbing transform -translate-y-1 touch-none"
+          className='absolute w-4 h-4 bg-primary rounded-full cursor-grab active:cursor-grabbing transform -translate-y-1 touch-none'
           style={
             isRtl
               ? { right: `calc(${maxPercent}% - 8px)` }
@@ -320,17 +357,20 @@ function RangeSlider({ min, max, value, onChange }: RangeSliderProps) {
           }
           onMouseDown={(e) => {
             e.preventDefault();
-            handleMouseDown("max");
+            handleMouseDown('max');
           }}
           onTouchStart={(e) => {
             e.preventDefault();
-            handleMouseDown("max");
+            handleMouseDown('max');
           }}
         />
       </div>
-      <div className="flex items-center justify-between text-foreground/60 font-medium -mt-2">
-        <span>ارزانترین</span>
-        <span>گرانترین</span>
+      <div
+        className='flex items-center justify-between text-foreground/60 font-medium -mt-2'
+        dir='rtl'
+      >
+        <span>{t('product.range.cheapest')}</span>
+        <span>{t('product.range.mostExpensive')}</span>
       </div>
     </div>
   );
@@ -384,20 +424,24 @@ function FilterContent({
   colors,
   categories,
 }: FilterContentProps) {
+  const t = useTranslations();
+
   return (
-    <div className="flex flex-col gap-4 bg-background lg:border border-foreground/40 rounded-2xl p-4">
-      <div className="flex items-center justify-between">
-        <h3 className="text-2xl font-bold text-foreground">فیلترها</h3>
+    <div className='flex flex-col gap-4 bg-background lg:border border-foreground/40 rounded-2xl p-4'>
+      <div className='flex items-center justify-between'>
+        <h3 className='text-2xl font-bold text-foreground'>
+          {t('product.filters')}
+        </h3>
         {/* Close button for mobile modal */}
         {onClose && (
           <button
             onClick={onClose}
-            className="p-2 rounded-xl border border-foreground/50 hover:border-foreground active:border-foreground cursor-pointer effect group"
-            aria-label="Close filters"
+            className='p-2 rounded-xl border border-foreground/50 hover:border-foreground active:border-foreground cursor-pointer effect group'
+            aria-label={t('common.close')}
           >
             <X
               size={20}
-              className="text-foreground/50 group-hover:text-foreground group-active:text-foreground effect"
+              className='text-foreground/50 group-hover:text-foreground group-active:text-foreground effect'
             />
           </button>
         )}
@@ -405,9 +449,9 @@ function FilterContent({
 
       {/* جنس (Gender) Accordion */}
       <AccordionItem
-        title="جنس"
+        title={t('product.filterHeadings.material')}
         isOpen={openAccordions.gender}
-        onToggle={() => onToggleAccordion("gender")}
+        onToggle={() => onToggleAccordion('gender')}
       >
         <CheckboxGroup
           options={genders}
@@ -418,9 +462,9 @@ function FilterContent({
 
       {/* برند (Brand) Accordion */}
       <AccordionItem
-        title="برند"
+        title={t('product.filterHeadings.brand')}
         isOpen={openAccordions.brand}
-        onToggle={() => onToggleAccordion("brand")}
+        onToggle={() => onToggleAccordion('brand')}
       >
         <CheckboxGroup
           options={brands}
@@ -431,9 +475,9 @@ function FilterContent({
 
       {/* رنگ (Color) Accordion */}
       <AccordionItem
-        title="رنگ"
+        title={t('product.filterHeadings.color')}
         isOpen={openAccordions.color}
-        onToggle={() => onToggleAccordion("color")}
+        onToggle={() => onToggleAccordion('color')}
       >
         <CheckboxGroup
           options={colors}
@@ -444,9 +488,9 @@ function FilterContent({
 
       {/* دسته بندی (Category) Accordion */}
       <AccordionItem
-        title="دسته بندی"
+        title={t('product.filterHeadings.category')}
         isOpen={openAccordions.category}
-        onToggle={() => onToggleAccordion("category")}
+        onToggle={() => onToggleAccordion('category')}
       >
         <CheckboxGroup
           options={categories}
@@ -457,9 +501,9 @@ function FilterContent({
 
       {/* قیمت (Price Range) Accordion */}
       <AccordionItem
-        title="محدوده قیمت"
+        title={t('product.filterHeadings.priceRange')}
         isOpen={openAccordions.price}
-        onToggle={() => onToggleAccordion("price")}
+        onToggle={() => onToggleAccordion('price')}
       >
         <RangeSlider
           min={0}
@@ -470,18 +514,18 @@ function FilterContent({
       </AccordionItem>
 
       {/* فقط کالاهای موجود (Only Available) */}
-      <div className="border-b border-foreground/22 pb-3">
+      <div className='border-b border-foreground/22 pb-3'>
         <ToggleSwitch
-          label="فقط کالاهای موجود"
+          label={t('product.filterToggles.onlyAvailable')}
           checked={onlyAvailable}
           onChange={onOnlyAvailableChange}
         />
       </div>
 
       {/* ارسال فوری (Fast Shipping) */}
-      <div className="pb-2">
+      <div className='pb-2'>
         <ToggleSwitch
-          label="ارسال فوری"
+          label={t('product.filterToggles.fastShipping')}
           checked={fastShipping}
           onChange={onFastShippingChange}
         />
@@ -491,6 +535,8 @@ function FilterContent({
 }
 
 export default function ProductFilter() {
+  const t = useTranslations();
+  const locale = useLocale();
   const [mounted, setMounted] = useState(false);
   const [isMobileModalOpen, setIsMobileModalOpen] = useState(false);
   const [openAccordions, setOpenAccordions] = useState<Record<string, boolean>>(
@@ -520,13 +566,13 @@ export default function ProductFilter() {
   // Disable background scroll when modal is open
   useEffect(() => {
     if (isMobileModalOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     }
 
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     };
   }, [isMobileModalOpen]);
 
@@ -568,44 +614,52 @@ export default function ProductFilter() {
     );
   };
 
-  const genders: CheckboxOption[] = [
-    { id: "men", label: "مردانه" },
-    { id: "women", label: "زنانه" },
-  ];
+  const genders: CheckboxOption[] = GENDER_OPTIONS.map((option) => ({
+    id: option.id,
+    label: t(`product.genders.${option.id}`, {
+      defaultValue: option.defaultLabel,
+    }),
+  }));
 
-  const brands: CheckboxOption[] = [
-    { id: "adidas", label: "آدیداس" },
-    { id: "nike", label: "نایک" },
-  ];
+  const brands: CheckboxOption[] = BRAND_OPTIONS.map((option) => ({
+    id: option.id,
+    label: t(`product.brands.${option.id}`, {
+      defaultValue: option.defaultLabel,
+    }),
+  }));
 
-  const colors: CheckboxOption[] = [
-    { id: "black", label: "مشکی" },
-    { id: "white", label: "سفید" },
-    { id: "red", label: "قرمز" },
-  ];
+  const colors: CheckboxOption[] = COLOR_OPTIONS.map((option) => ({
+    id: option.id,
+    label: t(`product.colors.${option.id}`, {
+      defaultValue: option.defaultLabel,
+    }),
+  }));
 
-  const categories: CheckboxOption[] = [
-    { id: "shoes", label: "کیف و کفش" },
-    { id: "clothing", label: "پوشاک" },
-    { id: "sports", label: "ورزشی" },
-  ];
+  const categories: CheckboxOption[] = CATEGORY_OPTIONS.map((option) => ({
+    id: option.id,
+    label: t(`product.categories.${option.id}`, {
+      defaultValue: option.defaultLabel,
+    }),
+  }));
 
   return (
     <>
       {/* Mobile Filter Button */}
-      <div className="lg:hidden flex items-center gap-2">
+      <div className='lg:hidden flex items-center gap-2'>
         <button
           onClick={() => setIsMobileModalOpen(true)}
-          className="bg-secondary hover:bg-foreground/10 active:bg-foreground/10 p-2 rounded-xl cursor-pointer effect"
-          aria-label="Open filters"
+          className='bg-secondary hover:bg-foreground/10 active:bg-foreground/10 p-2 rounded-xl cursor-pointer effect'
+          aria-label={t('product.filtersOpen', {
+            defaultValue: 'Open filters',
+          })}
         >
-          <GiSettingsKnobs size={20} className="text-foreground rotate-90" />
+          <GiSettingsKnobs size={20} className='text-foreground rotate-90' />
         </button>
-        <span className="font-bold">فیلترها</span>
+        <span className='font-bold'>{t('product.filters')}</span>
       </div>
 
       {/* Desktop Sidebar Filters */}
-      <aside className="hidden lg:block w-full">
+      <aside className='hidden lg:block w-full'>
         <FilterContent
           openAccordions={openAccordions}
           genderSelected={genderSelected}
@@ -637,12 +691,13 @@ export default function ProductFilter() {
           <>
             {/* Overlay */}
             <div
-              className="lg:hidden fixed inset-0 bg-black/50 z-40 effect"
+              className='lg:hidden fixed inset-0 bg-black/50 z-40 effect'
               onClick={() => setIsMobileModalOpen(false)}
             />
             {/* Modal */}
             <div
-              className="lg:hidden fixed inset-0 z-50 flex items-center justify-center pointer-events-none"
+              dir={locale === 'fa' ? 'rtl' : 'ltr'}
+              className='lg:hidden fixed inset-0 z-50 flex items-center justify-center pointer-events-none'
               onClick={(e) => {
                 // Close when clicking outside the modal content
                 if (e.target === e.currentTarget) {
@@ -651,7 +706,7 @@ export default function ProductFilter() {
               }}
             >
               <div
-                className="relative w-full max-w-md mx-4 max-h-[calc(100vh-16rem)] md:max-h-[calc(100vh-20rem)] rounded-2xl bg-background shadow-xl overflow-y-auto effect pointer-events-auto opacity-100 scale-100"
+                className='relative w-full max-w-md mx-4 max-h-[calc(100vh-16rem)] md:max-h-[calc(100vh-20rem)] rounded-2xl bg-background shadow-xl overflow-y-auto effect pointer-events-auto opacity-100 scale-100'
                 onClick={(e) => e.stopPropagation()}
               >
                 <div>

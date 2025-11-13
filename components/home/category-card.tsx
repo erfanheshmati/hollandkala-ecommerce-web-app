@@ -1,13 +1,18 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
+
 import { ProductCategoryProps } from '@/types';
 import { ChevronLeft } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
 export default function CategoryCard({
   title,
   imageUrl,
   href,
 }: ProductCategoryProps) {
+  const t = useTranslations();
   return (
     <div className='relative rounded-3xl overflow-hidden group transition-transform hover:scale-105'>
       {imageUrl && (
@@ -34,11 +39,13 @@ export default function CategoryCard({
           )}
         </div>
         <Link
-          href={href}
+          href={href as any}
           className='flex items-center gap-1 self-start bg-white/20 backdrop-blur-md text-background rounded-2xl px-2 py-1 hover:bg-white/40 active:bg-white/40 cursor-pointer effect'
         >
-          <span className='text-lg font-medium pt-1'>مشاهده</span>
-          <ChevronLeft size={18} />
+          <span className='text-lg font-medium rtl:pt-1'>
+            {t('common.view')}
+          </span>
+          <ChevronLeft size={18} className='ltr:rotate-180 ltr:mt-0.5' />
         </Link>
       </div>
     </div>

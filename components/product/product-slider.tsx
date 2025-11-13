@@ -5,8 +5,9 @@ import ProductCard from './product-card';
 import { ProductSliderProps } from '@/types';
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { useState, useEffect } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function ProductSlider({
   title,
@@ -14,12 +15,14 @@ export default function ProductSlider({
   backgroundColor,
   href,
 }: ProductSliderProps) {
+  const t = useTranslations();
+  const locale = useLocale();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [lastSlide, setLastSlide] = useState(0);
 
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-    rtl: true,
+    rtl: locale === 'fa',
     loop: true,
     slides: {
       perView: 1.4,
@@ -76,7 +79,7 @@ export default function ProductSlider({
             href={href}
             className='flex items-center justify-center bg-background/90 hover:bg-background active:bg-background px-4 py-2 rounded-xl text-foreground hover:text-black active:text-black cursor-pointer effect'
           >
-            مشاهده همه
+            {t('common.viewAll')}
           </Link>
         </div>
       </div>

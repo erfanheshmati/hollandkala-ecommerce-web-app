@@ -7,6 +7,7 @@ import { HiOutlineFolderOpen } from 'react-icons/hi';
 import { IoMdClose } from 'react-icons/io';
 import { GoStar, GoStarFill } from 'react-icons/go';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 interface ReviewFormModalProps {
   isOpen: boolean;
@@ -21,6 +22,7 @@ export default function ReviewFormModal({
   productImage,
   productName,
 }: ReviewFormModalProps) {
+  const t = useTranslations();
   const [mounted, setMounted] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
   const [rating, setRating] = useState(0);
@@ -110,7 +112,7 @@ export default function ReviewFormModal({
 
   const handleSubmit = () => {
     if (rating === 0 || !description.trim()) {
-      alert('لطفاً امتیاز و توضیحات را وارد کنید.');
+      alert(t('common.errors.ratingRequired'));
       return;
     }
     // Handle review submission
@@ -164,7 +166,7 @@ export default function ReviewFormModal({
         >
           {/* Header */}
           <div className='flex items-center justify-between'>
-            <h2 className='font-medium text-xl'>ثبت دیدگاه</h2>
+            <h2 className='font-medium text-xl'>{t('profile.review.submitReview')}</h2>
             <button
               onClick={handleClose}
               className='flex items-center gap-2 cursor-pointer group'
@@ -189,7 +191,7 @@ export default function ReviewFormModal({
           {/* Rating Section */}
           <div className='flex items-center justify-between bg-secondary p-4 rounded-2xl'>
             <label className='text-sm font-medium text-foreground/80'>
-              امتیاز دهید
+              {t('profile.review.rate')}
             </label>
             <div className='flex items-center gap-1 justify-center' dir='ltr'>
               {[1, 2, 3, 4, 5].map((star) => (
@@ -198,7 +200,7 @@ export default function ReviewFormModal({
                   type='button'
                   onClick={() => setRating(star)}
                   className='focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 rounded cursor-pointer effect'
-                  aria-label={`امتیاز ${star} از 5`}
+                  aria-label={t('profile.review.ratingOf', { rating: star })}
                 >
                   {star <= rating ? (
                     <GoStarFill
@@ -221,7 +223,7 @@ export default function ReviewFormModal({
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder='توضیحات:'
+              placeholder={t('profile.review.description') + ':'}
               rows={5}
               className='input rounded-2xl min-h-max resize-none'
             />
@@ -243,7 +245,7 @@ export default function ReviewFormModal({
                   <span className='text-sm font-bold truncate'>
                     {selectedFile
                       ? selectedFile.name
-                      : 'فایل را بکشید و رها کنید.'}
+                      : t('profile.review.dragDropFile')}
                   </span>
                   {selectedFile && (
                     <button
@@ -265,7 +267,7 @@ export default function ReviewFormModal({
                   htmlFor='file-upload-review'
                   className='btn-secondary px-3 py-2 rounded-lg text-sm font-bold text-primary border border-primary shrink-0 cursor-pointer effect'
                 >
-                  بارگذاری فایل
+                  {t('profile.review.uploadFile')}
                 </label>
               </div>
             </div>
@@ -277,7 +279,7 @@ export default function ReviewFormModal({
             disabled={rating === 0 || !description.trim()}
             className='btn-primary rounded-2xl py-3'
           >
-            ارسال دیدگاه
+            {t('profile.review.submitReviewButton')}
           </button>
         </div>
       </div>

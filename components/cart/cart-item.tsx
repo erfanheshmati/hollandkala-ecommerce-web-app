@@ -4,8 +4,8 @@ import { cn } from '@/lib/utils';
 import { CartProps } from '@/types';
 import { Plus, Trash2, Minus } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Link, usePathname } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
 interface CartItemProps {
   item: CartProps;
@@ -23,6 +23,7 @@ export default function CartItem({
   className = '',
 }: CartItemProps) {
   const pathname = usePathname();
+  const t = useTranslations();
 
   return (
     <li
@@ -44,7 +45,9 @@ export default function CartItem({
               className='w-full h-full object-cover'
             />
           ) : (
-            <div className='text-xs text-foreground/50'>No Image</div>
+            <div className='text-xs text-foreground/50'>
+              {t('cart.item.noImage')}
+            </div>
           )}
         </div>
 
@@ -55,34 +58,44 @@ export default function CartItem({
           {/* Code */}
           <div className='flex items-center gap-1'>
             <span className='font-medium text-foreground/60 line-clamp-1'>
-              کد سفارش:
+              {t('cart.item.orderCode')}
             </span>
             <span className='font-medium'>{item.code}</span>
           </div>
         </div>
 
         {/* Date */}
-        <div className='flex items-start gap-1 mr-auto'>
-          <span className='text-sm font-medium text-foreground/60'>تاریخ:</span>
+        <div className='flex items-start gap-1 rtl:mr-auto ltr:ml-auto'>
+          <span className='text-sm font-medium text-foreground/60'>
+            {t('cart.item.date')}
+          </span>
           <span className='text-sm font-medium'>{item.date}</span>
         </div>
       </div>
 
       {/* Price */}
       <div className='min-[390px]:hidden flex items-center gap-1'>
-        <span className='font-medium text-foreground/60'>مبلغ:</span>
-        <span className='font-bold'>{item.price} یورو</span>
+        <span className='font-medium text-foreground/60'>
+          {t('cart.item.amount')}
+        </span>
+        <span className='font-bold'>
+          {item.price} {t('cart.item.currency')}
+        </span>
       </div>
 
       {/* Bottom Section: Price, Quantity, Order Button */}
       <div className='flex items-center justify-between gap-2'>
         {/* Price */}
         <div className='hidden min-[390px]:flex items-center gap-1'>
-          <span className='font-medium text-foreground/60'>مبلغ:</span>
-          <span className='font-bold'>{item.price} یورو</span>
+          <span className='font-medium text-foreground/60'>
+            {/* {t('cart.item.amount')} */}
+          </span>
+          <span className='font-bold'>
+            {item.price} {t('cart.item.currency')}
+          </span>
         </div>
         {/* Quantity Controls */}
-        <div className='flex items-center gap-2 bg-secondary rounded-xl px-2 py-1 min-[390px]:mr-auto'>
+        <div className='flex items-center gap-2 bg-secondary rounded-xl px-2 py-1 rtl:min-[390px]:mr-auto ltr:min-[390px]:ml-auto' dir='rtl'>
           {/* Plus Button */}
           <button
             className='text-foreground/90 hover:text-black cursor-pointer effect'
@@ -115,11 +128,11 @@ export default function CartItem({
           )}
         </div>
         {/*  Order Button */}
-        {pathname !== '/checkout' && (
+        {/* {pathname !== '/checkout' && ( */}
           <Link href='/checkout' className='btn-accent py-2 rounded-xl'>
-            ثبت سفارش
+            {t('cart.item.placeOrder')}
           </Link>
-        )}
+        {/* )} */}
       </div>
     </li>
   );

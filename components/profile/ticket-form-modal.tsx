@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import { CgCloseR } from 'react-icons/cg';
 import { HiOutlineFolderOpen } from 'react-icons/hi';
 import { IoMdClose } from 'react-icons/io';
+import { useTranslations } from 'next-intl';
 
 interface NewTicketModalProps {
   isOpen: boolean;
@@ -15,6 +16,7 @@ export default function TicketFormModal({
   isOpen,
   onClose,
 }: NewTicketModalProps) {
+  const t = useTranslations();
   const [mounted, setMounted] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
   const [title, setTitle] = useState('');
@@ -79,7 +81,7 @@ export default function TicketFormModal({
       if (fileExtension === 'csv' || fileExtension === 'pdf') {
         setSelectedFile(file);
       } else {
-        alert('لطفاً فقط فایل‌های CSV یا PDF را آپلود کنید.');
+        alert(t('profile.ticket.fileFormatError'));
       }
     }
   };
@@ -107,14 +109,14 @@ export default function TicketFormModal({
       if (fileExtension === 'csv' || fileExtension === 'pdf') {
         setSelectedFile(file);
       } else {
-        alert('لطفاً فقط فایل‌های CSV یا PDF را آپلود کنید.');
+        alert(t('profile.ticket.fileFormatError'));
       }
     }
   };
 
   const handleSubmit = () => {
     if (!title.trim() || !description.trim()) {
-      alert('لطفاً عنوان و توضیحات را وارد کنید.');
+      alert(t('common.errors.titleDescriptionRequired'));
       return;
     }
     // Handle ticket submission
@@ -168,7 +170,7 @@ export default function TicketFormModal({
         >
           {/* Header */}
           <div className='flex items-center justify-between'>
-            <h2 className='font-medium text-xl'>ثبت تیکت جدید</h2>
+            <h2 className='font-medium text-xl'>{t('profile.ticket.newTicket')}</h2>
             <button
               onClick={handleClose}
               className='flex items-center gap-2 cursor-pointer group'
@@ -182,7 +184,7 @@ export default function TicketFormModal({
             type='text'
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder='عنوان: '
+            placeholder={t('profile.ticket.title') + ': '}
             className='input rounded-2xl'
           />
 
@@ -190,7 +192,7 @@ export default function TicketFormModal({
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder='توضیحات: '
+            placeholder={t('profile.ticket.description') + ': '}
             rows={5}
             className='input rounded-2xl min-h-max resize-none'
           />
@@ -211,7 +213,7 @@ export default function TicketFormModal({
                   <span className='text-sm font-bold truncate'>
                     {selectedFile
                       ? selectedFile.name
-                      : 'فایل را بکشید و رها کنید.'}
+                      : t('profile.ticket.dragDropFile')}
                   </span>
                   {selectedFile && (
                     <button
@@ -234,12 +236,12 @@ export default function TicketFormModal({
                   htmlFor='file-upload-new-ticket'
                   className='btn-secondary px-3 py-2 rounded-lg text-sm font-bold text-primary border border-primary shrink-0 cursor-pointer effect'
                 >
-                  بارگذاری فایل
+                  {t('profile.ticket.uploadFile')}
                 </label>
               </div>
             </div>
             <div className='text-xs font-medium text-foreground/50'>
-              حداکثر حجم: 700 مگابایت, فرمت فایل : CSV , PDF
+              {t('profile.ticket.maxSize')}
             </div>
           </div>
 
@@ -249,7 +251,7 @@ export default function TicketFormModal({
             disabled={!title.trim() || !description.trim()}
             className='btn-primary rounded-2xl py-3'
           >
-            ارسال تیکت
+            {t('profile.ticket.submitTicket')}
           </button>
         </div>
       </div>

@@ -6,6 +6,8 @@ import { GoGift, GoStarFill } from 'react-icons/go';
 import { IoCheckmark } from 'react-icons/io5';
 import Image from 'next/image';
 import Share from '@/components/shared/share';
+import { useTranslations, useLocale } from 'next-intl';
+import { toPersianDigits } from '@/lib/utils';
 
 const COLOR_HEX_MAP: Record<string, string> = {
   قرمز: '#CF0221',
@@ -33,10 +35,18 @@ function resolveColorHex(color?: string) {
 }
 
 export default function ProductInfo({ product }: { product: ProductProps }) {
+  const t = useTranslations();
+  const locale = useLocale();
   const sizes = useMemo(() => product.sizes ?? [], [product.sizes]);
   const colors = useMemo(() => product.colors ?? [], [product.colors]);
   const [activeSizeIndex, setActiveSizeIndex] = useState(0);
   const [activeColorIndex, setActiveColorIndex] = useState(0);
+
+  // Format numbers based on locale
+  const formatNumber = (value?: string | number | null) => {
+    if (value === undefined || value === null) return undefined;
+    return locale === 'fa' ? toPersianDigits(value) : value.toString();
+  };
 
   const normalizedIndex = useMemo(() => {
     if (!sizes.length) return -1;
@@ -67,9 +77,9 @@ export default function ProductInfo({ product }: { product: ProductProps }) {
 
   const featureEntries = useMemo(() => {
     const base: { label: string; value?: string | null }[] = [
-      { label: 'جنس رویه', value: product.materials },
-      { label: 'ابعاد', value: product.dimensions },
-      { label: 'وزن', value: product.weight },
+      { label: t('product.specLabels.material'), value: product.materials },
+      { label: t('product.specLabels.dimensions'), value: product.dimensions },
+      { label: t('product.specLabels.weight'), value: product.weight },
     ];
 
     return base
@@ -80,7 +90,7 @@ export default function ProductInfo({ product }: { product: ProductProps }) {
         label: feature.label,
         value: feature.value.trim(),
       }));
-  }, [product.dimensions, product.materials, product.weight]);
+  }, [t, product.dimensions, product.materials, product.weight]);
 
   return (
     <div className='flex-1 flex flex-col justify-between gap-6'>
@@ -97,18 +107,20 @@ export default function ProductInfo({ product }: { product: ProductProps }) {
 
         <div className='flex flex-wrap items-center gap-4'>
           <div className='flex items-start gap-1'>
-            <GoStarFill size={16} className='text-yellow-500' />
+            <GoStarFill size={20} className='text-yellow-500 pt-0.5' />
             <div className='flex items-center gap-1'>
-              <span className='font-bold'>{product.rating}</span>
+              <span className='font-bold'>{formatNumber(product.rating)}</span>
               <span className='text-sm text-foreground/70'>
-                (امتیاز خریداران)
+                ({t('product.buyerRating')})
               </span>
             </div>
           </div>
-          <div className='font-medium'>{product.comment} دیدگاه</div>
+          <div className='font-medium'>
+            {formatNumber(product.comment)} {t('product.comments')}
+          </div>
           {/* Barcode */}
           <div className='bg-foreground/5 rounded-full px-2 py-1 text-xs sm:text-sm font-bold text-foreground/50 mr-auto'>
-            <span>بارکد محصول</span> {product.barcode}
+            <span>{t('product.barcode')}</span> {formatNumber(product.barcode)}
           </div>
         </div>
       </div>
@@ -119,7 +131,9 @@ export default function ProductInfo({ product }: { product: ProductProps }) {
       {/* Sizes */}
       {sizes.length > 0 && (
         <div className='flex items-center gap-4'>
-          <span className='text-lg font-semibold text-foreground'>سایز</span>
+          <span className='text-lg font-semibold text-foreground'>
+            {t('product.size')}
+          </span>
           <div className='flex flex-wrap gap-2'>
             {sizes.map((size, index) => {
               const isSelected = normalizedIndex === index;
@@ -137,7 +151,7 @@ export default function ProductInfo({ product }: { product: ProductProps }) {
                 >
                   <span>{size}</span>
                   {isSelected && (
-                    <span className='absolute right-1 h-4 w-4 flex items-center justify-center rounded-md bg-primary text-background'>
+                    <span className='absolute rtl:right-1 ltr:left-1 h-4 w-4 flex items-center justify-center rounded-md bg-primary text-background'>
                       <IoCheckmark size={14} />
                     </span>
                   )}
@@ -152,9 +166,11 @@ export default function ProductInfo({ product }: { product: ProductProps }) {
       {colorSwatches.length > 0 && (
         <div className='flex flex-col gap-2'>
           <div className='flex items-center gap-2 text-lg'>
-            <span className='font-semibold text-foreground'>رنگ:</span>
+            <span className='font-semibold text-foreground'>
+              {t('product.colorLabel')}:
+            </span>
             <span className='text-foreground/80'>
-              {selectedColorLabel ?? 'انتخاب نشده'}
+              {selectedColorLabel ?? t('product.notSelected')}
             </span>
           </div>
           <div className='flex flex-wrap gap-2'>
@@ -167,7 +183,9 @@ export default function ProductInfo({ product }: { product: ProductProps }) {
                   type='button'
                   onClick={() => setActiveColorIndex(index)}
                   aria-pressed={isSelected}
-                  aria-label={`انتخاب رنگ ${swatch.label || index + 1}`}
+                  aria-label={`${t('product.selectColor')} ${
+                    swatch.label || index + 1
+                  }`}
                   className={`relative h-9 w-9 flex items-center justify-center rounded-full bg-background focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary/60 cursor-pointer effect ${
                     isSelected
                       ? 'ring-2 ring-primary ring-offset-background'
@@ -195,13 +213,13 @@ export default function ProductInfo({ product }: { product: ProductProps }) {
       {/* Gifts */}
       <div className='flex flex-wrap items-center gap-2'>
         <GoGift size={24} />
-        <p className='font-bold'>هدایای همراه این محصول</p>
+        <p className='font-bold'>{t('product.productGifts')}</p>
         <div className='flex items-center gap-2'>
           {product.gifts.map((gift, idx) => (
             <Image
               key={idx}
               src={gift}
-              alt='gift'
+              alt={t('common.gift')}
               width={45}
               height={45}
               className='w-12 h-10 bg-background border border-foreground/20 rounded-xl object-cover'
@@ -216,7 +234,9 @@ export default function ProductInfo({ product }: { product: ProductProps }) {
       {/* Features */}
       {featureEntries.length > 0 && (
         <section className='flex flex-col gap-2'>
-          <h2 className='font-semibold text-foreground text-lg'>ویژگی‌ها</h2>
+          <h2 className='font-semibold text-foreground text-lg'>
+            {t('product.features')}
+          </h2>
           <div className='grid grid-cols-2 sm:grid-cols-3 gap-2'>
             {featureEntries.map((feature) => (
               <div

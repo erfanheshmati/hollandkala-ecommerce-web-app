@@ -3,12 +3,14 @@
 import { LikeButtonProps } from '@/types';
 import { useState } from 'react';
 import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
+import { useTranslations } from 'next-intl';
 
 export default function LikeButton({
   blogId,
   initialLikes,
   onSubmitLike,
 }: LikeButtonProps) {
+  const t = useTranslations();
   const [likes, setLikes] = useState<number>(initialLikes);
   const [isLiking, setIsLiking] = useState<boolean>(false);
   const [isLiked, setIsLiked] = useState<boolean>(false);
@@ -45,7 +47,7 @@ export default function LikeButton({
       onClick={handleLikeClick}
       className='flex items-center gap-1 cursor-pointer disabled:opacity-60'
       disabled={isLiking}
-      aria-label='like post'
+      aria-label={t('blog.likePost')}
       aria-pressed={isLiked}
     >
       <span className='text-sm font-medium pt-1'>{likes}</span>

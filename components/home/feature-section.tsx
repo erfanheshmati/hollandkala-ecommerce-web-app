@@ -1,18 +1,24 @@
 'use client';
 
-import { features } from '@/lib/data';
 import FeatureCard from './feature-card';
-import "keen-slider/keen-slider.min.css";
+import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 import { useState } from 'react';
+import type { FeatureCardProps } from '@/types';
+import { useLocale } from 'next-intl';
 
-export default function FeatureSection() {
+export default function FeatureSection({
+  features,
+}: {
+  features: FeatureCardProps[];
+}) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [lastSlide, setLastSlide] = useState(0);
+  const locale = useLocale();
 
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-    rtl: true,
+    rtl: locale === 'fa',
     slides: {
       perView: 1,
       spacing: 16,

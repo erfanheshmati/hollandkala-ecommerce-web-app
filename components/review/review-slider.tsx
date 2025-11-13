@@ -5,14 +5,16 @@ import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 import ReviewCard from '@/components/review/review-card';
 import { ReviewSectionProps } from '@/types';
+import { useLocale } from 'next-intl';
 
 export default function ReviewSlider({
   reviews,
 }: {
   reviews: ReviewSectionProps['reviews'];
 }) {
+  const locale = useLocale();
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-    rtl: true,
+    rtl: locale === 'fa',
     slides: {
       origin: 'center',
       perView: 1.3,

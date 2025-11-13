@@ -3,20 +3,23 @@
 import { useState } from "react";
 import clsx from "clsx";
 import { ProductProps } from "@/types";
+import { useTranslations } from "next-intl";
 import ProductDescription from "./product-description";
 import ProductSpecification from "./product-specification";
 import ProductReview from "./product-review";
 
 type TabKey = "description" | "specification" | "review";
 
-const TAB_ITEMS: { key: TabKey; label: string }[] = [
-  { key: "description", label: "معرفی محصول" },
-  { key: "specification", label: "مشخصات محصول" },
-  { key: "review", label: "نظرات کاربران" },
+const buildTabs = (t: ReturnType<typeof useTranslations>): { key: TabKey; label: string }[] => [
+  { key: "description", label: t("product.description") },
+  { key: "specification", label: t("product.specifications") },
+  { key: "review", label: t("product.reviews") },
 ];
 
 export default function ProductTabs({ product }: { product: ProductProps }) {
+  const t = useTranslations();
   const [activeTab, setActiveTab] = useState<TabKey>("description");
+  const TAB_ITEMS = buildTabs(t);
 
   return (
     <section className="flex flex-col gap-4 my-10 md:my-16">

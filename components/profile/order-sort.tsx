@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { orderSortData } from '@/lib/data';
 import clsx from 'clsx';
 
@@ -9,11 +10,12 @@ interface OrderSortProps {
 }
 
 export default function OrderSort({ value, onChange }: OrderSortProps) {
+  const t = useTranslations();
   return (
     <div className='flex items-center gap-2 w-full lg:h-full'>
       <div className='hidden sm:flex md:hidden xl:flex items-center gap-2 shrink-0'>
         <span className='text-foreground font-bold text-xl'>
-          سفارشات بر اساس:
+          {t('ui.sortedBy.orders')}
         </span>
       </div>
       <div
@@ -32,7 +34,7 @@ export default function OrderSort({ value, onChange }: OrderSortProps) {
                 : 'text-foreground border-foreground/30 hover:text-primary active:text-primary hover:border-primary active:border-primary'
             )}
           >
-            {sort.label}
+            {t(`data.sort.orders.${sort.param}`, { defaultValue: sort.label })}
           </button>
         ))}
       </div>

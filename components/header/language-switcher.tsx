@@ -5,6 +5,8 @@ import Image from 'next/image';
 import flagFaIcon from '../../public/icons/flag-fa.svg';
 import flagEnIcon from '../../public/icons/flag-en.svg';
 import { ChevronDown } from 'lucide-react';
+import { usePathname, useRouter } from '@/i18n/routing';
+import { useLocale } from 'next-intl';
 
 interface Language {
   code: string;
@@ -19,8 +21,20 @@ const languages: Language[] = [
 
 export default function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+  const locale = useLocale();
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    languages.find((l) => l.code === locale) ?? languages[0]
+  );
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const current = languages.find((l) => l.code === locale);
+    if (current && current.code !== selectedLanguage.code) {
+      setSelectedLanguage(current);
+    }
+  }, [locale, selectedLanguage.code]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -41,7 +55,18 @@ export default function LanguageSwitcher() {
   const handleLanguageSelect = (language: Language) => {
     setSelectedLanguage(language);
     setIsOpen(false);
-    // Add your language switching logic here
+    
+    // Get the actual pathname from the browser URL (includes actual parameter values)
+    // This is necessary because usePathname() returns templates like /product/[id] for dynamic routes
+    const actualPathname = typeof window !== 'undefined' 
+      ? window.location.pathname 
+      : pathname;
+    
+    // Strip the locale prefix to get the base path with actual parameters
+    // e.g., /fa/product/123 -> /product/123
+    const basePath = actualPathname.replace(/^\/(fa|en)(?=\/|$)/, '') || '/';
+    
+    router.replace(basePath as Parameters<typeof router.replace>[0], { locale: language.code as 'fa' | 'en' });
   };
 
   return (

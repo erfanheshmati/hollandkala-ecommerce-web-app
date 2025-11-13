@@ -1,0 +1,451 @@
+{
+  "metadata": {
+    "title": "هلندکالا - فروشگاه آنلاین",
+    "description": "به فروشگاه هلندکالا خوش آمدید"
+  },
+  "common": {
+    "language": {
+      "english": "انگلیسی",
+      "farsi": "فارسی"
+    },
+    "dir": "rtl",
+    "yes": "بله",
+    "no": "خیر",
+    "ok": "باشه",
+    "cancel": "انصراف",
+    "save": "ذخیره",
+    "close": "بستن",
+    "loading": "در حال بارگذاری...",
+    "view": "مشاهده",
+    "viewAll": "مشاهده همه",
+    "viewAllProducts": "مشاهده ی همه محصولات",
+    "more": "بیشتر",
+    "less": "کمتر",
+    "addToCart": "افزودن به سبد",
+    "buyNow": "خرید فوری",
+    "apply": "اعمال",
+    "remove": "حذف",
+    "edit": "ویرایش",
+    "update": "به‌روزرسانی",
+    "back": "بازگشت",
+    "next": "بعدی",
+    "submit": "ارسال",
+    "search": "جستجو",
+    "province": "استان",
+    "city": "شهرستان",
+    "postalCode": "کد پستی",
+    "address": "آدرس محل سکونت",
+    "reply": "پاسخ",
+    "image": "تصویر",
+    "removeImage": "حذف عکس",
+    "share": "اشتراک‌گذاری",
+    "copied": "لینک کپی شد",
+    "listSeparator": "، ",
+    "fallbackInitial": "؟",
+    "gift": "هدیه",
+    "preview": "پیش‌نمایش",
+    "getDirection": "دریافت مسیر",
+    "errors": {
+      "ratingRequired": "لطفاً امتیاز و نظر را وارد کنید.",
+      "titleDescriptionRequired": "لطفاً عنوان و توضیحات را وارد کنید."
+    },
+    "empty": {
+      "noOrders": "سفارشی یافت نشد",
+      "noTickets": "تیکتی یافت نشد"
+    }
+  },
+  "commonStatus": {
+    "copied": "کپی شد"
+  },
+  "data": {
+    "menu": {
+      "home": "صفحه اصلی",
+      "wholesale": "عمده‌فروشی",
+      "retail": "خرده‌فروشی",
+      "blog": "وبلاگ",
+      "about": "درباره ما",
+      "contact": "تماس با ما",
+      "gifts": "هدایا",
+      "reviews": "نظرات کاربران",
+      "shoesBags": "کیف و کفش",
+      "womenClothing": "پوشاک زنانه",
+      "sports": "ورزشی",
+      "accessories": "اکسسوری",
+      "shoes": {
+        "classic": "کلاسیک",
+        "formal": "مجلسی",
+        "sport": "ورزشی"
+      }
+    },
+    "categories": {
+      "wholesaleNew": "محصولات عمده نو",
+      "wholesaleUsed": "محصولات عمده دست دوم",
+      "retailNew": "خرده‌فروشی نو",
+      "retailUsed": "خرده‌فروشی دست دوم"
+    },
+    "sort": {
+      "products": {
+        "newest": "جدیدترین",
+        "bestseller": "پرفروش‌ترین"
+      },
+      "orders": {
+        "all": "همه",
+        "processing": "جاری",
+        "shipped": "تحویل‌شده",
+        "cancelled": "لغوشده"
+      },
+      "tickets": {
+        "all": "همه",
+        "answered": "پاسخ داده شده",
+        "reviewing": "در حال بررسی",
+        "closed": "بسته شده"
+      }
+    },
+    "reviewsFilters": {
+      "charity": "خیریه",
+      "athletes": "ورزشکاران",
+      "buyers": "خریداران"
+    }
+  },
+  "ui": {
+    "menu": "منو",
+    "sortedBy": {
+      "products": "مرتب سازی:",
+      "orders": "سفارشات بر اساس:",
+      "tickets": "تیکت‌ها بر اساس:"
+    },
+    "share": {
+      "copyLinkPrompt": "لینک زیر را انتخاب و کپی کنید:"
+    }
+  },
+  "nav": {
+    "home": "صفحه اصلی",
+    "wholesale": " عمده فروشی",
+    "retail": "خرده فروشی",
+    "blog": "بلاگ",
+    "about": "درباره ما",
+    "contact": "تماس با ما",
+    "gifts": "هدایا",
+    "reviews": "نظرات کاربران",
+    "cart": "سبد خرید",
+    "favorites": "علاقه‌مندی‌ها",
+    "profile": "پروفایل",
+    "checkout": "تسویه حساب"
+  },
+  "header": {
+    "welcome": "به هالندکالا خوش آمدید",
+    "cart": "سبد خرید",
+    "favorites": "علاقه‌مندی‌ها",
+    "search": "جستجو"
+  },
+  "home": {
+    "title": "کالاهای باکیفیت را کشف کنید",
+    "subtitle": "تخفیف‌های عالی، ارسال سریع",
+    "categoryTitle": "دسته‌بندی محصولات ما",
+    "categorySubtitle": "می‌توانید بقیه دسته‌بندی‌ها را از منو ببینید",
+    "shoes": "کفش اسپرت و کتانی",
+    "clothing": "پوشاک",
+    "sports": "محصولات ورزشی"
+  },
+  "auth": {
+    "login": "ورود",
+    "logout": "خروج از حساب کاربری",
+    "phone": "شماره موبایل",
+    "otp": "کد تأیید",
+    "sendCode": "ارسال کد",
+    "confirm": "تأیید",
+    "welcomeTo": "خوش آمدید به",
+    "brandName": "هلندکالا",
+    "loginDescription": "جهت ورود به هلندکالا شماره تلفن یا ایمیل خود را وارد کنید",
+    "loginWithEmail": "ورود با ایمیل",
+    "loginWithPhone": "ورود با شماره تلفن",
+    "acceptTerms": "ورود شما به معنای پذیرش شرایط",
+    "and": "و",
+    "privacyPolicy": "قوانین حریم‌خصوصی",
+    "is": "است",
+    "codeSentTo": "کد ارسال شده به",
+    "phoneNumber": "شماره تلفن",
+    "email": "ایمیل",
+    "enter": "وارد نمایید",
+    "resendCode": "ارسال مجدد کد:"
+  },
+  "product": {
+    "specifications": "مشخصات",
+    "description": "توضیحات",
+    "reviews": "دیدگاه‌ها",
+    "priceComparison": "مقایسه قیمت",
+    "inStock": "موجود",
+    "outOfStock": "ناموجود",
+    "name": "نام محصول :",
+    "code": "کد محصول :",
+    "price": "قیمت :",
+    "purchaseMode": "خرید به صورت :",
+    "purchaseModes": { "single": "تکی", "wholesale": "عمده" },
+    "retailPrice": "قیمت تکی",
+    "wholesalePrice": "قیمت عمده",
+    "warranty": "گارانتی اصالت و سلامت فیزیکی کالا",
+    "notifyRestock": "اطلاع از تجدید موجودی",
+    "filters": "فیلترها",
+    "filtersOpen": "باز کردن فیلترها",
+    "filterHeadings": {
+      "material": "جنس",
+      "brand": "برند",
+      "color": "رنگ",
+      "category": "دسته بندی",
+      "priceRange": "محدوده قیمت"
+    },
+    "filterToggles": {
+      "onlyAvailable": "فقط کالاهای موجود",
+      "fastShipping": "ارسال فوری"
+    },
+    "range": {
+      "from": "از",
+      "to": "تا",
+      "cheapest": "ارزان‌ترین",
+      "mostExpensive": "گران‌ترین",
+      "currency": "یورو"
+    },
+    "genders": { "men": "مردانه", "women": "زنانه" },
+    "brands": { "adidas": "آدیداس", "nike": "نایک" },
+    "colors": { "black": "مشکی", "white": "سفید", "red": "قرمز" },
+    "categories": {
+      "shoes": "کیف و کفش",
+      "clothing": "پوشاک",
+      "sports": "ورزشی"
+    },
+    "specLabels": {
+      "material": "جنس رویه",
+      "color": "رنگ",
+      "usage": "مورد استفاده",
+      "weight": "وزن",
+      "dimensions": "ابعاد"
+    },
+    "related": "محصولات مرتبط",
+    "notSelected": "انتخاب نشده",
+    "buyerRating": "امتیاز خریداران",
+    "comments": "دیدگاه",
+    "barcode": "بارکد محصول",
+    "size": "سایز",
+    "colorLabel": "رنگ",
+    "selectColor": "انتخاب رنگ",
+    "productGifts": "هدایای همراه این محصول",
+    "features": "ویژگی‌ها",
+    "introduction": "معرفی محصول",
+    "badges": {
+      "wholesaleQuantity": "تعداد عمده",
+      "professionalAthletes": "ورزشکاران حرفه ای"
+    },
+    "imageLabel": "تصویر {number}",
+    "fallbackSpecs": {
+      "material": "پارچه، فوم",
+      "color": "قرمز",
+      "usage": "اسپرت / روزمره",
+      "weight": "۱۰۰ گرم"
+    }
+  },
+  "status": {
+    "processing": "جاری",
+    "shipped": "ارسال شده",
+    "cancelled": "لغو شده"
+  },
+  "cart": {
+    "title": "سبد خرید",
+    "empty": "سبد خرید شما خالی است",
+    "subtotal": "جمع جزء",
+    "checkout": "ادامه فرآیند خرید",
+    "item": {
+      "noImage": "بدون تصویر",
+      "orderCode": "کد سفارش:",
+      "date": "تاریخ:",
+      "amount": "مبلغ:",
+      "currency": "یورو",
+      "placeOrder": "ثبت سفارش"
+    }
+  },
+  "checkout": {
+    "title": "تسویه حساب",
+    "shipping": "ارسال",
+    "payment": "پرداخت",
+    "placeOrder": "ثبت سفارش",
+    "formLabels": {
+      "fullName": "نام و نام خانوادگی:",
+      "phone": "شماره تماس:",
+      "province": "استان:",
+      "city": "شهرستان:",
+      "nationalCode": "کد ملی:",
+      "zipCode": "کد پستی:",
+      "address": "آدرس تحویل سفارش:",
+      "description": "توضیحات سفارش (اختیاری):"
+    },
+    "orderCart": "سبد سفارش",
+    "selectPaymentGateway": "انتخاب درگاه پرداخت",
+    "secureZibalPayment": "پرداخت امن زیبال",
+    "zibalPayment": "پرداخت زیبال",
+    "priceSummary": {
+      "total": "جمع کل",
+      "toggleSummary": "باز/بسته کردن خلاصه قیمت",
+      "discountCode": "کد تخفیف:",
+      "productCount": "تعداد محصول",
+      "cartSubtotal": "جمع سبد",
+      "totalAmount": "جمع کل",
+      "pay": "پرداخت"
+    },
+    "items": "عدد"
+  },
+  "profile": {
+    "title": "حساب کاربری",
+    "orders": "سفارش‌ها",
+    "reviews": "دیدگاه‌ها",
+    "tickets": "تیکت‌ها",
+    "info": "اطلاعات شخصی",
+    "order": {
+      "amount": "مبلغ",
+      "orderCode": "کد سفارش",
+      "date": "تاریخ",
+      "noImage": "بدون تصویر",
+      "searchPlaceholder": "جست و جو نام یا کد سفارش",
+      "invoiceReceive": "دریافت فاکتور",
+      "cancel": "لغو سفارش"
+    },
+    "review": {
+      "submitReview": "ثبت دیدگاه",
+      "rate": "امتیاز دهید",
+      "ratingOf": "امتیاز {rating} از 5",
+      "description": "توضیحات",
+      "dragDropFile": "فایل را بکشید و رها کنید.",
+      "uploadFile": "بارگذاری فایل",
+      "submitReviewButton": "ارسال دیدگاه",
+      "shareComment": "دیدگاه خود را با ما به اشتراک بگذارید...",
+      "writeReply": "پاسخ خود را بنویسید..."
+    },
+    "ticket": {
+      "newTicket": "ثبت تیکت جدید",
+      "title": "عنوان",
+      "description": "توضیحات",
+      "dragDropFile": "فایل را بکشید و رها کنید.",
+      "uploadFile": "بارگذاری فایل",
+      "submitTicket": "ارسال تیکت",
+      "maxSize": "حداکثر حجم: 700 مگابایت, فرمت فایل : CSV , PDF",
+      "fileFormatError": "لطفاً فقط فایل‌های CSV یا PDF آپلود کنید.",
+      "addNewTicket": "ثبت تیکت جدید"
+    },
+    "collaboration": {
+      "label": "همکاری",
+      "title": "همکاری با ما",
+      "fullName": "نام و نام خانوادگی",
+      "email": "ایمیل",
+      "gender": "جنسیت",
+      "country": "کشور محل اقامت",
+      "audienceRegion": "منطقه اصلی مخاطبان",
+      "socialMediaLink": "لینک شبکه ی اجتماعی",
+      "acceptPublisherTerms": "من شرایط ناشر را می‌پذیرم.",
+      "acceptPrivacyPolicy": "من تأیید می‌کنم که hollandkala داده‌های شخصی من را مطابق با سیاست حفظ حریم خصوصی جمع‌آوری و پردازش خواهد کرد.",
+      "submitRequest": "ثبت درخواست"
+    }
+  },
+  "contact": {
+    "title": "تماس با ما",
+    "visitUs": "از فروشگاه‌های ما دیدن کنید",
+    "store": "فروشگاه {name}",
+    "closed": "تعطیل",
+    "form": {
+      "name": "نام",
+      "email": "ایمیل",
+      "phone": "تلفن",
+      "message": "پیام",
+      "send": "ارسال",
+      "title": "ارتباط با ما",
+      "subtitle": "اگر محصولات عالی دارید یا می‌خواهید با ما کار کنید، تماس بگیرید.",
+      "fullName": "نام و نام خانوادگی",
+      "phoneNumber": "شماره تماس"
+    }
+  },
+  "authPlaceholders": {
+    "phone": "شماره تلفن خود را وارد کنید",
+    "email": "ایمیل خود را وارد کنید"
+  },
+  "contactPlaceholders": {
+    "name": "نام و نام خانوادگی",
+    "email": "ایمیل",
+    "message": "توضیحات تکمیلی"
+  },
+  "reviews": {
+    "title": "نظرات کاربران",
+    "subtitle": "بخشی از درآمد «هلند کالا» صرف امور خیریه می‌شود",
+    "all": "همه",
+    "filters": {
+      "buyers": "خریداران",
+      "athletes": "ورزشکاران",
+      "charity": "خیریه"
+    },
+    "badges": {
+      "disability": "نقص عضو",
+      "wheelchairGloves": "دستکش مخصوص ویلچر"
+    }
+  },
+  "blog": {
+    "related": "مقالات مرتبط",
+    "relatedArticlesTable": "جدول مقالات مرتبط",
+    "noComments": "نخستین نفری باشید که دیدگاه خود را ثبت می‌کند.",
+    "likePost": "لایک پست"
+  },
+  "about": {
+    "title": "درباره ی ما",
+    "weAreHollandkala": "ما هلندکالا هستیم",
+    "description": "هلندکالا صادرکننده انواع پوشاک، اورجینال مردانه و زنانه، کیف و کفش و لوازم ورزشی و آرایشی و بهداشتی از کشور هلند می‌باشد.",
+    "lorem": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
+    "mission": "ماموریت ما",
+    "missionDescription": "ماموریت ما ارائه بهترین محصولات اورجینال و باکیفیت از هلند به مشتریان عزیز است. ما با فراهم آوردن کیفیت بالا و خدمات مطلوب، تجربه‌ای بی‌نظیر از خرید آنلاین را برای شما فراهم می‌کنیم.",
+    "missionSubtitle": "ما افتخار ارائه خدمات به هزاران مشتری راضی را داریم",
+    "stats": {
+      "sellers": "فروشنده",
+      "registrations": "ثبت نام",
+      "dailySales": "فروش روزانه"
+    }
+  },
+  "gifts": {
+    "title": "هدایا",
+    "subtitle": "«قدم دوباره» فقط یک پروژه نیست؛ حرکتی است برای بازگرداندن ایمان به انسانیت. باهم می‌توانیم کاری کنیم تا خیلی‌ها دوباره قدم بردارند... با لبخند.",
+    "promotional": {
+      "title": "با خرید عمده",
+      "subtitle": "زیر قیمت بازار خرید کن"
+    }
+  },
+  "footer": {
+    "rights": "استفاده از مطالب فروشگاه اینترنتی هلندکالا فقط برای مقاصد غیرتجاری و با ذکر منبع بلامانع است. کلیه حقوق این سایت متعلق به هلندکالا می‌باشد.",
+    "subscribeTitle": "با وارد کردن ایمیل خود، در ارتباط بمانید",
+    "address": "آدرس: {address}"
+  },
+  "features": {
+    "items": [
+      {
+        "title": "ارسال رایگان",
+        "description": "ارسال رایگان برای سفارشات بالای ۱۲۰ یورو"
+      },
+      { "title": "مرجوعی ۱۴ روزه", "description": "تا ۳۰ روز برای تعویض" },
+      {
+        "title": "پرداخت انعطاف‌پذیر",
+        "description": "پرداخت با کارت‌های اعتباری مختلف"
+      },
+      { "title": "پشتیبانی ممتاز", "description": "پشتیبانی عالی و ممتاز" }
+    ]
+  },
+  "promotions": {
+    "items": [
+      "ارسال رایگان برای سفارش‌های بالای ۱۲۰ یورو",
+      "تا ۳۰٪ تخفیف ویژه آخر هفته",
+      "هر هفته محصولات جدید",
+      "پیشنهادات ویژه برای مشترکین"
+    ]
+  },
+  "errorPage": {
+    "title": "خطایی رخ داده است!",
+    "retry": "تلاش مجدد"
+  },
+  "notFoundPage": {
+    "title": "صفحه‌ی مورد نظر یافت نشد!",
+    "description": "شاید صفحه حذف شده یا آدرس تغییر کرده باشد.",
+    "alt": "صفحه پیدا نشد",
+    "backHome": "بازگشت به صفحه اصلی"
+  }
+}

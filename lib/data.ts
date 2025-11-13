@@ -240,6 +240,8 @@ export const shoesProducts: ProductProps[] = [
     enTitle: 'Adidas Light Rise Adapt Shoes',
     description:
       'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف..',
+    enDescription:
+      'High-quality Adidas Light Rise Adapt shoes with excellent craftsmanship and premium materials. Designed for comfort, durability, and style. Perfect for daily wear and athletic activities. Features advanced cushioning technology and breathable materials for optimal performance.',
     code: 1234567890,
     barcode: '1234567890',
     rating: 4.5,
@@ -848,7 +850,8 @@ const withRetailVariant = (
 ): ProductProps[] =>
   items.map((p, i) => ({
     ...p,
-    discountedPrice: p.discountedPrice ? p.discountedPrice : '۷۵ ',
+    // Use English digits as base - localization function will convert based on locale
+    discountedPrice: p.discountedPrice ? p.discountedPrice : '75',
     backgroundColor: p.backgroundColor
       ? p.backgroundColor
       : i % 2 === 0
@@ -874,12 +877,12 @@ export const bannerImages: BannerImageProps[] = [
   {
     title: 'banner-1',
     imageUrl: '/images/banner-1.svg',
-    href: '#',
+    href: '/',
   },
   {
     title: 'banner-2',
     imageUrl: '/images/banner-2.svg',
-    href: '#',
+    href: '/',
   },
 ];
 
@@ -1164,6 +1167,26 @@ export const relatedArticles: BlogProps[] = [
     likes: 330,
     comments: 121,
     imageUrl: '/images/blog.png',
+    reviews: [
+      {
+        name: 'علی رضایی',
+        avatarUrl: '/icons/flag-fa.svg',
+        comment:
+          'مقاله بسیار مفیدی بود. ممنون از شما برای به اشتراک گذاری این اطلاعات.',
+      },
+      {
+        name: 'فاطمه احمدی',
+        avatarUrl: '/icons/flag-en.svg',
+        comment:
+          'مطالب ارائه شده واقعاً کاربردی هستند. منتظر مقالات بعدی هستم.',
+      },
+      {
+        name: 'محمد کریمی',
+        avatarUrl: '/icons/flag-fa.svg',
+        comment:
+          'به عنوان یک بازدیدکننده جدید، این مقاله خیلی کمکم کرد. سپاسگزارم.',
+      },
+    ],
   },
   {
     id: 'herh45h6t44hhfyh',
@@ -1174,6 +1197,20 @@ export const relatedArticles: BlogProps[] = [
     likes: 330,
     comments: 121,
     imageUrl: '/images/blog.png',
+    reviews: [
+      {
+        name: 'زهرا موسوی',
+        avatarUrl: '/icons/flag-fa.svg',
+        comment:
+          'محتوای عالی! امیدوارم مقالات بیشتری از این دست ببینم.',
+      },
+      {
+        name: 'حسن نوری',
+        avatarUrl: '/icons/flag-en.svg',
+        comment:
+          'خیلی خوب توضیح داده شده. برای من که تازه شروع کردم خیلی مفید بود.',
+      },
+    ],
   },
   {
     id: 'herh45h6fdsfhhfyh',
@@ -1184,6 +1221,25 @@ export const relatedArticles: BlogProps[] = [
     likes: 330,
     comments: 121,
     imageUrl: '/images/blog.png',
+    reviews: [
+      {
+        name: 'مریم صادقی',
+        avatarUrl: '/icons/flag-fa.svg',
+        comment:
+          'مقاله جامع و کامل بود. از زحمات شما متشکرم.',
+        reply: {
+          name: 'تیم هلندکالا',
+          avatarUrl: '/images/avatar.png',
+          text: 'ممنون از توجه شما. خوشحالیم که مقاله مفید بوده.',
+        },
+      },
+      {
+        name: 'رضا محمودی',
+        avatarUrl: '/icons/flag-en.svg',
+        comment:
+          'مطالب بسیار آموزنده بود. پیشنهاد می‌کنم همه بخوانند.',
+      },
+    ],
   },
 ];
 
@@ -1293,7 +1349,7 @@ export const profileOrders: ProfileOrderProps[] = [
     total: '37',
     count: 6,
     thumbnail: '/images/slide-1.jpg',
-    href: '#',
+    href: '/profile/orders',
   },
   {
     id: 'HK-98422',
@@ -1304,7 +1360,7 @@ export const profileOrders: ProfileOrderProps[] = [
     total: '37',
     count: 6,
     thumbnail: '/images/slide-1.jpg',
-    href: '#',
+    href: '/profile/orders',
   },
   {
     id: 'HK-98423',
@@ -1315,7 +1371,7 @@ export const profileOrders: ProfileOrderProps[] = [
     total: '37',
     count: 6,
     thumbnail: '',
-    href: '#',
+    href: '/profile/orders',
   },
 ];
 

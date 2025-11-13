@@ -1,20 +1,19 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 import { storeLocations } from '@/lib/data';
+import { useTranslations } from 'next-intl';
 
 export default function ContactInfo() {
+  const t = useTranslations();
   const [selectedLocation, setSelectedLocation] = useState('London');
   const currentLocation = storeLocations[selectedLocation];
 
   return (
     <div className='flex flex-col lg:flex-row items-center justify-between gap-4 bg-secondary rounded-3xl p-6'>
       <div className='flex flex-col md:h-80 justify-between gap-4 w-full lg:w-1/2'>
-        <h3 className='text-xl md:text-2xl font-bold text-foreground text-center'>
-          از فروشگاه ما دیدن کنید
-        </h3>
+        <h3 className='text-xl md:text-2xl font-bold text-foreground text-center'>{t('contact.visitUs')}</h3>
         <div className='flex items-center justify-center gap-3 bg-background rounded-xl py-2'>
           <button
             onClick={() => setSelectedLocation('Paris')}
@@ -49,9 +48,7 @@ export default function ContactInfo() {
         </div>
         <div className='flex flex-col items-center gap-4 bg-background rounded-xl p-4'>
           <div className='flex items-center justify-between md:justify-center gap-4 w-full'>
-            <div className='text-primary font-medium'>
-              فروشگاه <span>{currentLocation.name}</span>
-            </div>
+            <div className='text-primary font-medium'>{t('contact.store', { name: currentLocation.name })}</div>
             <span className='text-foreground text-sm font-medium' dir='ltr'>
               {currentLocation.phone}
             </span>
@@ -74,7 +71,7 @@ export default function ContactInfo() {
                   {idx !== currentLocation.closedDays.length - 1 && ','}
                 </span>
               ))}{' '}
-              Closed
+              {t('contact.closed')}
             </div>
             <div className='flex flex-col'>
               {currentLocation.workingHours.map((item, idx) => (
@@ -91,8 +88,7 @@ export default function ContactInfo() {
       </div>
 
       {/* Map */}
-      <Link
-        href='#'
+      <div
         className='relative rounded-2xl w-full lg:w-1/2 h-52 md:h-80'
       >
         <Image
@@ -102,7 +98,7 @@ export default function ContactInfo() {
           sizes='(min-width: 1024px) 100vw, 100vw'
           className='object-cover rounded-2xl'
         />
-      </Link>
+      </div>
     </div>
   );
 }

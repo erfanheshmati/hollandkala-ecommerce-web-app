@@ -62,12 +62,20 @@ input[type='number'] {
 }
 
 /* Promotional text animation */
-@keyframes marqueeScroll {
+@keyframes marqueeRtlScroll {
   0% {
     transform: translateX(-100%);
   }
   100% {
     transform: translateX(100%);
+  }
+}
+@keyframes marqueeLtrScroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
 

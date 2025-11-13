@@ -7,12 +7,7 @@ import { ChevronDown } from 'lucide-react';
 import { CgCloseR } from 'react-icons/cg';
 import { FiUser } from 'react-icons/fi';
 import { IoMdClose } from 'react-icons/io';
-
-const statusText: Record<TicketStatusProps, string> = {
-  answered: 'پاسخ داده شده',
-  reviewing: 'در حال بررسی',
-  closed: 'بسته شده',
-};
+import { useTranslations } from 'next-intl';
 
 const statusColor: Record<TicketStatusProps, string> = {
   answered: 'bg-green-100 text-green-600',
@@ -21,6 +16,7 @@ const statusColor: Record<TicketStatusProps, string> = {
 };
 
 export default function TicketCard(ticket: ProfileTicketProps) {
+  const t = useTranslations();
   const { id, title, date, status, description, supportResponse } = ticket;
 
   const [isClosed, setIsClosed] = useState(false);
@@ -32,6 +28,12 @@ export default function TicketCard(ticket: ProfileTicketProps) {
 
   const hasSupportResponse = !!supportResponse;
   const canSendResponse = hasSupportResponse && status === 'answered';
+
+  const statusText: Record<TicketStatusProps, string> = {
+    answered: t('data.sort.tickets.answered'),
+    reviewing: t('data.sort.tickets.reviewing'),
+    closed: t('data.sort.tickets.closed'),
+  };
 
   const handleCloseTicket = () => {
     setIsClosed(true);
@@ -84,7 +86,7 @@ export default function TicketCard(ticket: ProfileTicketProps) {
       if (fileExtension === 'csv' || fileExtension === 'pdf') {
         setSelectedFile(file);
       } else {
-        alert('لطفاً فقط فایل‌های CSV یا PDF را آپلود کنید.');
+        alert(t('profile.ticket.fileFormatError'));
       }
     }
   };
@@ -110,7 +112,7 @@ export default function TicketCard(ticket: ProfileTicketProps) {
         {/* Title */}
         <h3 className='font-bold text-xl'>{title}</h3>
         {/* Badge & Date */}
-        <div className='flex items-center mr-auto gap-2 sm:gap-4'>
+        <div className='flex items-center rtl:mr-auto ltr:ml-auto gap-2 sm:gap-4'>
           {/* Status Badge */}
           <div
             className={`flex items-center justify-center px-4 py-1 rounded-[20px] text-sm ${statusColor[status]}`}
@@ -121,7 +123,9 @@ export default function TicketCard(ticket: ProfileTicketProps) {
           <span className='text-primary/30'>&#124;</span>
           {/* Date */}
           <div className='flex items-center gap-1 text-sm font-medium'>
-            <span className='text-foreground/60'>تاریخ:</span>
+            <span className='text-foreground/60'>
+              {t('profile.order.date')}:
+            </span>
             <span>{date}</span>
           </div>
         </div>
@@ -142,7 +146,7 @@ export default function TicketCard(ticket: ProfileTicketProps) {
               onClick={handleToggleAccordion}
               className='btn-secondary flex items-center justify-center gap-2 py-2 rounded-2xl w-full md:w-fit'
             >
-              <span className='font-medium'>مشاهده پاسخ</span>
+              <span className='font-medium'>{t('common.more')}</span>
               <ChevronDown
                 className={`w-4 h-4 transition-transform ${
                   isAccordionOpen ? 'rotate-180' : ''
@@ -157,7 +161,9 @@ export default function TicketCard(ticket: ProfileTicketProps) {
             className='btn-tertiary flex items-center justify-center gap-2 py-2 rounded-2xl w-full md:w-fit'
           >
             <CgCloseR className='w-4 h-4 text-primary' />
-            <span className='font-medium text-primary'>بستن تیکت</span>
+            <span className='font-medium text-primary'>
+              {t('common.close')}
+            </span>
           </button>
         </div>
       )}
@@ -185,7 +191,7 @@ export default function TicketCard(ticket: ProfileTicketProps) {
                 onClick={handleToggleReplyAccordion}
                 className='btn-primary py-2 rounded-2xl'
               >
-                <span>ارسال پاسخ</span>
+                <span>{t('common.reply')}</span>
               </button>
             </div>
           )}
@@ -199,7 +205,7 @@ export default function TicketCard(ticket: ProfileTicketProps) {
                   <textarea
                     value={replyText}
                     onChange={(e) => setReplyText(e.target.value)}
-                    placeholder='توضیحات:'
+                    placeholder={t('profile.ticket.description') + ':'}
                     rows={3}
                     className='input w-full bg-background h-full rounded-xl p-2 resize-none'
                   />
@@ -220,7 +226,7 @@ export default function TicketCard(ticket: ProfileTicketProps) {
                       <span className='line-clamp-1'>
                         {selectedFile
                           ? selectedFile.name
-                          : 'فایل را بکشید و رها کنید.'}
+                          : t('profile.ticket.dragDropFile')}
                       </span>
                       {selectedFile && (
                         <button

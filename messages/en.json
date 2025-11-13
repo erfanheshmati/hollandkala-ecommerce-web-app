@@ -1,0 +1,454 @@
+{
+  "metadata": {
+    "title": "Hollandkala - Online Store",
+    "description": "Welcome to Hollandkala"
+  },
+  "common": {
+    "language": {
+      "english": "English",
+      "farsi": "Farsi"
+    },
+    "dir": "ltr",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "cancel": "Cancel",
+    "save": "Save",
+    "close": "Close",
+    "loading": "Loading...",
+    "view": "View",
+    "viewAll": "View all",
+    "viewAllProducts": "View all products",
+    "more": "More",
+    "less": "Less",
+    "addToCart": "Add to cart",
+    "buyNow": "Buy now",
+    "apply": "Apply",
+    "remove": "Remove",
+    "edit": "Edit",
+    "update": "Update",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "search": "Search",
+    "province": "Province",
+    "city": "City",
+    "postalCode": "Postal code",
+    "address": "Address",
+    "reply": "Reply",
+    "image": "Image",
+    "removeImage": "Remove image",
+    "share": "Share",
+    "copied": "Link copied",
+    "listSeparator": ", ",
+    "fallbackInitial": "?",
+    "gift": "Gift",
+    "preview": "Preview",
+    "getDirection": "Get Directions",
+    "errors": {
+      "ratingRequired": "Please enter rating and comment.",
+      "titleDescriptionRequired": "Please enter a title and description."
+    },
+    "empty": {
+      "noOrders": "No orders found",
+      "noTickets": "No tickets found"
+    }
+  },
+  "commonStatus": {
+    "copied": "Copied"
+  },
+  "data": {
+    "menu": {
+      "home": "Home",
+      "wholesale": "Wholesale",
+      "retail": "Retail",
+      "blog": "Blog",
+      "about": "About us",
+      "contact": "Contact us",
+      "gifts": "Gifts",
+      "reviews": "User reviews",
+      "shoesBags": "Shoes & Bags",
+      "womenClothing": "Women's clothing",
+      "sports": "Sports",
+      "accessories": "Accessories",
+      "shoes": {
+        "classic": "Classic",
+        "formal": "Formal",
+        "sport": "Sport"
+      }
+    },
+    "categories": {
+      "wholesaleNew": "New wholesale products",
+      "wholesaleUsed": "Used wholesale products",
+      "retailNew": "New retail products",
+      "retailUsed": "Used retail products"
+    },
+    "sort": {
+      "products": {
+        "newest": "Newest",
+        "bestseller": "Bestseller"
+      },
+      "orders": {
+        "all": "All",
+        "processing": "Processing",
+        "shipped": "Shipped",
+        "cancelled": "Cancelled"
+      },
+      "tickets": {
+        "all": "All",
+        "answered": "Answered",
+        "reviewing": "Reviewing",
+        "closed": "Closed"
+      }
+    },
+    "reviewsFilters": {
+      "charity": "Charity",
+      "athletes": "Athletes",
+      "buyers": "Buyers"
+    }
+  },
+  "ui": {
+    "menu": "Menu",
+    "sortedBy": {
+      "products": "Sort by:",
+      "orders": "Orders sorted by:",
+      "tickets": "Tickets sorted by:"
+    },
+    "share": {
+      "copyLinkPrompt": "Select and copy the link below:"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "wholesale": "Wholesale",
+    "retail": "Retail",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "gifts": "Gifts",
+    "reviews": "User Reviews",
+    "cart": "Cart",
+    "favorites": "Favorites",
+    "profile": "Profile",
+    "checkout": "Checkout"
+  },
+  "header": {
+    "welcome": "Welcome to HollandKala",
+    "cart": "Cart",
+    "favorites": "Favorites",
+    "search": "Search"
+  },
+  "home": {
+    "title": "Discover quality products",
+    "subtitle": "Great deals, fast delivery",
+    "categoryTitle": "Our product categories",
+    "categorySubtitle": "You can find more categories in the menu",
+    "shoes": "Sneakers and trainers",
+    "clothing": "Clothing",
+    "sports": "Sports products"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "phone": "Phone number",
+    "otp": "Verification code",
+    "sendCode": "Send code",
+    "confirm": "Confirm",
+    "welcomeTo": "Welcome to",
+    "brandName": "HollandKala",
+    "loginDescription": "To login HollandKala, enter your phone number or email",
+    "loginWithEmail": "Login with email",
+    "loginWithPhone": "Login with phone number",
+    "acceptTerms": "By logging in, you accept the terms",
+    "and": "and",
+    "privacyPolicy": "Privacy policy",
+    "is": "is",
+    "codeSentTo": "Enter the code sent to",
+    "phoneNumber": "phone number",
+    "email": "email",
+    "enter": "",
+    "resendCode": "Resend code:"
+  },
+  "product": {
+    "specifications": "Specifications",
+    "description": "Description",
+    "reviews": "Reviews",
+    "priceComparison": "Price Comparison",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "name": "Product name:",
+    "code": "Product code:",
+    "price": "Price:",
+    "purchaseMode": "Purchase mode:",
+    "purchaseModes": { "single": "Retail", "wholesale": "Wholesale" },
+    "retailPrice": "Retail price",
+    "wholesalePrice": "Wholesale price",
+    "warranty": "Originality and physical condition warranty",
+    "notifyRestock": "Get notified when back in stock",
+    "filters": "Filters",
+    "filtersOpen": "Open filters",
+    "filterHeadings": {
+      "material": "Material",
+      "brand": "Brand",
+      "color": "Color",
+      "category": "Category",
+      "priceRange": "Price range"
+    },
+    "filterToggles": {
+      "onlyAvailable": "Only available products",
+      "fastShipping": "Fast shipping"
+    },
+    "range": {
+      "from": "From",
+      "to": "To",
+      "cheapest": "Cheapest",
+      "mostExpensive": "Most expensive",
+      "currency": "EUR"
+    },
+    "genders": { "men": "Men", "women": "Women" },
+    "brands": { "adidas": "Adidas", "nike": "Nike" },
+    "colors": { "black": "Black", "white": "White", "red": "Red" },
+    "categories": {
+      "shoes": "Shoes & Bags",
+      "clothing": "Clothing",
+      "sports": "Sports"
+    },
+    "specLabels": {
+      "material": "Upper material",
+      "color": "Color",
+      "usage": "Usage",
+      "weight": "Weight",
+      "dimensions": "Dimensions"
+    },
+    "related": "Related products",
+    "notSelected": "Not selected",
+    "buyerRating": "Buyer rating",
+    "comments": "comments",
+    "barcode": "Product barcode",
+    "size": "Size",
+    "colorLabel": "Color",
+    "selectColor": "Select color",
+    "productGifts": "Product gifts",
+    "features": "Features",
+    "introduction": "Product introduction",
+    "badges": {
+      "wholesaleQuantity": "Wholesale quantity",
+      "professionalAthletes": "Professional athletes"
+    },
+    "imageLabel": "Image {number}",
+    "fallbackSpecs": {
+      "material": "Fabric, Foam",
+      "color": "Red",
+      "usage": "Sport / Casual",
+      "weight": "100g"
+    }
+  },
+  "status": {
+    "processing": "Processing",
+    "shipped": "Shipped",
+    "cancelled": "Cancelled"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "checkout": "Proceed to checkout",
+    "item": {
+      "noImage": "No Image",
+      "orderCode": "Order code:",
+      "date": "Date:",
+      "amount": "Amount:",
+      "currency": "EUR",
+      "placeOrder": "Place order"
+    }
+  },
+  "checkout": {
+    "title": "Checkout",
+    "shipping": "Shipping",
+    "payment": "Payment",
+    "placeOrder": "Place order",
+    "formLabels": {
+      "fullName": "Full name:",
+      "phone": "Phone number:",
+      "province": "Province:",
+      "city": "City:",
+      "nationalCode": "National code:",
+      "zipCode": "Postal code:",
+      "address": "Delivery address:",
+      "description": "Order notes (optional):"
+    },
+    "orderCart": "Order cart",
+    "selectPaymentGateway": "Select payment gateway",
+    "secureZibalPayment": "Secure Zibal payment",
+    "zibalPayment": "Zibal payment",
+    "priceSummary": {
+      "total": "Total",
+      "toggleSummary": "Toggle price summary",
+      "discountCode": "Discount code:",
+      "productCount": "Product count",
+      "cartSubtotal": "Cart subtotal",
+      "totalAmount": "Total",
+      "pay": "Pay"
+    },
+    "items": "items"
+  },
+  "profile": {
+    "title": "My Account",
+    "orders": "Orders",
+    "reviews": "Reviews",
+    "tickets": "Support tickets",
+    "info": "Personal info",
+    "order": {
+      "amount": "Amount",
+      "orderCode": "Order code",
+      "date": "Date",
+      "noImage": "No Image",
+      "searchPlaceholder": "Search by name or order code",
+      "invoiceReceive": "Receive an invoice",
+      "cancel": "Cancel order"
+    },
+    "review": {
+      "submitReview": "Submit review",
+      "rate": "Rate",
+      "ratingOf": "Rating {rating} of 5",
+      "description": "Description",
+      "dragDropFile": "Drag and drop file here.",
+      "uploadFile": "Upload file",
+      "submitReviewButton": "Submit review",
+      "shareComment": "Share your comment with us...",
+      "writeReply": "Write your reply..."
+    },
+    "ticket": {
+      "newTicket": "Submit new ticket",
+      "title": "Title",
+      "description": "Description",
+      "dragDropFile": "Drag and drop file here.",
+      "uploadFile": "Upload file",
+      "submitTicket": "Submit ticket",
+      "maxSize": "Maximum size: 700 MB, File format: CSV, PDF",
+      "fileFormatError": "Please upload only CSV or PDF files.",
+      "addNewTicket": "Add new ticket"
+    },
+    "collaboration": {
+      "label": "Collaboration",
+      "title": "Collaborate with us",
+      "fullName": "Full name",
+      "email": "Email",
+      "gender": "Gender",
+      "country": "Country of residence",
+      "audienceRegion": "Main audience region",
+      "socialMediaLink": "Social media link",
+      "acceptPublisherTerms": "I accept the publisher terms.",
+      "acceptPrivacyPolicy": "I confirm that hollandkala will collect and process my personal data in accordance with the privacy policy.",
+      "submitRequest": "Submit request"
+    }
+  },
+  "contact": {
+    "title": "Contact us",
+    "visitUs": "Visit our stores",
+    "store": "Store {name}",
+    "closed": "Closed",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "send": "Send",
+      "title": "Contact us",
+      "subtitle": "If you have great products or want to work with us, get in touch.",
+      "fullName": "Full name",
+      "phoneNumber": "Phone number"
+    }
+  },
+  "authPlaceholders": {
+    "phone": "Enter your phone number",
+    "email": "Enter your email"
+  },
+  "contactPlaceholders": {
+    "name": "Full name",
+    "email": "Email",
+    "message": "Additional details"
+  },
+  "reviews": {
+    "title": "User reviews",
+    "subtitle": "Part of HollandKala's income goes to charity",
+    "all": "All",
+    "filters": {
+      "buyers": "Buyers",
+      "athletes": "Athletes",
+      "charity": "Charity"
+    },
+    "badges": {
+      "disability": "Disability",
+      "wheelchairGloves": "Special wheelchair gloves"
+    }
+  },
+  "blog": {
+    "related": "Related articles",
+    "relatedArticlesTable": "Related articles table",
+    "noComments": "Be the first to post your comment.",
+    "likePost": "Like post"
+  },
+  "about": {
+    "title": "About us",
+    "weAreHollandkala": "We are HollandKala",
+    "description": "HollandKala is an exporter of various clothing, original men's and women's apparel, bags and shoes, sports equipment, and cosmetics and personal care products from the Netherlands.",
+    "lorem": "Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "mission": "Our Mission",
+    "missionDescription": "Our mission is to provide the best original and high-quality products from the Netherlands to our valued customers. By providing high quality and excellent service, we provide you with an unparalleled online shopping experience.",
+    "missionSubtitle": "We are proud to serve thousands of satisfied customers",
+    "stats": {
+      "sellers": "Sellers",
+      "registrations": "Registrations",
+      "dailySales": "Daily Sales"
+    }
+  },
+  "gifts": {
+    "title": "Gifts",
+    "subtitle": "\"Second Step\" is not just a project; it is a movement to restore faith in humanity. Together we can help many people take steps again... with a smile.",
+    "promotional": {
+      "title": "Buy in bulk",
+      "subtitle": "Buy below market price"
+    }
+  },
+  "footer": {
+    "rights": "Use of content from the HollandKala online store is permitted only for non-commercial purposes with proper source attribution. All rights reserved.",
+    "subscribeTitle": "Stay in touch by entering your email address",
+    "address": "Address: {address}"
+  },
+  "features": {
+    "items": [
+      { "title": "Free shipping", "description": "Free for orders over €120" },
+      {
+        "title": "14-day returns",
+        "description": "Up to 30 days for exchanges"
+      },
+      {
+        "title": "Flexible payment",
+        "description": "Pay with various credit cards"
+      },
+      {
+        "title": "Premium support",
+        "description": "Excellent and premium support"
+      }
+    ]
+  },
+  "promotions": {
+    "items": [
+      "Free shipping on orders over €120",
+      "Up to 30% off this weekend",
+      "New arrivals every week",
+      "Exclusive deals for subscribers"
+    ]
+  },
+  "errorPage": {
+    "title": "Something went wrong!",
+    "retry": "Try again"
+  },
+  "notFoundPage": {
+    "title": "We can't find that page",
+    "description": "It might have been removed or the address may have changed.",
+    "alt": "Page not found illustration",
+    "backHome": "Back to home"
+  }
+}

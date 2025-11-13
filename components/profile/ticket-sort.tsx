@@ -1,5 +1,6 @@
 import { ticketSortData } from '@/lib/data';
 import { clsx } from 'clsx';
+import { useTranslations } from 'next-intl';
 
 export type TicketSortValue = (typeof ticketSortData)[number]['param'];
 
@@ -9,11 +10,12 @@ interface TicketSortProps {
 }
 
 export default function TicketSort({ value, onChange }: TicketSortProps) {
+  const t = useTranslations();
   return (
     <div className='flex items-center gap-2 w-full lg:h-full'>
       <div className='hidden sm:flex md:hidden xl:flex items-center gap-2 shrink-0'>
         <span className='text-foreground font-bold text-xl'>
-          تیکت ها بر اساس:
+          {t('ui.sortedBy.tickets')}
         </span>
       </div>
       <div
@@ -32,7 +34,7 @@ export default function TicketSort({ value, onChange }: TicketSortProps) {
                 : 'text-foreground border-foreground/30 hover:text-primary active:text-primary hover:border-primary active:border-primary'
             )}
           >
-            {sort.label}
+            {t(`data.sort.tickets.${sort.param}`, { defaultValue: sort.label })}
           </button>
         ))}
       </div>
