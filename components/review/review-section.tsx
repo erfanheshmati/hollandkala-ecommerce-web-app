@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react-hooks/preserve-manual-memoization */
 'use client';
 
 import { useMemo, useState } from 'react';
@@ -69,6 +67,7 @@ export default function ReviewSection({
       original: key,
       translated: getFilterTranslation(key),
     }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialFilterKeys, t]);
 
   const visibleReviews = useMemo(() => {
@@ -117,7 +116,7 @@ export default function ReviewSection({
       </div>
 
       {/* Navbar */}
-      <div className='flex gap-4 w-fit mx-auto bg-secondary p-2 rounded-3xl'>
+      <div className='flex max-[390px]:gap-0 gap-4 w-fit mx-auto bg-secondary p-2 rounded-3xl'>
         {derivedFilters.map((filter) => (
           <button
             key={filter.original}

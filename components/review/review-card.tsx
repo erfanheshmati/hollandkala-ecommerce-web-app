@@ -89,7 +89,7 @@ export default function ReviewCard({
               {badges.map((badge, index) => (
                 <span
                   key={index}
-                  className='bg-primary/10 text-primary text-[10px] px-1.5 py-0.5 rounded-full'
+                  className='bg-primary/10 text-primary text-[10px] px-1.5 py-0.5 rounded-full line-clamp-1'
                 >
                   {getBadgeTranslation(badge)}
                 </span>
@@ -99,7 +99,7 @@ export default function ReviewCard({
         </div>
 
         {/* Comment */}
-        <p className='text-foreground font-medium text-sm'>{comment}</p>
+        <p className='text-foreground font-medium text-sm text-justify line-clamp-3'>{comment}</p>
 
         {/* Rating Images */}
         <div className='flex items-center justify-start gap-2 mt-auto w-16 h-16'>

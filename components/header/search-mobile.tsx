@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Search as SearchIcon, X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 export function MobileSearch() {
   const t = useTranslations();
+  const locale = useLocale();
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const searchInputRef = useRef<HTMLDivElement>(null);
 
@@ -64,7 +65,11 @@ export function MobileSearch() {
                 placeholder={t('common.search')}
                 className='input w-full rtl:pr-12 ltr:pl-12 rounded-xl h-12'
               />
-              <button className='absolute rtl:right-4 ltr:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 pb-1'>
+              <button
+                className={`absolute top-1/2 transform -translate-y-1/2 text-gray-400 rtl:pb-1 ${
+                  locale === 'fa' ? 'right-4' : 'left-4'
+                }`}
+              >
                 <SearchIcon size={24} />
               </button>
               {/* <button

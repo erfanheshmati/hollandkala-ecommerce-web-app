@@ -17,10 +17,13 @@ export default function ReviewSlider({
     rtl: locale === 'fa',
     slides: {
       origin: 'center',
-      perView: 1.3,
+      perView: 1.2,
       spacing: 16,
     },
     breakpoints: {
+      '(min-width: 390px)': {
+        slides: { origin: 'center', perView: 1.6, spacing: 16 },
+      },
       '(min-width: 520px)': {
         slides: { origin: 'center', perView: 1.6, spacing: 16 },
       },

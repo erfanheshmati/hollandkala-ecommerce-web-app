@@ -44,7 +44,11 @@ export default function PromotionalText({
                   </div>
                   {/* Separator */}
                   {idx !== items.length - 1 && (
-                    <span className='rotate-180 w-4 h-4 text-primary ltr:mt-2'>
+                    <span
+                      className={`rotate-180 w-4 h-4 text-primary ${
+                        locale === 'fa' ? '' : 'mt-2'
+                      }`}
+                    >
                       &#10094;
                     </span>
                   )}

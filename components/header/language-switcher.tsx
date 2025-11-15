@@ -32,6 +32,7 @@ export default function LanguageSwitcher() {
   useEffect(() => {
     const current = languages.find((l) => l.code === locale);
     if (current && current.code !== selectedLanguage.code) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSelectedLanguage(current);
     }
   }, [locale, selectedLanguage.code]);
@@ -55,18 +56,19 @@ export default function LanguageSwitcher() {
   const handleLanguageSelect = (language: Language) => {
     setSelectedLanguage(language);
     setIsOpen(false);
-    
+
     // Get the actual pathname from the browser URL (includes actual parameter values)
     // This is necessary because usePathname() returns templates like /product/[id] for dynamic routes
-    const actualPathname = typeof window !== 'undefined' 
-      ? window.location.pathname 
-      : pathname;
-    
+    const actualPathname =
+      typeof window !== 'undefined' ? window.location.pathname : pathname;
+
     // Strip the locale prefix to get the base path with actual parameters
     // e.g., /fa/product/123 -> /product/123
     const basePath = actualPathname.replace(/^\/(fa|en)(?=\/|$)/, '') || '/';
-    
-    router.replace(basePath as Parameters<typeof router.replace>[0], { locale: language.code as 'fa' | 'en' });
+
+    router.replace(basePath as Parameters<typeof router.replace>[0], {
+      locale: language.code as 'fa' | 'en',
+    });
   };
 
   return (
@@ -102,7 +104,11 @@ export default function LanguageSwitcher() {
 
       {/* Dropdown menu */}
       {isOpen && (
-        <div className='absolute top-full left-0 mt-2 w-24 md:w-28 bg-white rounded-2xl shadow-lg border border-secondary overflow-hidden z-50'>
+        <div
+          className={`absolute top-full mt-2 w-24 md:w-28 bg-white rounded-2xl shadow-lg border border-secondary overflow-hidden z-50 ${
+            locale === 'fa' ? 'left-0' : 'right-0'
+          }`}
+        >
           {languages.map((language) => (
             <button
               key={language.code}

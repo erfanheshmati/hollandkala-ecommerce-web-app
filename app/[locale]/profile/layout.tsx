@@ -49,7 +49,7 @@ export default function ProfileLayout({
       </div>
 
       {/* Mobile: toggle between nav and content */}
-      <div className='container flex md:hidden flex-1 gap-10 mt-16 py-10'>
+      <div className='container flex md:hidden flex-1 gap-10 my-16 py-10'>
         {isMobileNavOpen ? (
           <ProfileNav
             onItemClick={(item) => {
@@ -59,7 +59,7 @@ export default function ProfileLayout({
             }}
           />
         ) : (
-          <main className='flex flex-1 flex-col gap-2 pb-8'>
+          <main className='flex flex-1 flex-col gap-2 mb-6'>
             <div className='flex items-center gap-2'>
               <Link
                 href='/profile'
@@ -72,7 +72,7 @@ export default function ProfileLayout({
                   }`}
                 />
               </Link>
-              <span className='text-xl font-bold text-primary pt-1'>
+              <span className='text-xl font-bold text-primary rtl:pt-1'>
                 {currentTitle}
               </span>
             </div>

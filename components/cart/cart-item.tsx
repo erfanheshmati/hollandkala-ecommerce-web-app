@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { CartProps } from '@/types';
 import { Plus, Trash2, Minus } from 'lucide-react';
 import Image from 'next/image';
-import { Link, usePathname } from '@/i18n/routing';
+import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
 interface CartItemProps {
@@ -22,7 +22,6 @@ export default function CartItem({
   onRemove,
   className = '',
 }: CartItemProps) {
-  const pathname = usePathname();
   const t = useTranslations();
 
   return (

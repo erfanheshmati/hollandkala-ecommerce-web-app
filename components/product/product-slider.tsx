@@ -25,10 +25,16 @@ export default function ProductSlider({
     rtl: locale === 'fa',
     loop: true,
     slides: {
-      perView: 1.4,
+      perView: 1,
       spacing: 16,
     },
     breakpoints: {
+      '(min-width: 340px)': {
+        slides: { perView: 1.2, spacing: 16 },
+      },
+      '(min-width: 390px)': {
+        slides: { perView: 1.4, spacing: 16 },
+      },
       '(min-width: 540px)': {
         slides: { perView: 2, spacing: 16 },
       },
@@ -77,7 +83,7 @@ export default function ProductSlider({
         <div className='flex items-center gap-3'>
           <Link
             href={href}
-            className='flex items-center justify-center bg-background/90 hover:bg-background active:bg-background px-4 py-2 rounded-xl text-foreground hover:text-black active:text-black cursor-pointer effect'
+            className='flex items-center justify-center bg-background/90 hover:bg-background active:bg-background px-4 py-2 rounded-xl text-foreground hover:text-black active:text-black cursor-pointer effect shrink-0'
           >
             {t('common.viewAll')}
           </Link>

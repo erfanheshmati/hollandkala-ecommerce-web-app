@@ -1,9 +1,8 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import { Link } from '@/i18n/routing';
+import { Link, usePathname } from '@/i18n/routing';
 import { mobileNavItems, cartItems } from '@/lib/data';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import type { ComponentProps } from 'react';
 
 function mapNavLabel(
@@ -30,6 +29,7 @@ function getHrefString(href: ComponentProps<typeof Link>['href']): string {
 
 export default function MobileBottomNav() {
   const t = useTranslations();
+  const locale = useLocale();
   const pathname = usePathname();
   const itemsCount = cartItems.reduce((sum, it) => sum + it.quantity, 0);
 
@@ -75,7 +75,11 @@ export default function MobileBottomNav() {
               </span>
               {/* Cart Item Count Badge */}
               {hrefString === '/cart' && itemsCount > 0 && (
-                <span className='absolute -top-1.5 rtl:right-1 ltr:-right-2 w-[18px] h-[18px] rtl:p-1 ltr:p-0.5 rounded-full bg-primary text-background text-[11px] font-bold'>
+                <span
+                  className={`absolute -top-1.5 w-[18px] h-[18px] rounded-full bg-primary text-background text-[11px] font-bold ${
+                    locale === 'fa' ? 'right-1 p-1' : '-right-2 p-0.5'
+                  }`}
+                >
                   {itemsCount}
                 </span>
               )}

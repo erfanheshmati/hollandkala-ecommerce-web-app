@@ -1,9 +1,11 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 export default function ProfileInfoPage() {
   const t = useTranslations();
+  const locale = useLocale();
+
   return (
     <div className='py-4 md:p-8'>
       <form className='grid grid-cols-1 lg:grid-cols-12 gap-4'>
@@ -20,7 +22,9 @@ export default function ProfileInfoPage() {
           />
           <label
             htmlFor='name'
-            className='pointer-events-none absolute rtl:right-4 ltr:left-4 top-0 -translate-y-1/2 bg-background font-medium px-2 text-foreground/60 effect opacity-0 peer-focus:opacity-100 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-[:not(:placeholder-shown)]:opacity-100 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:-translate-y-1/2 peer-[:not(:placeholder-shown)]:text-xs'
+            className={`pointer-events-none absolute top-0 -translate-y-1/2 bg-background font-medium px-2 text-foreground/60 effect opacity-0 peer-focus:opacity-100 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-[:not(:placeholder-shown)]:opacity-100 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:-translate-y-1/2 peer-[:not(:placeholder-shown)]:text-xs ${
+              locale === 'fa' ? 'right-4' : 'left-4'
+            }`}
           >
             {t('contact.form.fullName')}
           </label>
@@ -37,7 +41,9 @@ export default function ProfileInfoPage() {
           />
           <label
             htmlFor='phone'
-            className='pointer-events-none absolute rtl:right-4 ltr:left-4 top-0 -translate-y-1/2 bg-background font-medium px-2 text-foreground/60 effect opacity-0 peer-focus:opacity-100 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-[:not(:placeholder-shown)]:opacity-100 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:-translate-y-1/2 peer-[:not(:placeholder-shown)]:text-xs'
+            className={`pointer-events-none absolute top-0 -translate-y-1/2 bg-background font-medium px-2 text-foreground/60 effect opacity-0 peer-focus:opacity-100 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-[:not(:placeholder-shown)]:opacity-100 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:-translate-y-1/2 peer-[:not(:placeholder-shown)]:text-xs ${
+              locale === 'fa' ? 'right-4' : 'left-4'
+            }`}
           >
             {t('contact.form.phoneNumber')}
           </label>
@@ -54,7 +60,9 @@ export default function ProfileInfoPage() {
           />
           <label
             htmlFor='province'
-            className='pointer-events-none absolute rtl:right-4 ltr:left-4 top-0 -translate-y-1/2 bg-background font-medium px-2 text-foreground/60 effect opacity-0 peer-focus:opacity-100 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-[:not(:placeholder-shown)]:opacity-100 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:-translate-y-1/2 peer-[:not(:placeholder-shown)]:text-xs'
+            className={`pointer-events-none absolute top-0 -translate-y-1/2 bg-background font-medium px-2 text-foreground/60 effect opacity-0 peer-focus:opacity-100 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-[:not(:placeholder-shown)]:opacity-100 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:-translate-y-1/2 peer-[:not(:placeholder-shown)]:text-xs ${
+              locale === 'fa' ? 'right-4' : 'left-4'
+            }`}
           >
             {t('common.province')}
           </label>
@@ -71,7 +79,9 @@ export default function ProfileInfoPage() {
           />
           <label
             htmlFor='city'
-            className='pointer-events-none absolute rtl:right-4 ltr:left-4 top-0 -translate-y-1/2 bg-background font-medium px-2 text-foreground/60 effect opacity-0 peer-focus:opacity-100 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-[:not(:placeholder-shown)]:opacity-100 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:-translate-y-1/2 peer-[:not(:placeholder-shown)]:text-xs'
+            className={`pointer-events-none absolute top-0 -translate-y-1/2 bg-background font-medium px-2 text-foreground/60 effect opacity-0 peer-focus:opacity-100 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-[:not(:placeholder-shown)]:opacity-100 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:-translate-y-1/2 peer-[:not(:placeholder-shown)]:text-xs ${
+              locale === 'fa' ? 'right-4' : 'left-4'
+            }`}
           >
             {t('common.city')}
           </label>
@@ -88,7 +98,9 @@ export default function ProfileInfoPage() {
           />
           <label
             htmlFor='zipCode'
-            className='pointer-events-none absolute rtl:right-4 ltr:left-4 top-0 -translate-y-1/2 bg-background font-medium px-2 text-foreground/60 effect opacity-0 peer-focus:opacity-100 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-[:not(:placeholder-shown)]:opacity-100 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:-translate-y-1/2 peer-[:not(:placeholder-shown)]:text-xs'
+            className={`pointer-events-none absolute top-0 -translate-y-1/2 bg-background font-medium px-2 text-foreground/60 effect opacity-0 peer-focus:opacity-100 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-[:not(:placeholder-shown)]:opacity-100 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:-translate-y-1/2 peer-[:not(:placeholder-shown)]:text-xs ${
+              locale === 'fa' ? 'right-4' : 'left-4'
+            }`}
           >
             {t('common.postalCode')}
           </label>
@@ -105,7 +117,9 @@ export default function ProfileInfoPage() {
           />
           <label
             htmlFor='address'
-            className='pointer-events-none absolute rtl:right-4 ltr:left-4 top-0 -translate-y-1/2 bg-background font-medium px-2 text-foreground/60 effect opacity-0 peer-focus:opacity-100 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-[:not(:placeholder-shown)]:opacity-100 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:-translate-y-1/2 peer-[:not(:placeholder-shown)]:text-xs'
+            className={`pointer-events-none absolute top-0 -translate-y-1/2 bg-background font-medium px-2 text-foreground/60 effect opacity-0 peer-focus:opacity-100 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-[:not(:placeholder-shown)]:opacity-100 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:-translate-y-1/2 peer-[:not(:placeholder-shown)]:text-xs ${
+              locale === 'fa' ? 'right-4' : 'left-4'
+            }`}
           >
             {t('common.address')}
           </label>
