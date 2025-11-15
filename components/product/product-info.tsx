@@ -1,13 +1,13 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { ProductProps } from '@/types';
 import { GoGift, GoStarFill } from 'react-icons/go';
 import { IoCheckmark } from 'react-icons/io5';
 import Image from 'next/image';
-import Share from '@/components/shared/share';
 import { useTranslations, useLocale } from 'next-intl';
 import { toPersianDigits } from '@/lib/utils';
+import ImageModal from '../shared/image-modal';
 
 const COLOR_HEX_MAP: Record<string, string> = {
   قرمز: '#CF0221',
@@ -34,13 +34,21 @@ function resolveColorHex(color?: string) {
   );
 }
 
-export default function ProductInfo({ product }: { product: ProductProps }) {
+export default function ProductInfo({
+  product,
+  onImageClick,
+}: {
+  product: ProductProps;
+  onImageClick?: (imageUrl: string) => void;
+}) {
   const t = useTranslations();
   const locale = useLocale();
   const sizes = useMemo(() => product.sizes ?? [], [product.sizes]);
   const colors = useMemo(() => product.colors ?? [], [product.colors]);
   const [activeSizeIndex, setActiveSizeIndex] = useState(0);
   const [activeColorIndex, setActiveColorIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   // Format numbers based on locale
   const formatNumber = (value?: string | number | null) => {
@@ -91,6 +99,23 @@ export default function ProductInfo({ product }: { product: ProductProps }) {
         value: feature.value.trim(),
       }));
   }, [t, product.dimensions, product.materials, product.weight]);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  const handleImageClick = (img: string) => {
+    if (onImageClick) {
+      onImageClick(img);
+    } else {
+      setSelectedImage(img);
+    }
+  };
+
+  const handleClose = () => {
+    setSelectedImage(null);
+  };
 
   return (
     <div className='flex-1 flex flex-col justify-between gap-6'>
@@ -215,18 +240,28 @@ export default function ProductInfo({ product }: { product: ProductProps }) {
         <GoGift size={24} />
         <p className='font-bold'>{t('product.productGifts')}</p>
         <div className='flex items-center gap-2'>
-          {product.gifts.map((gift, idx) => (
+          {product.gifts.map((img, idx) => (
             <Image
               key={idx}
-              src={gift}
+              src={img}
               alt={t('common.gift')}
               width={45}
               height={45}
-              className='w-12 h-10 bg-background border border-foreground/20 rounded-xl object-cover'
+              className='w-12 h-10 bg-background border border-foreground/20 rounded-xl object-cover cursor-pointer hover:opacity-80 effect'
+              onClick={() => handleImageClick(img)}
             />
           ))}
         </div>
       </div>
+
+      {/* Image Modal */}
+      {mounted && !onImageClick && (
+        <ImageModal
+          imageUrl={selectedImage}
+          onClose={handleClose}
+          alt='Review image'
+        />
+      )}
 
       {/* Separator */}
       <div className='border-b border-foreground/10'></div>
